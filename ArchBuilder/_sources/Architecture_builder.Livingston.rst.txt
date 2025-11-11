@@ -1,0 +1,37 @@
+Architecture\_builder.Livingston package
+========================================
+
+Submodules
+----------
+
+Architecture\_builder.Livingston.livingston module
+--------------------------------------------------
+
+.. automodule:: Architecture_builder.Livingston.livingston
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Livingston.livingston\_core module
+--------------------------------------------------------
+
+.. automodule:: Architecture_builder.Livingston.livingston_core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Livingston.livingston\_funcs module
+---------------------------------------------------------
+
+.. automodule:: Architecture_builder.Livingston.livingston_funcs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Architecture_builder.Livingston
+   :members:
+   :undoc-members:
+   :show-inheritance:

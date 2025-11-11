@@ -1,0 +1,7 @@
+Architecture_builder
+====================
+
+.. toctree::
+   :maxdepth: 4
+
+   Architecture_builder

@@ -1,0 +1,1416 @@
+
+ArchBuilder: Integrated Quantum Architecture Environment
+=========================================================
+
+Since **April 2025**, *Planckian srl* began the development of **ArchBuilder**.
+
+This Python package includes a graphical user interface (GUI) designed to support all phases of the theoretical development of a quantum architecture. It also functions as a general-purpose many-body analysis environment.
+
+.. figure:: _static/archbuilder/ArchBuilder1.png
+   :width: 70%
+   :align: center
+   :alt: ArchBuilder main interface
+
+   A clean open screen of ArchBuilder.
+
+The **ArchBuilder** application is the central orchestrator of the Planckian suite. It provides a unified graphical interface that connects all submodules — :code:`SteppenWolf`, :code:`Livingston`, :code:`Frankenstein`, :code:`Bovary`, and :code:`Metamorphosis` — into a coherent workflow for designing, compiling, and simulating superconducting quantum architectures.
+
+Purpose and Scope
+-----------------
+
+ArchBuilder is designed as the top-level environment for the full life-cycle of a quantum processor layout, from theoretical conception to experimental calibration and simulation. It integrates circuit quantization, Hamiltonian modeling, pulse synthesis, and dynamic simulation into a single project framework represented by the :code:`.arch` format.
+
+Architecture of the Application
+-------------------------------
+
+The main window, implemented by the class :code:`ArchBuilderApp`, coordinates interaction between submodules. The graphical layout follows the logical pipeline of the Planckian workflow:
+
+.. math::
+
+   \texttt{SteppenWolf} \Rightarrow \texttt{Livingston} \Rightarrow \texttt{Frankenstein} \Rightarrow \texttt{Bovary} \Rightarrow \texttt{Metamorphosis}
+
+Each stage corresponds to a specific layer of abstraction:
+
+* **SteppenWolf:** circuit-level quantization and Hamiltonian extraction.
+* **Livingston:** spatial layout editor and symbolic Hamiltonian visualization.
+* **Frankenstein:** pulse editor and operation builder (:code:`.oper` files).
+* **Bovary:** pulse composer and compiler integration layer.
+* **Metamorphosis:** numerical simulator and dynamic evolution engine.
+
+The `.arch` Project Structure
+-----------------------------
+
+ArchBuilder projects are organized around the :code:`.arch` file format — a structured JSON or ZIP-archived directory that encapsulates all files defining a specific quantum architecture. Each project folder contains:
+
+* :code:`layout.json` — the quantum layout exported from Livingston.
+* :code:`pulses_index.json` — compiled pulse operations from Frankenstein.
+* :code:`circuit.json` — circuit-level information from SteppenWolf.
+* :code:`simulator_config.json` — backend and runtime settings.
+* Optional :code:`.oper` files and compiler scripts (:code:`.py`).
+* A metadata header (:code:`.arch`) describing the QPU family, species, and compiler linkage.
+
+Interface Layout
+----------------
+
+The main interface presents a grid of module icons connected by bidirectional arrows representing data flow. Each icon launches its respective module:
+
+#. SteppenWolf
+#. Livingston
+#. Frankenstein
+#. Bovary
+#. Metamorphosis
+
+Arrows between modules can be toggled to enable automatic chaining — for example, linking Livingston’s output directly into the simulator. Status indicators display whether each stage (circuit, layout, pulses, etc.) is loaded and synchronized.
+
+Core Capabilities
+-----------------
+
+**Project Management**  
+Create, open, and save complete architecture projects. Projects are stored in human-readable folders or compressed into single :code:`.arch` archives.
+
+**Module Integration**  
+Launches each Planckian submodule in a new window, handling file exchange and dependencies automatically.
+
+**Layout Metadata Synchronization**  
+Automatically extracts species, connectivity, and layout information from :code:`Livingston` outputs.
+
+**Pulse Operation Management**  
+Collects all operation definition files (:code:`.oper`) and validates them against species declared in the layout. Generates a :code:`pulses_index.json` file listing valid operations, mappings, and metadata.
+
+**Compiler and Simulation Interface**  
+Integrates compilers and connects to the :code:`Bovary` and :code:`Metamorphosis` modules.
+
+**Plugin System**  
+Includes a plugin discovery and execution framework.
+
+**Logging and Version Control**  
+All actions are timestamped and can be exported as logs for reproducibility.
+
+QPU Representation and Metadata
+-------------------------------
+
+Each project corresponds to a **Quantum Processing Unit (QPU)** configuration. The metadata structure stores:
+
+* **Family:** architecture class (e.g., “TransmonChain”, “CavityGrid”).
+* **Species:** subsystem types (e.g., transmon, resonator, coupler).
+* **Layout Path:** JSON file describing spatial and logical connectivity.
+* **Compiler:** Python module implementing device-specific pulse compilation.
+* **QPU Specs:** auxiliary information such as qubit count or coherence data.
+
+.. figure:: _static/archbuilder/ArchBuilder2.png
+   :width: 70%
+   :align: center
+   :alt: Example secondary interface
+
+   Example layout view in ArchBuilder.
+
+
+SteppenWolf Circuit Loading and Chiron Module
+=============================================
+
+A pre-saved or new :code:`.txt` file can be loaded through the top interface, which opens via the QuCat module, as shown below.
+
+.. figure:: _static/archbuilder/ArchBuilder3.png
+   :width: 47%
+   :align: left
+   :alt: SteppenWolf circuit import
+
+.. figure:: _static/archbuilder/ArchBuilder4.png
+   :width: 47%
+   :align: right
+   :alt: SteppenWolf circuit import
+
+   Opening a capacitively coupled two-transmon system in QuCat via SteppenWolf.
+
+When the file is saved, a screenshot is loaded into **SteppenWolf**, which automatically recognizes parameters that can be modified a posteriori in the editor.  
+Users can specify whether transmons have flux, resonator, drive, or generic lines.  
+Clicking **Apply parameters** applies or loads pre-saved parameters.  
+Later modules recognize pairs such as :code:`C1`, :code:`J1`, etc., as transmons — this nomenclature should be used.
+
+Once parameters are applied, the system can be quantized via **Generate Hamiltonian**.  
+Depending on system size, this may take time. The Hamiltonian is bosonic, quantized in the charge basis, and expanded as :math:`a_j` and :math:`a_j^\dagger`, where :math:`j` labels the transmon.  
+
+Plots for circuit modes (current, voltage, charge, and flux) can be generated via **Show Modes**.  
+Couplings and their strengths are displayed directly in SteppenWolf.
+
+.. figure:: _static/archbuilder/ArchBuilder5.png
+   :width: 47%
+   :align: left
+   :alt: Coupling strengths
+
+.. figure:: _static/archbuilder/ArchBuilder6.png
+   :width: 47%
+   :align: right
+   :alt: Exported Hamiltonian
+
+   Couplings and their strengths generated via SteppenWolf (left), and the exported Hamiltonian loaded into ArchBuilder (right).
+
+Projection to Qubit Modes
+-------------------------
+
+Two methods are available for projection to qubit modes:
+
+1. **Projectors**
+2. **Schrieffer–Wolf transformation**
+
+Alternatively, the Hamiltonian can be exported using the **Export** button.  
+After export, the system is loaded into the main ArchBuilder window.  
+Clicking on the arrow between SteppenWolf and Livingston (the :math:`\hat{H}` symbol) loads the quantized Hamiltonian into the Hamiltonian editor.
+
+Chiron: Experimental Analysis Module
+------------------------------------
+
+**Chiron** bridges theory and experiment by providing an interactive environment to *analyze, simulate, and visualize* measurable properties of superconducting qubits and their readout circuits.
+
+Overview
+~~~~~~~~
+
+Chiron is a physics-oriented graphical interface designed to study properties of transmon qubits and resonators obtained from the quantized circuit.  
+It uses the circuit’s parameter set (JSON format) as input and computes quantities such as:
+
+* Josephson energy (:math:`E_J`)
+* Charging energy (:math:`E_C`)
+* Transition frequency (:math:`f_{01}`)
+* Anharmonicity (:math:`\alpha`)
+* Dispersive shift (:math:`\chi`)
+* Relaxation and dephasing times (:math:`T_1`, :math:`T_2^*`)
+
+Each analysis routine is organized into separate tabs within the GUI.
+
+Structure
+~~~~~~~~~
+
+Chiron is implemented as a multi-tab :code:`Tkinter` interface, built on a :code:`Notebook` widget.  
+Each tab corresponds to a specific measurement or calibration procedure:
+
+* **Transmon Tab** – compute and plot intrinsic qubit parameters.
+* **Resonator Tab** – visualize qubit–resonator coupling.
+* **Resonator Spectroscopy** – simulate resonator response and flux dependence.
+* **Qubit Spectroscopy** – perform two-tone spectroscopy simulation.
+* **π-Pulse Calibration** – emulate Rabi oscillation calibration.
+* **Coherence (T₁, T₂*)** – simulate relaxation and dephasing using :code:`QuTiP`.
+
+Each tab includes parameter entry fields, live plots (via :code:`matplotlib`), and explanatory text describing the relevant physics.
+
+Transmon Tab
+~~~~~~~~~~~~
+
+The Transmon tab extracts transmon parameters from the circuit JSON generated by :code:`SteppenWolf`.  
+Pairs of elements :math:`(J_i, C_i)` or :math:`(E_{J,i}, C_i)` are automatically detected and listed as qubits.
+
+Users can:
+
+* Choose input units for the Josephson parameter — either :math:`L_J` (nH) or :math:`E_J` (J).  
+  When inductances are used, Chiron applies the conversion :math:`E_J = (\hbar / 2e)^2 / L_J`.
+* Compute derived quantities:
+
+  .. math::
+
+     E_C = \frac{e^2}{2C}, \quad
+     f_{01} = \frac{1}{2\pi}\left(\frac{\sqrt{8E_JE_C}}{\hbar} - \frac{E_C}{\hbar}\right), \quad
+     \alpha = -\frac{E_C}{\hbar}
+
+* Display results in SI and GHz units.
+* Plot :math:`f_{01}` versus :math:`E_J` or :math:`L_J`, or visualize dispersive shift :math:`\chi` vs. detuning :math:`\Delta`.
+
+All computed parameters are cached per qubit for later use across analysis tabs.
+
+.. figure:: _static/archbuilder/Chiron1.png
+   :width: 90%
+   :align: center
+   :alt: Chiron module analysis
+
+   Example plots generated by the Chiron module.
+
+Resonator Tab
+~~~~~~~~~~~~~
+
+The Resonator tab models the dispersive readout of a transmon coupled to a resonator.  
+Given qubit frequency :math:`\omega_q`, resonator frequency :math:`\omega_r`, and coupling :math:`g`,  
+Chiron computes the dispersive shift:
+
+.. math::
+
+   \chi = -\frac{g^2}{\Delta}, \qquad \Delta = \omega_q - \omega_r
+
+and plots the resonator dips corresponding to ground and excited qubit states —  
+displayed as normalized transmission amplitudes :math:`|S_{21}|` versus frequency.
+
+The user can adjust the resonator frequency, coupling, and linewidth interactively.
+
+Resonator Spectroscopy Tab
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This tab provides simulated traces of resonator transmission under different conditions:
+
+* **Plot Resonator Dip:** display the double-dip structure due to qubit-state-dependent shifts (:math:`\omega_r \pm \chi`).
+* **Plot vs Flux:** show how :math:`\chi` varies with flux :math:`\Phi`, using a tunable qubit model :math:`f_q(\Phi) = f_{01} + A\cos(2\pi\Phi/\Phi_0)`.
+* **Plot Averaged:** simulate noisy or averaged spectroscopy traces to mimic realistic experimental conditions.
+
+These tools allow visualization of how qubit–resonator coupling modifies resonator spectra.
+
+Qubit Spectroscopy and Calibration Tabs
+=======================================
+
+Qubit Spectroscopy Tab
+----------------------
+
+The **Qubit Spectroscopy** tab simulates a typical two-tone spectroscopy measurement,  
+in which a weak probe monitors resonator transmission while a drive tone sweeps across the qubit frequency.
+
+* Displays transmission amplitude as a function of drive frequency.
+* Shows the qubit resonance as a Lorentzian dip centered at :math:`f_{01}`.
+* Can plot qubit frequency versus flux bias to reproduce the characteristic *chevron* pattern of flux-tunable qubits.
+
+π-Pulse Calibration Tab
+-----------------------
+
+The **π-Pulse Calibration** tab models Rabi oscillation experiments used to calibrate single-qubit gate parameters.  
+Two modes are available:
+
+* **Time Rabi:**  
+  Drive amplitude is fixed while pulse length is swept.  
+  Excitation probability follows :math:`P_e = \sin^2(\tfrac{1}{2}\Omega_R t)`,  
+  where :math:`\Omega_R` is the Rabi frequency.
+
+* **Power Rabi:**  
+  Pulse length is fixed while drive amplitude varies.  
+  The π-pulse condition corresponds to the first oscillation maximum :math:`\Omega_R t = \pi`.
+
+The resulting plots show oscillations in excited-state population, identifying the correct amplitude or duration for π-rotations.
+
+Coherence Tab — T₁ and T₂* Simulations
+--------------------------------------
+
+The **Coherence** tab performs numerical simulations of qubit relaxation and dephasing using the :code:`QuTiP` library.
+
+* **T₁ Relaxation:**  
+  Solves the Lindblad master equation for a qubit initialized in the excited state,  
+  with collapse operator :math:`\sqrt{1/T_1}\,\sigma_-`.  
+  The result shows exponential decay of the excited-state probability over time.
+
+* **T₂* Ramsey Decay:**  
+  Simulates a Ramsey interferometry sequence with two π/2 pulses separated by variable delay,  
+  including both relaxation and pure dephasing.  
+  The interference fringes illustrate coherence decay and detuning.
+
+The simulated traces correspond to measurable quantities such as the excited-state probability :math:`P_e(t)` and Ramsey fringes for :math:`\pm\Delta` detuning.
+
+Chiron Integration and Visualization
+------------------------------------
+
+Chiron automatically detects transmons and resonators from the JSON output of :code:`SteppenWolf`.  
+Each variable pair :math:`(J_i, C_i)` or :math:`(E_{J,i}, C_i)` is recognized as a separate transmon,  
+and parameters are propagated across all analysis tabs.
+
+A **Show Circuit JSON** utility lets users inspect the loaded structure directly.
+
+All plots are rendered interactively via embedded :code:`matplotlib` canvases, allowing users to:
+
+* Zoom or rescale axes interactively.
+* Compare results across tabs and parameter sets.
+* Save plots externally through the standard :code:`matplotlib` interface.
+
+In essence, **Chiron** acts as the experimental twin of :code:`Livingston`:  
+it takes the quantized circuit parameters and reproduces the expected physical device behavior.  
+From fundamental quantities such as :math:`E_J`, :math:`E_C`, and :math:`f_{01}`,  
+to calibration and coherence simulations, Chiron provides a complete, interactive laboratory  
+for superconducting qubit characterization within the **ArchBuilder** environment.
+
+.. figure:: _static/archbuilder/Chiron1.png
+   :width: 50%
+   :align: left
+   :alt: Chiron analysis 1
+
+.. figure:: _static/archbuilder/Chiron2.png
+   :width: 50%
+   :align: right
+   :alt: Chiron analysis 2
+
+.. figure:: _static/archbuilder/Chiron3.png
+   :width: 50%
+   :align: left
+   :alt: Chiron analysis 3
+
+.. figure:: _static/archbuilder/Chiron4.png
+   :width: 50%
+   :align: right
+   :alt: Chiron analysis 4
+
+.. figure:: _static/archbuilder/Chiron5.png
+   :width: 50%
+   :align: center
+   :alt: Chiron plots overview
+
+   The Chiron module with multiple analysis tabs and example plots generated from qubit design parameters.
+
+Livingston: Interactive Quantum Layout Editor
+=============================================
+
+The second module in **ArchBuilder** is **Livingston**,  
+an interactive environment for building, visualizing, and analyzing quantum layouts and Hamiltonians.  
+
+If opened without importing a circuit Hamiltonian, Livingston acts as a general-purpose Hamiltonian editor.
+
+Livingston provides a graphical representation of quantum architectures,  
+allowing direct editing of **degrees of freedom (DOFs)**, **interaction factors**, and **Lindblad channels**.  
+It functions as both a layout editor and symbolic Hamiltonian manager, interfaced with :code:`SymPy` and :code:`QuTiP` for analysis and export.
+
+Overview
+--------
+
+The Livingston editor implements a real-time, grid-based canvas displaying all physical and logical elements of a quantum architecture:
+
+* **DOFs (Degrees of Freedom):** nodes representing quantum sites (qubits, resonators).
+* **Factor Nodes:** graph nodes defining multi-body Hamiltonian interactions between DOFs.
+* **Lindblad Nodes:** elements representing dissipative channels and environmental couplings.
+* **Annotations:** text labels for parameters or notes.
+
+The interface supports zooming, scrolling, undo/redo, parametric coupling management, and graphical export.  
+All components are editable via mouse interaction or context menus.
+
+.. figure:: _static/archbuilder/Livingston1.png
+   :width: 47%
+   :align: left
+   :alt: Livingston full mode
+
+.. figure:: _static/archbuilder/Livingston2.png
+   :width: 47%
+   :align: right
+   :alt: Livingston compact mode
+
+   The two UI modes of Livingston when opened fresh without exporting circuits.
+
+User Interaction and Mouse Commands
+===================================
+
+The Livingston canvas is fully interactive. The following actions are supported:
+
+* **Left Click:**
+  * On an empty grid cell – create a new DOF of the currently selected species.
+  * On an existing DOF – select or deselect it.
+  * Click and drag – draw a rectangular selection box over multiple DOFs or factors.
+* **Double Click:**
+  * On a DOF – open its detailed property editor.
+  * On a factor node – open the *Add Interaction* dialog.
+  * On an empty cell – create a new DOF (quick-add mode).
+  * On an annotation – open the text editor.
+* **Right Click:**
+  * On empty space – add an annotation, paste a copied pattern, or undo.
+  * On a DOF – open the DOF context menu (edit, delete, copy, drag, etc.).
+  * On a factor node – open the factor context menu (add, edit, or remove interactions).
+* **Mouse Wheel:** zoom in or out around the cursor position.
+
+Toolbar and Menu System
+-----------------------
+
+Depending on the selected :code:`UI mode`, Livingston can operate in:
+
+* **Full Mode** – with a multi-row toolbar of buttons for all core operations.
+* **Compact Mode** – with a minimal toolbar and hierarchical menubar for smaller screens.
+
+Main Menus and Functions
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **File:** load and save layouts (:code:`.json`); export the canvas as a PNG image; load dynamic layouts from external Python generators.  
+* **View:** refresh or center the layout, toggle lock state (read-only mode), clear the canvas, and switch between UI modes.  
+* **Species:** add or remove quantum species (each defined by name, color, and Hilbert-space dimension).  
+* **Quantum:** add Hamiltonian and Lindblad terms; view and edit the Hamiltonian; inspect parameters and initial states.  
+* **Graph:** create or display spanning trees and network topologies; export trees for matrix-product-state (MPS) or tensor-network analysis.  
+* **Export:** save the Hamiltonian in symbolic (:code:`SymPy`) or object (:code:`QuTiP`) format for simulation.
+
+Editing Elements
+----------------
+
+* **DOFs:**  
+  Each DOF stores its ID, position, species, Hilbert-space dimension, and driven roles (flux, resonator, drive, etc.).  
+  Double-clicking a DOF opens a detailed editor to modify these properties and its local Hamiltonian terms.
+
+* **Factors:**  
+  Created by selecting two or more DOFs and clicking *Add Interaction*.  
+  Each factor can contain multiple interaction terms (symbolic or numeric).  
+  Parameters may be shared across factors via symbolic identifiers.
+
+* **Lindblad Terms:**  
+  Added using *Add Lindblad(s)* on selected DOFs.  
+  Each term defines collapse operators and decay rates for open-system simulation.
+
+* **Annotations:**  
+  Simple text notes placed anywhere on the grid.  
+  Right-click to edit or delete them.
+
+Hamiltonian Viewer
+------------------
+
+The **View Hamiltonian** window presents all interaction terms within the layout. It supports:
+
+* Grouping duplicate terms and simplifying zero couplings.
+* Adding Gaussian disorder or global rescaling to numeric couplings.
+* Expanding :math:`\sigma^\pm\sigma^\mp` products into Pauli components.
+* Rewriting annihilation/creation operators (:math:`a, a^\dagger`) into spin operators (:math:`\sigma^\pm`).
+* Computing and plotting the statistical distribution of coupling magnitudes :math:`|J|`.
+* Undo-safe editing of strengths, labels, and parameters.
+
+Parametric and Symbolic Variables
+---------------------------------
+
+All symbolic parameters in couplings (e.g., :math:`g`, :math:`J`, :math:`\omega`) are automatically tracked in a dedicated registry.
+
+Each parameter record includes:
+
+* Its type (interaction or Lindblad),
+* A list of instances and default values,
+* Cross-references to associated factor labels.
+
+The *Free Parameters* window lists all active symbolic variables, ensuring full reproducibility of exported Hamiltonians.
+
+Spanning Trees and Graph Tools
+------------------------------
+
+Livingston can construct **spanning trees** or acyclic subgraphs among selected DOFs:
+
+* **Automatic mode:** generates a minimum-distance spanning tree using NetworkX.
+* **Manual mode:** lets the user draw connections interactively by clicking pairs of DOFs.
+
+Trees are stored with labels, colors, and optional root nodes.  
+They can be displayed on the canvas or exported to JSON for MPS or tensor-network simulations.
+
+Export and Import
+-----------------
+
+Livingston provides multiple export pathways:
+
+* **SymPy (.py):** exports a fully symbolic Hamiltonian with noncommutative operators :math:`X_i`, :math:`Z_i`, :math:`a_i`, :math:`\sigma_i^\pm`.
+* **QuTiP (.qu):** generates :code:`Qobj` representations for simulation.
+* **JSON:** saves or reloads layouts, parameters, species, and spanning trees.
+* **PNG:** exports the current canvas as a publication-ready image.
+
+Undo and Autosave
+-----------------
+
+All user operations (additions, deletions, edits) are stored in an undo stack (depth 50).  
+The window title indicates when unsaved changes exist.  
+Layouts can be locked to prevent accidental modification during operations.
+
+Visualization and Color Coding
+------------------------------
+
+On the Livingston canvas:
+
+* **Blue squares:** represent local DOFs. Species may be added with new colors—useful for globally controlled architectures.
+* **Red circles:** represent multi-DOF (non-local) interactions where Hamiltonian terms can be added or edited.  
+  **Green circles:** specialized indicators for local Hamiltonian terms.
+* Selection highlights are drawn in blue.
+* Annotations appear as yellow text bubbles with pin markers.
+
+Summary of User Actions
+-----------------------
+
+.. list-table:: Summary of common actions
+   :header-rows: 1
+   :widths: 40 60
+
+   * - **Action**
+     - **Effect**
+   * - Left-click on grid
+     - Create or select DOF
+   * - Left-click + drag
+     - Box-select multiple elements
+   * - Double-click DOF
+     - Open DOF property editor
+   * - Double-click factor
+     - Add new interaction term
+   * - Right-click DOF
+     - Edit or delete DOF, copy/paste pattern
+   * - Right-click factor
+     - Edit or rename factor node
+   * - Right-click empty space
+     - Add annotation, paste, or undo
+   * - Mouse wheel
+     - Zoom in/out
+   * - Ctrl+S
+     - Save layout as JSON
+   * - Ctrl+E
+     - Export Hamiltonian
+
+Livingston unifies the visual design of quantum architectures with symbolic and numerical Hamiltonian analysis.  
+It bridges the gap between physical layout and theoretical Hamiltonian representation, supporting both human-guided and automated workflows.
+
+.. figure:: _static/archbuilder/Livingston3.png
+   :width: 95%
+   :align: center
+   :alt: Livingston export example
+
+   Example of a circuit exported into Livingston. Lattices or interaction systems can also be generated dynamically using Python.
+
+
+Writing Dynamic Interaction Generators
+======================================
+
+Dynamic lattice generators (files prefixed with :code:`lattice_` or with names such as
+:code:`2dIsingDynamic.py`) define parameterized architectures that can be automatically
+produced within **Livingston** via the *Load Dynamic Layout (.py)* tool.
+
+Each generator is a self-contained Python module implementing a minimal interface consisting of
+a self-describing metadata dictionary and two callable functions:
+
+* :code:`get_generator_metadata()` — returns a dictionary describing model parameters.
+* :code:`generate_layout_tempfile(max_qubits, params)` — generates the layout and returns
+  both its JSON data and the temporary file path for Livingston to load.
+
+This interface allows **ArchBuilder** to dynamically populate model-specific forms
+(e.g., Ising chains, Bose–Hubbard lattices, or custom graph Hamiltonians) and automatically construct
+layouts, factor nodes, and parameter maps.
+
+Overview
+--------
+
+A dynamic generator must be *self-describing*, meaning it provides both its data structure
+and the semantic description of its parameters.  
+When a user selects the file from Livingston’s *Dynamic Layout Generator* dialog,
+the metadata are parsed, a form is built automatically, and parameters are passed
+to the generator’s core function.
+
+Example: a 1D transverse-field Ising model with nearest-neighbor :math:`ZZ` coupling and local :math:`X` fields.
+
+.. code-block:: python
+
+   # 2dIsingDynamic.py
+   # Self-describing dynamic generator for a 1D ZZ Ising model
+   # with transverse X field and configurable boundary conditions.
+
+   from __future__ import annotations
+   from typing import Dict, Any, List, Optional
+   import os, json, tempfile
+
+   _METADATA: Dict[str, Any] = {
+       "name": "Ising1D_ZZ_with_X",
+       "version": "1.0",
+       "description": "1D nearest-neighbor ZZ Ising with transverse X field",
+       "required": ["max_qubits"],
+       "params": {
+           "J": {"type": "complex_str", "default": "(1+0j)"},
+           "G": {"type": "complex_str", "default": "(1+0j)"},
+           "boundary": {
+               "type": "enum", "choices": ["open", "periodic"], "default": "open"
+           },
+       },
+   }
+
+   def get_generator_metadata() -> Dict[str, Any]:
+       return _METADATA
+
+Metadata
+--------
+
+The metadata block defines the generator’s human-readable information and input schema.
+The :code:`params` field declares adjustable parameters and their types (numeric, complex, enum, etc.).
+Livingston uses this to automatically generate parameter entry fields.
+
+* **name** – internal identifier of the generator.
+* **description** – displayed in the UI when selected.
+* **params** – dictionary of tunable parameters with types and defaults.
+* **required** – mandatory arguments (e.g., number of qubits or sites).
+
+Parameter Handling
+------------------
+
+A helper function merges user-specified parameters with defaults and validates enumerations:
+
+.. code-block:: python
+
+   def _merged_params(user: Optional[dict]) -> Dict[str, Any]:
+       defaults = {k: v.get("default") for k, v in _METADATA["params"].items()}
+       merged = dict(defaults)
+       if user:
+           for k, v in user.items():
+               if k in defaults and v is not None:
+                   merged[k] = v
+       if merged["boundary"] not in _METADATA["params"]["boundary"]["choices"]:
+           merged["boundary"] = _METADATA["params"]["boundary"]["default"]
+       return merged
+
+This ensures the generator always produces a valid layout, even if the user omits optional fields.
+
+Layout Structure
+----------------
+
+The generator returns a dictionary adhering to Livingston’s internal schema. It defines:
+
+* **Species:** physical types of degrees of freedom (DOFs), each with color and Hilbert dimension.
+* **DOFs:** a mapping from grid coordinates to qubit sites.
+* **Factor Nodes:** interaction hubs connecting DOFs and specifying Hamiltonian terms.
+* **Parametric Map:** associations between symbolic parameters (e.g., :math:`J`, :math:`G`) and
+  corresponding interaction instances.
+* **Initial State:** optional description of the system’s starting state.
+
+For the Ising example, each site hosts a local :math:`X` operator with coefficient :math:`G`,
+and each nearest-neighbor pair is connected by a :math:`Z \otimes Z` interaction with coefficient :math:`J`.
+
+.. code-block:: python
+
+   def generate_layout(max_qubits: int, params: Optional[dict] = None) -> Dict[str, Any]:
+       p = _merged_params(params)
+       grid_size = 100
+       species = {"LQ": {"color": "#1C64CF", "hilbert_dim": 2, "is_local": True}}
+
+       # --- DOFs ---
+       dofs = {}
+       for i in range(max_qubits):
+           dofs[f"({i}, 0)"] = {
+               "id": i, "species": "LQ", "crossed_rabifactor": 1.0,
+               "driven": ["generic"], "physical_dof": "transmon",
+               "hilbert_dim": 2, "traced_out": False
+           }
+
+       factor_nodes = []
+
+       # Local X terms (G)
+       for i in range(max_qubits):
+           factor_nodes.append({
+               "center": [(i + 1)*grid_size, 100],
+               "dof_ids": [i], "label": f"L{i}",
+               "interactions": [{
+                   "dof_ids": [i], "operators": ["X"], "strength": "(1+0j)",
+                   "label": f"L_{i}_0", "operator_blocks": [1],
+                   "parametric": True, "parameter": "G",
+               }],
+           })
+
+       # Nearest-neighbor ZZ terms (J)
+       def _add_pair(ii, jj):
+           cx = ((ii + 1)*grid_size + (jj + 1)*grid_size)//2
+           factor_nodes.append({
+               "center": [cx, 140], "dof_ids": [ii, jj],
+               "label": f"F{ii}{jj}",
+               "interactions": [{
+                   "dof_ids": [ii, jj], "operators": ["Z", "Z"],
+                   "strength": "(1+0j)", "label": "Interaction_2_sites_Z_Z",
+                   "operator_blocks": [1, 1], "parametric": True, "parameter": "J",
+               }],
+           })
+
+       for i in range(max_qubits - 1):
+           _add_pair(i, i + 1)
+       if p["boundary"] == "periodic" and max_qubits > 2:
+           _add_pair(max_qubits - 1, 0)
+
+Parametric Map
+--------------
+
+Symbolic parameters are linked to the specific interaction labels that use them.
+This allows the Livingston interface to edit :math:`J` and :math:`G` globally across all factors.
+
+.. code-block:: python
+
+   parametric_map = {
+       "G": {
+           "type": "interaction",
+           "instances": [
+               {"label": f"L_{i}_0", "factor_label": f"L{i}", "default": p["G"]}
+               for i in range(max_qubits)
+           ],
+       },
+       "J": {
+           "type": "interaction",
+           "instances": [
+               {"label": "Interaction_2_sites_Z_Z",
+                "factor_label": f"F{i}{i+1}", "default": p["J"]}
+               for i in range(max_qubits - 1)
+           ] + (
+               [{"label": "Interaction_2_sites_Z_Z",
+                 "factor_label": f"F{max_qubits - 1}0", "default": p["J"]}]
+               if p["boundary"] == "periodic" and max_qubits > 2 else []
+           ),
+       },
+   }
+
+Output Contract
+---------------
+
+Each generator must provide a function that returns a temporary JSON file containing the layout.
+This is the entry point used by Livingston’s *Generate Dynamic Layout* dialog.
+
+.. code-block:: python
+
+   def generate_layout_tempfile(max_qubits, params=None, dir=None,
+                                prefix="ising1d_", suffix=".json"):
+       layout = generate_layout(max_qubits, params=params)
+       with tempfile.NamedTemporaryFile(mode="w", suffix=suffix,
+                                        prefix=prefix, dir=dir,
+                                        delete=False, encoding="utf-8") as f:
+           json.dump(layout, f, indent=2)
+           tmp_path = os.path.abspath(f.name)
+       return {"tmp_path": tmp_path,
+               "filename": os.path.basename(tmp_path),
+               "layout": layout}
+
+Testing via Command Line
+========================
+
+For development convenience, generators can include a small command-line interface:
+
+.. code-block:: python
+
+   if __name__ == "__main__":
+       import argparse
+       parser = argparse.ArgumentParser(description="1D Ising Generator")
+       parser.add_argument("--max-qubits", type=int, required=True)
+       parser.add_argument("--boundary", choices=["open", "periodic"], default=None)
+       parser.add_argument("--J", type=str, default=None)
+       parser.add_argument("--G", type=str, default=None)
+       args = parser.parse_args()
+       params = {k: v for k, v in vars(args).items() if v is not None}
+       rec = generate_layout_tempfile(args.max_qubits, params=params)
+       print(rec["tmp_path"])
+
+General Template
+----------------
+
+When developing a new dynamic generator, the workflow can be summarized as:
+
+#. Define the metadata (:code:`_METADATA`) with all tunable parameters.
+#. Implement :code:`get_generator_metadata()` to return it.
+#. Implement :code:`generate_layout()` to build:
+
+   * Species definitions.
+   * DOFs (:code:`id`, :code:`species`, coordinates).
+   * Factor nodes and interaction terms.
+   * The parametric map linking symbolic parameters to instances.
+
+#. Implement :code:`generate_layout_tempfile()` as a wrapper that saves the layout to JSON.
+
+Best Practices
+--------------
+
+* Use consistent coordinate keys: :code:`"(x, y)"` strings for DOFs.
+* Ensure all :code:`dof_ids` are integers starting from 0.
+* Match :code:`label` and :code:`factor_label` fields between interactions and the parametric map.
+* Keep the layout minimal; omit empty fields (e.g., :code:`lindblad_terms = []`).
+* Include an :code:`initial_state` for quick visualization.
+
+Extending to Higher Dimensions
+------------------------------
+
+To create two- or three-dimensional lattices, iterate over :math:`(x, y, z)` coordinates and connect
+nearest or next-nearest neighbors according to the desired topology.  
+Periodic boundary conditions can be implemented by wrapping indices modulo the system size.
+
+Dynamic lattice generators enable Livingston to build Hamiltonian layouts procedurally from
+symbolic parameters. Each generator encapsulates both its metadata (for the UI) and its
+construction logic (for the layout engine).  
+This design allows reproducible, scriptable architecture generation while maintaining
+full interoperability with ArchBuilder’s layout, Hamiltonian, and export subsystems.
+
+.. figure:: _static/archbuilder/Livingston3.png
+   :width: 95%
+   :align: center
+   :alt: Two-qubit Hamiltonian in Livingston
+
+   The two-qubit Hamiltonian shown in Livingston.  
+   *View Hamiltonian* allows parameter changes, rescaling, and the addition of disorder.  
+   The Edit-DOF window (right-click on a DOF) lets users mark DOFs to be traced out in simulations
+   or designate local drive lines for later pulse design in the Pulse Composer.
+
+----
+
+Example Architectures
+---------------------
+
+For example, the ladder and conveyor-belt architectures are shown below.
+
+.. figure:: _static/archbuilder/LivingstonLadder.png
+   :width: 95%
+   :align: center
+   :alt: Ladder architecture
+
+.. figure:: _static/archbuilder/LivingstonConveyor.png
+   :width: 95%
+   :align: center
+   :alt: Conveyor belt architecture
+
+   Ladder and conveyor-belt architectures designed with Livingston (top and bottom respectively).
+
+Frankenstein: Quantum Pulse and Operation Editor
+================================================
+
+**Frankenstein** is the *quantum pulse and operation editor* of the ArchBuilder suite.  
+It provides a graphical and parametric interface bridging the **Livingston layout editor**
+(device-level architecture) and the **AIgor synthesis engine** (automatic pulse generation).
+
+Overview
+--------
+
+Frankenstein allows users to design and visualize **time-dependent control pulses**
+(:math:`\Omega_x`, :math:`\Omega_y`, :math:`\Omega_z`) and **parametric envelopes** for quantum operations.  
+Each operation can be stored as a self-contained :code:`.oper` file containing both the layout and pulse metadata.
+
+* **Drive Pulses** (:math:`\Omega_x`, :math:`\Omega_y`) – microwave controls acting on qubit drive lines.  
+* **Flux Pulses** (:math:`\Omega_z`) – DC or low-frequency flux controls for frequency tuning and couplings.  
+* **Parametric Pulses** – analytical envelopes :math:`f(t;\mathrm{params})` linked to symbolic layout parameters.
+
+Interface Structure
+-------------------
+
+The main window is organized into three functional areas:
+
+#. **Operation Header:** define the operation name, type (:code:`Tape`, :code:`Logical`, :code:`Analog`),
+   control/target counts, and symbolic label (e.g., :math:`X`, :math:`CZ`).
+#. **Toolbar:** buttons to load layouts, add Drive/Flux/Parametric pulses,
+   view timelines, save :code:`.oper` files, and call the AIgor assistant.
+#. **Pulse Table and Visualization:** a table lists all pulse segments;
+   a timeline below shows activation intervals for each species and channel.
+
+Pulse Creation Workflow
+-----------------------
+
+#. Load a :code:`.json` layout from Livingston (provides species, colors, and control-line data).  
+#. Add pulses:
+
+   * **Drive Pulse:** select driven species, amplitude mode (*Fixed* or *Variable*), and waveform type (*Gaussian*, *DRAG*, *Custom*).
+   * **Flux Pulse:** similar interface restricted to the :math:`\Omega_z` channel.
+   * **Parametric Pulse:** define analytic functions :math:`f(t)` for symbolic parameters.
+
+#. Each pulse defines a time window :math:`[T_0, T_f]` and corresponding amplitudes.  
+#. Frankenstein automatically updates:
+
+   * **Timeline Overview:** horizontal bars per species/channel.
+   * **Waveform Plots:** plots of :math:`\Omega_x`, :math:`\Omega_y`, :math:`\Omega_z`, and parametric functions.
+
+#. Save the result as a :code:`.oper` file or send it directly to ArchBuilder for compilation.
+
+The `.oper` File Format
+-----------------------
+
+An :code:`.oper` file encodes a complete quantum operation definition in JSON format, including layout and pulses:
+
+.. code-block:: json
+
+   {
+     "metadata": {
+       "version": "v0.1",
+       "tool": "Planckian Pulse Editor"
+     },
+     "operation": "CZ",
+     "type": "Logical",
+     "symbol": "CZ",
+     "max_control": 1,
+     "min_control": 1,
+     "max_target": 1,
+
+     "parametric_global": [...],
+     "pulses": {
+         "LQ 0": [
+             {"id": 1, "T0": 0.0, "Tf": 20.0,
+              "Omega_x": 0.5, "Omega_y": 0.0, "Omega_z": null}
+         ]
+     },
+     "layout": {...}
+   }
+
+Each :code:`.oper` file acts as a **unit operation container**:
+
+* Bundles the hardware layout with control signals.
+* Preserves species names and color mappings.
+* Can be reopened in Frankenstein for editing or sent to ArchBuilder for scheduling.
+
+Frankenstein uses a NumPy-based sandbox to safely evaluate analytical expressions.
+All data can be exchanged with **AIgor** for automatic pulse synthesis or optimization.
+
+.. figure:: _static/archbuilder/frankenstein1.png
+   :width: 50%
+   :align: left
+   :alt: Frankenstein GUI 1
+
+.. figure:: _static/archbuilder/frankenstein2.png
+   :width: 50%
+   :align: right
+   :alt: Frankenstein GUI 2
+
+   A CZ gate for the ladder architecture developed in Frankenstein.
+
+Bovary: Executing Pulses and Operations Through Compilers
+=========================================================
+
+Overview
+--------
+
+**Bovary** is the *Pulse Composer* of the **ArchBuilder** suite — a unifying environment bridging
+high-level circuit design with pulse-level physical control.  
+It works in symbiosis with Frankenstein and provides an interactive GUI for visualizing,
+composing, and exporting gate-and-pulse sequences that can be simulated via the
+**Metamorphosis/Zhivago** engine or deployed on hardware.
+
+.. figure:: _static/archbuilder/Bovary1.png
+   :width: 75%
+   :align: center
+   :alt: Bovary interface 1
+
+.. figure:: _static/archbuilder/Bovary2.png
+   :width: 75%
+   :align: center
+   :alt: Bovary interface 2
+
+   The Bovary interface with a CZ gate compiled and an error gate.
+
+At its core, Bovary serves as a **translator between abstract gate logic and executable pulse physics**, integrating:
+
+* **Layout** (:code:`.json`) generated by Livingston.
+* **Pulse Operations** (:code:`.oper`) created in Frankenstein.
+* **Architecture Specification** (:code:`.arch`) defining the system.
+
+Key Capabilities
+----------------
+
+When launched from ArchBuilder, Bovary automatically loads:
+
+* The active :code:`.arch` file defining qubits, connectivity, and pulse directories.
+* The selected **compiler** module for gate expansion and QPU-state tracking.
+* The **noise model**, either *Logical* or *Open (Lindblad)*.
+
+This synchronization ensures the pulse composer is aware of both logical structure and physical constraints.
+
+The interface consists of three main panes:
+
+#. **Gate Selector** – choose gates, qubits, and parameters.  
+#. **Circuit Preview Canvas** – an interactive, zoomable circuit layout.  
+#. **QASM Code View** – auto-generated OpenQASM 2.0 output.
+
+Users can:
+
+* Add Logical, Tape, Analog, or Error gates.
+* Insert *Separators* (barriers) to organize circuit regions.
+* Inspect and remove gates interactively.
+* Double-click a gate to open the **QPU Inspector**, displaying system state after the operation.
+
+The compiler defines both primitive gate transformations and **composite operations (macros)**.
+Bovary uses this for:
+
+* Automatic gate expansion via :code:`get_gate_list()`.
+* Real-time QPU-state updates via :code:`update_QPU_state()`.
+* Consistency checking between logical and physical layers.
+
+Macros such as :code:`MoveRight`, :code:`EROL`, and :code:`ELOR`
+are displayed as callable operations in the gate palette.
+
+Noise Paradigms
+---------------
+
+Bovary supports two distinct noise paradigms:
+
+.. list-table:: Noise Modes
+   :header-rows: 1
+   :widths: 20 50 30
+
+   * - **Noise Type**
+     - **Description**
+     - **UI Behavior**
+   * - *Logical*
+     - Symbolic error channels (bit-flip, phase-flip, depolarizing) defined in an external JSON model and applied probabilistically at the logical level.
+     - *Error Gates* become selectable; label turns blue when active.
+   * - *Open*
+     - Continuous Lindblad-type noise (:math:`\gamma`, :math:`\kappa`) applied directly during simulation.
+     - *Error Gates* disabled; mode shown as green *Open Noise Mode*.
+
+Users can toggle noise activation using the **Activate Noise** checkbox,  
+allowing both noise-free and decoherence-inclusive runs within one interface.
+
+Quantum Pulse Visualization
+----------------------------
+
+For any composed circuit, Bovary can:
+
+* Plot the temporal evolution of :math:`\Omega_x`, :math:`\Omega_y`, and :math:`\Omega_z` for each species.
+* Display DRAG, Gaussian, and custom waveforms using integrated Matplotlib rendering.
+* Merge multiple pulse definitions into a synchronized timeline.
+
+This lets theorists and experimentalists visually inspect pulse-level implementations.
+
+Full-State Inspection and Debugging Tools
+-----------------------------------------
+
+* **QPU Inspector:** tree visualization of the internal :code:`QPU_specs` dictionary at any circuit step.
+* **Timeline Viewer:** scrollable representation of gate order with navigation to intermediate states.
+* **Layout Viewer:** interactive schematic showing geometry, Hamiltonian couplings, and parameters.
+
+These tools make Bovary a transparent diagnostic bridge between circuit design and pulse-level execution.
+
+Simulation and Export
+=====================
+
+Bovary integrates seamlessly with **Metamorphosis (Zhivago)** — the MPS engine used for end-to-end simulation and benchmarking.
+
+* **Run Simulation:** execute pulse sequences and visualize final states.  
+* **Run Comparison:** compare two architectures or layouts to compute fidelity and overlap metrics.
+
+Simulations can be performed with or without noise models, toggled via the corresponding modes.
+
+Export Options
+--------------
+
+Bovary can export:
+
+* Pulse sequences as :code:`.operseq` files
+* Circuits as valid **OpenQASM 2.0** code
+* Intermediate QPU states as :code:`.json` snapshots for reproducibility
+
+QEC Logical Error Module
+========================
+
+A core component of the *Logical* noise model in Bovary is the **QEC Logical Error Module**,  
+which allows users to define *error gates* that emulate logical-level faults such as bit-flip, phase-flip, or depolarizing channels.
+
+Logical Error Editor
+--------------------
+
+The integrated **Noise Model Editor** enables users to:
+
+* Define symbolic error gates (e.g., :code:`Xerr`, :code:`Zerr`, :code:`Depol`)
+* Assign probabilities and physical operators (X, Y, Z, or mixed)
+* Optionally link them to existing logical operations for diagnostic correlation
+
+Each defined logical error is stored as a JSON file, for example:
+
+.. code-block:: json
+
+   {
+     "errors": {
+       "bitflip": {
+         "symbol": "Xerr",
+         "operator": "X",
+         "linked_gate": "X",
+         "probability": 0.01,
+         "description": "Logical bit-flip error"
+       }
+     }
+   }
+
+These definitions are imported automatically when the *Logical* noise model is activated.  
+They are theoretical constructs and do not require pulse files — instead, they are applied statistically
+during simulation or QEC evaluation.
+
+When a logical noise model is active, the interface enables the **Error Gates** section,
+highlighting the noise label in blue.  
+For *Open (Lindblad)* models, this section remains disabled.
+
+Writing and Integrating a Compiler in ArchBuilder
+=================================================
+
+The control hierarchy in :code:`ArchBuilder` distinguishes between three complementary levels of quantum operations:
+**logical**, **tape**, and **analog**.  
+This structure separates abstract computational intent from its physical implementation and continuous-time dynamics.
+Each level corresponds to a layer of abstraction within the :code:`.arch` manifest.
+
+Logical Operations
+------------------
+
+Logical operations describe transformations within the computational subspace
+:math:`\mathcal{H}_{\mathrm{comp}} \cong (\mathbb{C}^2)^{\otimes N}`.  
+They correspond to unitary operators :math:`U_{\mathrm{logical}} \in \mathrm{SU}(2^N)` such as single-qubit rotations, entangling gates, or measurements.
+
+Logical operations are independent of physical implementation — they describe *what* is done, not *how*.  
+In ArchBuilder, they are represented symbolically (e.g., :code:`X`, :code:`Y`, :code:`CNOT`)
+and linked to calibrated pulse definitions in :code:`.oper` files.
+
+Tape Operations
+---------------
+
+Tape operations bridge logical instructions and physical control.  
+They are expressed as sequences of Hamiltonians, swaps, and pulse envelopes acting on the device’s degrees of freedom.  
+Each tape operation specifies which physical sites are active and how they are driven.
+
+Formally:
+
+.. math::
+
+   U_{\mathrm{tape}} = \mathcal{T}\exp\!\left(-i\!\int_{\mathcal{T}} [H_0 + H_{\mathrm{ctrl}}(t)]\, dt\right)
+
+where :math:`H_0` is the static background Hamiltonian and :math:`H_{\mathrm{ctrl}}(t)` encodes time-dependent control fields from :code:`.oper` files.
+
+Compilers operate at this level, decomposing logical instructions into hardware-legal pulse sequences subject to connectivity and control constraints.
+
+Analog Operations
+-----------------
+
+Analog operations extend the framework to continuous-time dynamics.  
+Rather than discrete gates, they define a time-dependent Hamiltonian schedule:
+
+.. math::
+
+   H(t) = H_0 + \sum_\alpha \lambda_\alpha(t)\, O_\alpha
+
+where control parameters :math:`\lambda_\alpha(t)` may vary smoothly (Gaussian, polynomial, or numeric waveforms).  
+This encompasses adiabatic state preparation, annealing, and Hamiltonian simulation protocols.
+
+In ArchBuilder, analog operations are represented by parametric :code:`.oper` files with symbolic pulse fields,
+visualizable and editable within Bovary or Frankenstein, and combinable with logical or tape operations.
+
+Hierarchy and Interaction
+-------------------------
+
+Together, these classes form a layered abstraction hierarchy:
+
+.. code-block:: text
+
+   Logical  →  Tape  →  Analog
+
+Logical operations express the computation; tape operations describe physical execution via pulses and swaps;
+analog operations generalize to continuous-time control.  
+
+This hierarchy forms the foundation of ArchBuilder’s compiler system:  
+the compiler translates logical instructions into tape-level operations consistent with the analog framework.
+
+Motivation and Context
+----------------------
+
+The compiler in ArchBuilder translates high-level logic into executable pulse sequences consistent with
+connectivity, control lines, and species definitions.  
+It represents the mapping
+
+.. math::
+
+   U_{\mathrm{logical}} \longmapsto \{\,\text{tape operations},\, \text{pulse sequences}\,\}
+
+taking abstract gates as input and outputting ordered lists of hardware-level operations encoded as :code:`.oper` files.
+
+Role of the ``QPU_specs`` Field
+-------------------------------
+
+Each :code:`.arch` manifest includes a :code:`"qpu_specs"` section describing the physical and logical structure of the QPU.
+This field is editable from within **ArchCreator** and defines how a compiler interprets the architecture.
+
+Example — ring architecture:
+
+.. code-block:: python
+
+   "qpu_specs": {
+       "num_qubits": 8,
+       "species": ["A", "B"],
+       "connectivity": "ring",
+       "active_register": [0, 1, 2, 3],
+       "quantum_interface": [0, 1],
+       "routing": "nearest_neighbor",
+       "swap_operations": ["hh", "gg"],
+       "compiler_defaults": {
+           "global_mode": False,
+           "allow_wraparound": True
+       }
+   }
+
+Example — ladder architecture:
+
+.. code-block:: python
+
+   "qpu_specs": {
+       "rows": 2,
+       "cols": 8,
+       "icc_position": 2,
+       "oneq_sites": {"0": [1, 3], "1": [5]},
+       "twoq_sites": [{"rows": [0, 1], "cols": [5]}],
+       "measure_cols": [7],
+       "movement": {
+           "column_species": {"0": "C", "1": "A", "2": "B", "3": "A",
+                              "4": "C", "5": "A", "6": "B", "7": "A"},
+           "species_to_gate": {
+               "right": {
+                   "A": "Move_LR_red_RL_blue_green",
+                   "B": "Move_LR_blue_green_RL_red",
+                   "C": "Move_LR_blue_green_RL_red"
+               },
+               "left": {
+                   "A": "Move_LR_blue_green_RL_red",
+                   "B": "Move_LR_red_RL_blue_green",
+                   "C": "Move_LR_red_RL_blue_green"
+               }
+           },
+           "forbidden_cols": [1, 7]
+       }
+   }
+
+This dictionary defines default register mapping, accessible interactions,
+and control assumptions (global vs. local).  
+The compiler reads it to determine how logical qubits are embedded in hardware and how routing and tape operations are planned.
+
+Compiler Architecture in ArchBuilder
+------------------------------------
+
+A compiler is a Python module (:code:`.py`) linked to the architecture through:
+
+.. code-block:: json
+
+   "compiler": "my_compiler"
+
+When Bovary or ArchBuilder loads the architecture, the module is imported dynamically
+and must define at least two key functions:
+
+#. :code:`get_gate_list(QPU_state, gate, controls, targets, theta)`
+#. :code:`update_QPU_state(QPU_state, circuit)`
+
+1. The ``get_gate_list`` Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Defines compilation logic: given a logical gate and QPU state, return the list of
+hardware-level gates needed to realize it.
+
+.. code-block:: python
+
+   def get_gate_list(QPU_state, gate, controls, targets, theta):
+       """
+       Expand a logical operation into a list of hardware-level gates.
+       """
+       return QPU_state, gate_list, theta_list, controls_list, targets_list
+
+Parameters:
+
+* :code:`QPU_state` – current physical register configuration.
+* :code:`gate` – logical symbol (e.g., "CNOT", "SWAP").
+* :code:`controls`, :code:`targets`, :code:`theta` – logical gate parameters.
+* Returns updated :code:`QPU_state` and lists of hardware operations.
+
+This function can encode routing logic (e.g., translate distant CNOTs into SWAP + local gates).
+
+2. The ``update_QPU_state`` Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Maintains compiler bookkeeping for logical qubit positions after each operation:
+
+.. code-block:: python
+
+   def update_QPU_state(QPU_state, circuit):
+       """
+       Update the QPU state after applying a list of operations.
+       """
+       for op in circuit:
+           # Update routing or active register
+           QPU_state = perform_swap(QPU_state, op)
+       return QPU_state
+
+Used by **Bovary’s QPU Inspector** to display logical-to-physical mapping over time.
+
+Defining Compiler Macros and Composite Gates
+--------------------------------------------
+
+ArchBuilder allows compilers to define **composite operations**, i.e., gate macros that appear as
+single entries in Bovary but expand to multiple primitive gates.
+
+.. code-block:: python
+
+   COMPOSITES = {
+       "evriodle": {"type": "Tape", "symbol": "EROL", "sequence": ["hh", "gg"]},
+       "evleodri": {"type": "Tape", "symbol": "ELOR", "sequence": ["gg", "hh"]}
+   }
+
+Each composite is tagged by type (e.g., *Tape*, *Logical*, *Analog*), symbol, and sequence.
+Bovary lists these under their gate families, enabling concise macro definitions for
+complex routing patterns while keeping the GUI uncluttered.
+
+Example: A Minimal Compiler
+---------------------------
+
+.. code-block:: python
+
+   # my_compiler.py
+   from copy import deepcopy
+
+   COMPOSITES = {
+       "swap_pair": {"type": "Tape", "symbol": "SW2", "sequence": ["SWAP12", "SWAP23"]}
+   }
+
+   def get_gate_list(QPU_state, gate, controls, targets, theta):
+       if gate == "CNOT":
+           # Replace with SWAP + local gate + SWAP
+           gate_list = ["SWAP12", "CNOT12", "SWAP12"]
+           controls_list = [[0], [0], [0]]
+           targets_list = [[1], [1], [1]]
+           theta_list = [None, None, None]
+       else:
+           gate_list = [gate]
+           controls_list = [controls]
+           targets_list = [targets]
+           theta_list = [theta]
+
+       QPU_state["last_gate"] = gate
+       return QPU_state, gate_list, theta_list, controls_list, targets_list
+
+   def update_QPU_state(QPU_state, circuit):
+       new_state = deepcopy(QPU_state)
+       for op in circuit:
+           if op.get("gate") == "SWAP12":
+               i, j = 0, 1
+               new_state["register"][i], new_state["register"][j] = (
+                   new_state["register"][j],
+                   new_state["register"][i],
+               )
+       return new_state
+
+When referenced in the :code:`.arch` file, this compiler expands logical gates
+into detailed pulse-level instructions, automatically updating register positions in the QPU Inspector.
+
+Integration with the ``.arch`` Manifest
+---------------------------------------
+
+Compilers are linked via:
+
+.. code-block:: json
+
+   "compiler": "my_compiler"
+
+and stored as :code:`my_compiler.py` within the project directory.  
+When a project is opened, ArchBuilder imports the compiler module, exposing
+its composite gates and routing logic to Bovary.  
+The :code:`qpu_specs` field governs topology, swap rules, and drive constraints,
+while the compiler implements the logic for translating instructions into hardware-level actions.
+
+Coordination Between Layout, Pulses, and Compiler
+=================================================
+
+The layout, pulse definitions, and compiler form a coherent triad:
+
+* The **layout** defines the static Hamiltonian and species connectivity.
+* The **pulses** (:code:`.oper` files) define the available local and two-body
+  operations and their analog implementations.
+* The **compiler** defines how to dynamically sequence these operations
+  to realize high-level logical circuits.
+
+The compiler thus acts as a **semantic bridge** — it reads topology and species
+from the layout, calls operations defined in the pulse library, and produces
+executable tapes that **Bovary** or **Metamorphosis** can simulate directly.
+
+Best Practices for Compiler Design
+==================================
+
+To ensure consistency and reproducibility across architectures, we recommend the following:
+
+#. **Respect Layout Connectivity:**  
+   Only generate operations that act on valid pairs defined by the layout’s factor graph.
+
+#. **Keep QPU State Explicit:**  
+   Treat :code:`QPU_state` as the single source of truth for the register configuration.
+
+#. **Document Composite Gates:**  
+   Provide readable symbols and descriptive comments for each macro operation.
+
+#. **Avoid Hidden Defaults:**  
+   All routing and swap behaviors should derive from :code:`qpu_specs` fields,
+   not hard-coded constants.
+
+#. **Test with Bovary:**  
+   Verify that logical gates compile correctly and that the **QPU Inspector**
+   updates at each step.
+
+Summary
+=======
+
+In summary, a compiler in **ArchBuilder** translates the formal structures introduced earlier into executable control logic.  
+It interprets the architecture’s :code:`qpu_specs`, expands logical gates into tape-level operations,
+and maintains the QPU’s evolving logical-to-physical mapping.
+
+Together with the layout and pulse layers, the compiler completes the **ArchBuilder abstraction chain**:
+
+.. code-block:: text
+
+   Layout (.json)  →  Pulses (.oper)  →  Compiler (.py)  →  Circuit / Tape
+
+This modular design ensures that new compilers can be written for arbitrary hardware layouts,
+topologies, and control paradigms — making **ArchBuilder** a living framework for quantum
+architecture design, simulation, and compilation.

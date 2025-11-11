@@ -1,0 +1,21 @@
+Architecture\_builder.Frankenstein package
+==========================================
+
+Submodules
+----------
+
+Architecture\_builder.Frankenstein.frankenstein module
+------------------------------------------------------
+
+.. automodule:: Architecture_builder.Frankenstein.frankenstein
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Architecture_builder.Frankenstein
+   :members:
+   :undoc-members:
+   :show-inheritance:

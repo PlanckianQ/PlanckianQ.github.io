@@ -1,0 +1,21 @@
+Frankenstein package
+====================
+
+Submodules
+----------
+
+Frankenstein.frankenstein module
+--------------------------------
+
+.. automodule:: Frankenstein.frankenstein
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Frankenstein
+   :members:
+   :undoc-members:
+   :show-inheritance:

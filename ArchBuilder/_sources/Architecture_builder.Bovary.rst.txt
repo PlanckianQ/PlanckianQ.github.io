@@ -1,0 +1,37 @@
+Architecture\_builder.Bovary package
+====================================
+
+Submodules
+----------
+
+Architecture\_builder.Bovary.bovary module
+------------------------------------------
+
+.. automodule:: Architecture_builder.Bovary.bovary
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Bovary.noise\_model\_editor module
+--------------------------------------------------------
+
+.. automodule:: Architecture_builder.Bovary.noise_model_editor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Bovary.qasm\_interpreter module
+-----------------------------------------------------
+
+.. automodule:: Architecture_builder.Bovary.qasm_interpreter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Architecture_builder.Bovary
+   :members:
+   :undoc-members:
+   :show-inheritance:

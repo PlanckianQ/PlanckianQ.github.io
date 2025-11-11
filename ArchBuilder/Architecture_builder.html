@@ -1,0 +1,849 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="prev" title="Architecture_builder" href="modules.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Architecture_builder package - Archbuilder 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Archbuilder 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Archbuilder 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Package Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">Architecture_builder</a><input aria-label="Toggle navigation of Architecture_builder" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Architecture_builder package</a><input aria-label="Toggle navigation of Architecture_builder package" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/Architecture_builder.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="architecture-builder-package">
+<h1>Architecture_builder package<a class="headerlink" href="#architecture-builder-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor.aigor">AIgor.aigor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.root"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.root</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.layout"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.layout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.operation_name"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.operation_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.unitaries"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.unitaries</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.id_unitary"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.id_unitary</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.final_unitary"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.final_unitary</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.H_stat"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.H_stat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.path_loaded"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.path_loaded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.saving_path"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.saving_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.allowed_drives"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.allowed_drives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.custom_pulse_paths"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.custom_pulse_paths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.adjust_name_column"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.adjust_name_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.adjust_window_width_to_unitary"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.adjust_window_width_to_unitary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_H0"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.build_H0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_Hdrive"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.build_Hdrive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_Hint"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.build_Hint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_unitary"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.build_unitary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.delete_selected_segment"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.delete_selected_segment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.find_optimal_pulses"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.find_optimal_pulses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.load_layout"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.load_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.load_unitary_file"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.load_unitary_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.load_unitary_table"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.load_unitary_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.open_tensor_builder"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.open_tensor_builder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.save_unitary_file"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.save_unitary_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.setup_table"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.setup_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.setup_ui"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.setup_ui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.show_interaction_info"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.show_interaction_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.show_qubit_info"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.show_qubit_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.aigor.UnitaryEditorApp.view_layout"><code class="docutils literal notranslate"><span class="pre">UnitaryEditorApp.view_layout()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html#AIgor.aigor.build_tensor_operator"><code class="docutils literal notranslate"><span class="pre">build_tensor_operator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html#AIgor.aigor.parse_angle"><code class="docutils literal notranslate"><span class="pre">parse_angle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html#AIgor.aigor.parse_single_op"><code class="docutils literal notranslate"><span class="pre">parse_single_op()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor.aigor_temp">AIgor.aigor_temp module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor.test_log">AIgor.test_log module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html#AIgor.test_log.TextHandler"><code class="docutils literal notranslate"><span class="pre">TextHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="AIgor.html#AIgor.test_log.TextHandler.emit"><code class="docutils literal notranslate"><span class="pre">TextHandler.emit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html#AIgor.test_log.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#module-Bovary.bovary">Bovary.bovary module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#bovary-pulse-composer-circuit-editor-embedded-frame">Bovary — Pulse Composer &amp; Circuit Editor (Embedded Frame)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.bovary.ArchitectureSelectorFrame"><code class="docutils literal notranslate"><span class="pre">ArchitectureSelectorFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.ArchitectureSelectorFrame.load_compiler"><code class="docutils literal notranslate"><span class="pre">ArchitectureSelectorFrame.load_compiler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.ArchitectureSelectorFrame.load_file"><code class="docutils literal notranslate"><span class="pre">ArchitectureSelectorFrame.load_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.clear"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.insert_gate"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame.insert_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.prompt_param_overrides_for_gate"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame.prompt_param_overrides_for_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.redraw_circuit"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame.redraw_circuit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.set_error_gates_grayed"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame.set_error_gates_grayed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.set_metadata"><code class="docutils literal notranslate"><span class="pre">CircuitPreviewFrame.set_metadata()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.bovary.CodeEditorFrame"><code class="docutils literal notranslate"><span class="pre">CodeEditorFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CodeEditorFrame.clear"><code class="docutils literal notranslate"><span class="pre">CodeEditorFrame.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.CodeEditorFrame.update_code"><code class="docutils literal notranslate"><span class="pre">CodeEditorFrame.update_code()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.add_gate"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.add_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.add_separator"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.add_separator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.cancel_gate"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.cancel_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.on_gate_selected"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.on_gate_selected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.populate_gate_list"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.populate_gate_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.populate_qubit_list"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.populate_qubit_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.set_controller"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.set_controller()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.set_gate_lists"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.set_gate_lists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.GateSelectorFrame.update_gate_list"><code class="docutils literal notranslate"><span class="pre">GateSelectorFrame.update_gate_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI"><code class="docutils literal notranslate"><span class="pre">SubGUI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.add_gate_to_circuit"><code class="docutils literal notranslate"><span class="pre">SubGUI.add_gate_to_circuit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.add_separator"><code class="docutils literal notranslate"><span class="pre">SubGUI.add_separator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.build_qasm_from_circuit"><code class="docutils literal notranslate"><span class="pre">SubGUI.build_qasm_from_circuit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.edit_noise_model"><code class="docutils literal notranslate"><span class="pre">SubGUI.edit_noise_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.export_pulses"><code class="docutils literal notranslate"><span class="pre">SubGUI.export_pulses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.hide_error"><code class="docutils literal notranslate"><span class="pre">SubGUI.hide_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.hide_tape"><code class="docutils literal notranslate"><span class="pre">SubGUI.hide_tape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.load_architecture"><code class="docutils literal notranslate"><span class="pre">SubGUI.load_architecture()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.load_compiler_from_path"><code class="docutils literal notranslate"><span class="pre">SubGUI.load_compiler_from_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.load_noise_model_dialog"><code class="docutils literal notranslate"><span class="pre">SubGUI.load_noise_model_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.load_noise_model_from_path"><code class="docutils literal notranslate"><span class="pre">SubGUI.load_noise_model_from_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.load_qasm"><code class="docutils literal notranslate"><span class="pre">SubGUI.load_qasm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.on_close"><code class="docutils literal notranslate"><span class="pre">SubGUI.on_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.open_noise_model_editor"><code class="docutils literal notranslate"><span class="pre">SubGUI.open_noise_model_editor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.open_qpu_inspector"><code class="docutils literal notranslate"><span class="pre">SubGUI.open_qpu_inspector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.open_qpu_inspector_at"><code class="docutils literal notranslate"><span class="pre">SubGUI.open_qpu_inspector_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.plot_pulses"><code class="docutils literal notranslate"><span class="pre">SubGUI.plot_pulses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.prompt_param_overrides_for_gate"><code class="docutils literal notranslate"><span class="pre">SubGUI.prompt_param_overrides_for_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.remove_gate_at_index"><code class="docutils literal notranslate"><span class="pre">SubGUI.remove_gate_at_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.run_comparison_zhivago"><code class="docutils literal notranslate"><span class="pre">SubGUI.run_comparison_zhivago()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.run_simulation_zhivago"><code class="docutils literal notranslate"><span class="pre">SubGUI.run_simulation_zhivago()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.save_qasm"><code class="docutils literal notranslate"><span class="pre">SubGUI.save_qasm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.show_interaction_info"><code class="docutils literal notranslate"><span class="pre">SubGUI.show_interaction_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.show_qubit_info"><code class="docutils literal notranslate"><span class="pre">SubGUI.show_qubit_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.toggle_noise_active"><code class="docutils literal notranslate"><span class="pre">SubGUI.toggle_noise_active()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.update_message_text"><code class="docutils literal notranslate"><span class="pre">SubGUI.update_message_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.bovary.SubGUI.view_layout"><code class="docutils literal notranslate"><span class="pre">SubGUI.view_layout()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.bovary.import_module_from_path"><code class="docutils literal notranslate"><span class="pre">import_module_from_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#module-Bovary.noise_model_editor">Bovary.noise_model_editor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#qec-logical-noise-model-editor">QEC Logical Noise Model Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.add_error_dialog"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.add_error_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.build_ui"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.build_ui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.delete_error"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.delete_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.edit_error_dialog"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.edit_error_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.export_json"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.export_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.import_json"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.import_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.refresh_tree"><code class="docutils literal notranslate"><span class="pre">NoiseModelSubGUI.refresh_tree()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#bovary-qasm-interpreter-module">Bovary.qasm_interpreter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#module-Bovary">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html#module-Frankenstein.frankenstein">Frankenstein.frankenstein module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.ALLOWED_FUNCS"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.ALLOWED_FUNCS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.add_drive_pulse"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.add_drive_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.add_flux_pulse"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.add_flux_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.add_parametric_pulses"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.add_parametric_pulses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.any_parametric_pulses"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.any_parametric_pulses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.collect_free_parameters"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.collect_free_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.delete_selected_segment"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.delete_selected_segment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_add_flux_pulse"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_add_flux_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_add_pulse"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_add_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_amplitude_choice"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_amplitude_choice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_custom_choice"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_custom_choice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_flux_amplitude_choice"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_flux_amplitude_choice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_flux_custom_choice"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_flux_custom_choice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_phase_choice"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.handle_phase_choice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.has_any_pulses"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.has_any_pulses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.load_layout"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.load_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.load_pulse_file"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.load_pulse_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.load_species_pulse"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.load_species_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.open_aigor"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.open_aigor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.open_detail_window"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.open_detail_window()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.plot_pulse"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.plot_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.refresh_details"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.refresh_details()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.refresh_timeline"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.refresh_timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.reset_window"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.reset_window()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.save_and_send_to_archbuilder"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.save_and_send_to_archbuilder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.save_pulse_file"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.save_pulse_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.setup_plot"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.setup_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.setup_table"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.setup_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.setup_ui"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.setup_ui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_custom_controls"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_custom_controls()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_custom_controls_flux"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_custom_controls_flux()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_drag_controls"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_drag_controls()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_gaussian_controls"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_gaussian_controls()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_gaussian_controls_flux"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_gaussian_controls_flux()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_in_phase_controls"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_in_phase_controls()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_interaction_info"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_interaction_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_out_of_phase_controls"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_out_of_phase_controls()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_out_of_phase_controls_flux"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_out_of_phase_controls_flux()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_qubit_info"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.show_qubit_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.update_parametric_button_state"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.update_parametric_button_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.view_layout"><code class="docutils literal notranslate"><span class="pre">PulseEditorApp.view_layout()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html#module-Frankenstein">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston.livingston">Livingston.livingston module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston.Annotation"><code class="docutils literal notranslate"><span class="pre">Annotation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.Annotation.bg"><code class="docutils literal notranslate"><span class="pre">Annotation.bg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.Annotation.center"><code class="docutils literal notranslate"><span class="pre">Annotation.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.Annotation.color"><code class="docutils literal notranslate"><span class="pre">Annotation.color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.Annotation.text"><code class="docutils literal notranslate"><span class="pre">Annotation.text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston.FactorNode"><code class="docutils literal notranslate"><span class="pre">FactorNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.FactorNode.center"><code class="docutils literal notranslate"><span class="pre">FactorNode.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.FactorNode.dof_ids"><code class="docutils literal notranslate"><span class="pre">FactorNode.dof_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.FactorNode.interactions"><code class="docutils literal notranslate"><span class="pre">FactorNode.interactions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.FactorNode.label"><code class="docutils literal notranslate"><span class="pre">FactorNode.label</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston.LindbladNode"><code class="docutils literal notranslate"><span class="pre">LindbladNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.LindbladNode.dof_ids"><code class="docutils literal notranslate"><span class="pre">LindbladNode.dof_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.LindbladNode.label"><code class="docutils literal notranslate"><span class="pre">LindbladNode.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.LindbladNode.operators"><code class="docutils literal notranslate"><span class="pre">LindbladNode.operators</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.LindbladNode.parametric"><code class="docutils literal notranslate"><span class="pre">LindbladNode.parametric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.LindbladNode.rate"><code class="docutils literal notranslate"><span class="pre">LindbladNode.rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_annotation_at_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_annotation_at_canvas()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_factor_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_interaction_to_factor"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_interaction_to_factor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_species_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_species_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.ask_grid_size"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.ask_grid_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.build_menubar"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.build_menubar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.build_ui"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.build_ui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.canvas_to_grid"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.canvas_to_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.canvas_to_world"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.canvas_to_world()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.center_view_on_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.center_view_on_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.cleanup_orphan_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.clear_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.clear_canvas()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.clear_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.clear_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.copy_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.copy_factor_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.copy_selected_pattern"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.copy_selected_pattern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.create_spanning_tree_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.create_spanning_tree_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_annotation"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_annotation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_dof_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_dof_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_dof_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_dof_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_factor"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_factor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.double_click"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.double_click()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.draw"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.draw_species_buttons"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.draw_species_buttons()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_annotation"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_annotation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_dof_window"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_dof_window()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_interaction"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_interaction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_lindblad_terms"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_lindblad_terms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_canvas_as_png"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_canvas_as_png()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_canvas_clean_png"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_canvas_clean_png()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_mps_topology"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_mps_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_quantum_object"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_quantum_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_sympy_hamiltonian"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_sympy_hamiltonian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.finish_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.finish_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.from_dict"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.from_json"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.from_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.generate_dynamic_layout_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.generate_dynamic_layout_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.get_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.get_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.get_next_available_dof_id"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.get_next_available_dof_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.get_saved_path"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.get_saved_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.grid_to_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.grid_to_canvas()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.grid_to_world"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.grid_to_world()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.identify_selected_dofs"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.identify_selected_dofs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.import_sympy_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.import_sympy_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.left_click"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.left_click()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.list_interactions_for_dof"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.list_interactions_for_dof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.list_interactions_multidof"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.list_interactions_multidof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.load_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.load_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.on_close"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.on_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.open_circuit_export_panel"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.open_circuit_export_panel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.paste_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.paste_factor_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.paste_pattern"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.paste_pattern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.refresh_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.refresh_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.remove_interaction_and_cleanup"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.remove_interaction_and_cleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.remove_species_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.remove_species_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.rename_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.rename_factor_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.restore_normal_bindings"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.restore_normal_bindings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.rewrite_annihilation_to_sigma()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.rewrite_products_to_paulis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.right_click"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.right_click()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.save_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.save_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.save_layout_as"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.save_layout_as()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.select_all_dofs"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.select_all_dofs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.select_all_elements"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.select_all_elements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.set_dirty"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.set_dirty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.set_initial_state_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.set_initial_state_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.set_species"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.set_species()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_annotation_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_annotation_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_canvas_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_canvas_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_dof_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_dof_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_factor_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_factor_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_hamiltonian"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_hamiltonian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_lindblad_terms"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_lindblad_terms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_parametric_variables"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_parametric_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_spanning_trees"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_spanning_trees()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.snapshot_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.snapshot_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.start_drag_selected"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.start_drag_selected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.start_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.start_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.to_dict"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.to_json"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.to_qutip"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.to_qutip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.toggle_labels"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.toggle_labels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.toggle_lock_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.toggle_lock_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.toggle_ui_mode"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.toggle_ui_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.undo_last_action"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.undo_last_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.update_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.update_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.PlanckianLivingston.world_to_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.world_to_canvas()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston.SpanningTree"><code class="docutils literal notranslate"><span class="pre">SpanningTree</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.SpanningTree.label"><code class="docutils literal notranslate"><span class="pre">SpanningTree.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.SpanningTree.edges"><code class="docutils literal notranslate"><span class="pre">SpanningTree.edges</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.SpanningTree.root_id"><code class="docutils literal notranslate"><span class="pre">SpanningTree.root_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.SpanningTree.directed"><code class="docutils literal notranslate"><span class="pre">SpanningTree.directed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston.SpanningTree.color"><code class="docutils literal notranslate"><span class="pre">SpanningTree.color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#id0"><code class="docutils literal notranslate"><span class="pre">SpanningTree.color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#id17"><code class="docutils literal notranslate"><span class="pre">SpanningTree.directed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#id18"><code class="docutils literal notranslate"><span class="pre">SpanningTree.edges</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#id19"><code class="docutils literal notranslate"><span class="pre">SpanningTree.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#id20"><code class="docutils literal notranslate"><span class="pre">SpanningTree.root_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston.livingston_core">Livingston.livingston_core module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.CompositeOperator"><code class="docutils literal notranslate"><span class="pre">CompositeOperator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.CompositeOperator.decompose"><code class="docutils literal notranslate"><span class="pre">CompositeOperator.decompose()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.DOF"><code class="docutils literal notranslate"><span class="pre">DOF</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.Interaction.validate_against_dofs"><code class="docutils literal notranslate"><span class="pre">Interaction.validate_against_dofs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.OperatorDef"><code class="docutils literal notranslate"><span class="pre">OperatorDef</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.Species"><code class="docutils literal notranslate"><span class="pre">Species</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.color_cycle"><code class="docutils literal notranslate"><span class="pre">color_cycle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_core.get_valid_operators_for_dim"><code class="docutils literal notranslate"><span class="pre">get_valid_operators_for_dim()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston.livingston_funcs">Livingston.livingston_funcs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.add_interaction_between"><code class="docutils literal notranslate"><span class="pre">add_interaction_between()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.add_interaction_dialog"><code class="docutils literal notranslate"><span class="pre">add_interaction_dialog()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.build_H0"><code class="docutils literal notranslate"><span class="pre">build_H0()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.build_Hint"><code class="docutils literal notranslate"><span class="pre">build_Hint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.complex_prod"><code class="docutils literal notranslate"><span class="pre">complex_prod()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.edit_dof_window"><code class="docutils literal notranslate"><span class="pre">edit_dof_window()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.select_dof"><code class="docutils literal notranslate"><span class="pre">select_dof()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Livingston.html#Livingston.livingston_funcs.str_to_qobj"><code class="docutils literal notranslate"><span class="pre">str_to_qobj()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#subpackages">Subpackages</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#steppenwolf-annealer-module">Steppenwolf.Annealer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#steppenwolf-annealing-routine-module">Steppenwolf.annealing_routine module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.circuit_builder">Steppenwolf.circuit_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.circuit_name"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.circuit_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.circuit_path"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.circuit_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.edit"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.edit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.plot"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.plot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.print_network"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.print_network</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.circuit"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.circuit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.variable_component"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.variable_component</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.n_modes"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.n_modes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.modes_topology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.neighbours"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.neighbours</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.colormap"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.colormap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_anharmonicities"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_anharmonicities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_crosskerr"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_crosskerr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_eigen"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_eigen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_f_k_A_chi"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_f_k_A_chi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_frequencies"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_frequencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_kerr_anarmonicities_frequencies"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_kerr_anarmonicities_frequencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_modes_topology"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_modes_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.set_modes_topology"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.set_modes_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.set_variable_components"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.set_variable_components()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.show_normal_modes"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.show_normal_modes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.assign_term_positions"><code class="docutils literal notranslate"><span class="pre">assign_term_positions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.bosonic_annihilation"><code class="docutils literal notranslate"><span class="pre">bosonic_annihilation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.bosonic_annihilation_ops"><code class="docutils literal notranslate"><span class="pre">bosonic_annihilation_ops()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.build_json_spec"><code class="docutils literal notranslate"><span class="pre">build_json_spec()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.build_json_spec_from_pauli"><code class="docutils literal notranslate"><span class="pre">build_json_spec_from_pauli()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.compute_josephson_inductance"><code class="docutils literal notranslate"><span class="pre">compute_josephson_inductance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.decompose_hamiltonian"><code class="docutils literal notranslate"><span class="pre">decompose_hamiltonian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.decompose_pauli_operator"><code class="docutils literal notranslate"><span class="pre">decompose_pauli_operator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.extract_indices"><code class="docutils literal notranslate"><span class="pre">extract_indices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.extract_monomials"><code class="docutils literal notranslate"><span class="pre">extract_monomials()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.generate_all_monomials"><code class="docutils literal notranslate"><span class="pre">generate_all_monomials()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.generate_monomials_from_hamiltonian"><code class="docutils literal notranslate"><span class="pre">generate_monomials_from_hamiltonian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.generate_wire_path"><code class="docutils literal notranslate"><span class="pre">generate_wire_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.json_to_circuit_string"><code class="docutils literal notranslate"><span class="pre">json_to_circuit_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.parse_operator_sequence"><code class="docutils literal notranslate"><span class="pre">parse_operator_sequence()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.print_hamiltonian_monomials"><code class="docutils literal notranslate"><span class="pre">print_hamiltonian_monomials()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.project_to_qubit"><code class="docutils literal notranslate"><span class="pre">project_to_qubit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.reconstruct_hamiltonian_from_monomials"><code class="docutils literal notranslate"><span class="pre">reconstruct_hamiltonian_from_monomials()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.sw_project_to_qubit"><code class="docutils literal notranslate"><span class="pre">sw_project_to_qubit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.symbolic_string"><code class="docutils literal notranslate"><span class="pre">symbolic_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.tensor_up"><code class="docutils literal notranslate"><span class="pre">tensor_up()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.circuit_builder.truncate_hamiltonian"><code class="docutils literal notranslate"><span class="pre">truncate_hamiltonian()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.gui_utils">Steppenwolf.gui_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.gui_utils.apply_parameters"><code class="docutils literal notranslate"><span class="pre">apply_parameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.gui_utils.display_modes"><code class="docutils literal notranslate"><span class="pre">display_modes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.gui_utils.generate_and_decompose_hamiltonian"><code class="docutils literal notranslate"><span class="pre">generate_and_decompose_hamiltonian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.gui_utils.populate_param_fields"><code class="docutils literal notranslate"><span class="pre">populate_param_fields()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.steppenwolf_gui">Steppenwolf.steppenwolf_gui module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.apply_parameters"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.apply_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.export_json"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.export_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.generate_hamiltonian"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.generate_hamiltonian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_and_hamiltonian_params"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_circuit_and_hamiltonian_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_file_info"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_circuit_file_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_coefficients"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_coefficients()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_hamiltonian"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_current_hamiltonian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_json"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_current_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_circuit"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.load_circuit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_param_file"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.load_param_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.new_circuit"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.new_circuit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.on_close"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.on_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.project_hamiltonian_to_qubit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit_SW"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.project_hamiltonian_to_qubit_SW()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_as_bundle"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.save_as_bundle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_json_to_file"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.save_json_to_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_param_file"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.save_param_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.set_params"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.set_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.show_modes"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.show_modes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.display_modes"><code class="docutils literal notranslate"><span class="pre">display_modes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.generate_and_decompose_hamiltonian"><code class="docutils literal notranslate"><span class="pre">generate_and_decompose_hamiltonian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.match_key"><code class="docutils literal notranslate"><span class="pre">match_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.populate_param_fields"><code class="docutils literal notranslate"><span class="pre">populate_param_fields()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.useful_func">Steppenwolf.useful_func module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.conversion_Ej"><code class="docutils literal notranslate"><span class="pre">conversion_Ej()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.conversion_Lj"><code class="docutils literal notranslate"><span class="pre">conversion_Lj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.critical_current_to_inductance"><code class="docutils literal notranslate"><span class="pre">critical_current_to_inductance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.critical_current_to_josephson_energy"><code class="docutils literal notranslate"><span class="pre">critical_current_to_josephson_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.generate_ordered_pairs"><code class="docutils literal notranslate"><span class="pre">generate_ordered_pairs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.inductance_to_critical_current"><code class="docutils literal notranslate"><span class="pre">inductance_to_critical_current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.josephson_energy_to_critical_current"><code class="docutils literal notranslate"><span class="pre">josephson_energy_to_critical_current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Steppenwolf.html#Steppenwolf.useful_func.state_generation"><code class="docutils literal notranslate"><span class="pre">state_generation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-archbuilder-module">
+<h2>Architecture_builder.ArchBuilder module<a class="headerlink" href="#architecture-builder-archbuilder-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-interaction-module">
+<h2>Architecture_builder.Interaction module<a class="headerlink" href="#architecture-builder-interaction-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-progresswindow-module">
+<h2>Architecture_builder.ProgressWindow module<a class="headerlink" href="#architecture-builder-progresswindow-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-qubit-module">
+<h2>Architecture_builder.Qubit module<a class="headerlink" href="#architecture-builder-qubit-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-arch-creator-module">
+<h2>Architecture_builder.arch_creator module<a class="headerlink" href="#architecture-builder-arch-creator-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-conf-module">
+<h2>Architecture_builder.conf module<a class="headerlink" href="#architecture-builder-conf-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-generate-docs-module">
+<h2>Architecture_builder.generate_docs module<a class="headerlink" href="#architecture-builder-generate-docs-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-libraries-module">
+<h2>Architecture_builder.libraries module<a class="headerlink" href="#architecture-builder-libraries-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-livingston-api-module">
+<h2>Architecture_builder.livingston_api module<a class="headerlink" href="#architecture-builder-livingston-api-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-opt-pulse-converter-module">
+<h2>Architecture_builder.opt_pulse_converter module<a class="headerlink" href="#architecture-builder-opt-pulse-converter-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-plugin-manager-module">
+<h2>Architecture_builder.plugin_manager module<a class="headerlink" href="#architecture-builder-plugin-manager-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-print-path-module">
+<h2>Architecture_builder.print_path module<a class="headerlink" href="#architecture-builder-print-path-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-qutipsave-module">
+<h2>Architecture_builder.qutipsave module<a class="headerlink" href="#architecture-builder-qutipsave-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="architecture-builder-useful-func-module">
+<h2>Architecture_builder.useful_func module<a class="headerlink" href="#architecture-builder-useful-func-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="modules.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Architecture_builder</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Planckian srl
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Architecture_builder package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#architecture-builder-archbuilder-module">Architecture_builder.ArchBuilder module</a></li>
+<li><a class="reference internal" href="#architecture-builder-interaction-module">Architecture_builder.Interaction module</a></li>
+<li><a class="reference internal" href="#architecture-builder-progresswindow-module">Architecture_builder.ProgressWindow module</a></li>
+<li><a class="reference internal" href="#architecture-builder-qubit-module">Architecture_builder.Qubit module</a></li>
+<li><a class="reference internal" href="#architecture-builder-arch-creator-module">Architecture_builder.arch_creator module</a></li>
+<li><a class="reference internal" href="#architecture-builder-conf-module">Architecture_builder.conf module</a></li>
+<li><a class="reference internal" href="#architecture-builder-generate-docs-module">Architecture_builder.generate_docs module</a></li>
+<li><a class="reference internal" href="#architecture-builder-libraries-module">Architecture_builder.libraries module</a></li>
+<li><a class="reference internal" href="#architecture-builder-livingston-api-module">Architecture_builder.livingston_api module</a></li>
+<li><a class="reference internal" href="#architecture-builder-opt-pulse-converter-module">Architecture_builder.opt_pulse_converter module</a></li>
+<li><a class="reference internal" href="#architecture-builder-plugin-manager-module">Architecture_builder.plugin_manager module</a></li>
+<li><a class="reference internal" href="#architecture-builder-print-path-module">Architecture_builder.print_path module</a></li>
+<li><a class="reference internal" href="#architecture-builder-qutipsave-module">Architecture_builder.qutipsave module</a></li>
+<li><a class="reference internal" href="#architecture-builder-useful-func-module">Architecture_builder.useful_func module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

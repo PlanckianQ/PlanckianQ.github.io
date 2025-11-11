@@ -1,0 +1,69 @@
+Steppenwolf package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   Steppenwolf.qucat_v2
+
+Submodules
+----------
+
+Steppenwolf.Annealer module
+---------------------------
+
+.. automodule:: Steppenwolf.Annealer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Steppenwolf.annealing_routine module
+------------------------------------
+
+.. automodule:: Steppenwolf.annealing_routine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Steppenwolf.circuit_builder module
+----------------------------------
+
+.. automodule:: Steppenwolf.circuit_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Steppenwolf.gui_utils module
+----------------------------
+
+.. automodule:: Steppenwolf.gui_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Steppenwolf.steppenwolf_gui module
+----------------------------------
+
+.. automodule:: Steppenwolf.steppenwolf_gui
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Steppenwolf.useful_func module
+------------------------------
+
+.. automodule:: Steppenwolf.useful_func
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Steppenwolf
+   :members:
+   :undoc-members:
+   :show-inheritance:

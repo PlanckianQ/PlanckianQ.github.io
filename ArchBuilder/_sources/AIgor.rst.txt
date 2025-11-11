@@ -1,0 +1,37 @@
+AIgor package
+=============
+
+Submodules
+----------
+
+AIgor.aigor module
+------------------
+
+.. automodule:: AIgor.aigor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+AIgor.aigor_temp module
+-----------------------
+
+.. automodule:: AIgor.aigor_temp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+AIgor.test_log module
+---------------------
+
+.. automodule:: AIgor.test_log
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: AIgor
+   :members:
+   :undoc-members:
+   :show-inheritance:

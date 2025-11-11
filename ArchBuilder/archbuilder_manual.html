@@ -1,0 +1,1757 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="prev" title="User Guide" href="installation.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>ArchBuilder: Integrated Quantum Architecture Environment - Archbuilder 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Archbuilder 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Archbuilder 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Package Contents:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ArchBuilder.html">ArchBuilder package</a><input aria-label="Toggle navigation of ArchBuilder package" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">Architecture_builder</a><input aria-label="Toggle navigation of Architecture_builder" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">ArchBuilder: Integrated Quantum Architecture Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#steppenwolf-circuit-loading-and-chiron-module">SteppenWolf Circuit Loading and Chiron Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#qubit-spectroscopy-and-calibration-tabs">Qubit Spectroscopy and Calibration Tabs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#livingston-interactive-quantum-layout-editor">Livingston: Interactive Quantum Layout Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#user-interaction-and-mouse-commands">User Interaction and Mouse Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#writing-dynamic-interaction-generators">Writing Dynamic Interaction Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#testing-via-command-line">Testing via Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#frankenstein-quantum-pulse-and-operation-editor">Frankenstein: Quantum Pulse and Operation Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#bovary-executing-pulses-and-operations-through-compilers">Bovary: Executing Pulses and Operations Through Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#simulation-and-export">Simulation and Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#qec-logical-error-module">QEC Logical Error Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#writing-and-integrating-a-compiler-in-archbuilder">Writing and Integrating a Compiler in ArchBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#coordination-between-layout-pulses-and-compiler">Coordination Between Layout, Pulses, and Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#best-practices-for-compiler-design">Best Practices for Compiler Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/archbuilder_manual.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="archbuilder-integrated-quantum-architecture-environment">
+<h1>ArchBuilder: Integrated Quantum Architecture Environment<a class="headerlink" href="#archbuilder-integrated-quantum-architecture-environment" title="Link to this heading">¶</a></h1>
+<p>Since <strong>April 2025</strong>, <em>Planckian srl</em> began the development of <strong>ArchBuilder</strong>.</p>
+<p>This Python package includes a graphical user interface (GUI) designed to support all phases of the theoretical development of a quantum architecture. It also functions as a general-purpose many-body analysis environment.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_static/archbuilder/ArchBuilder1.png"><img alt="ArchBuilder main interface" src="_static/archbuilder/ArchBuilder1.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A clean open screen of ArchBuilder.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The <strong>ArchBuilder</strong> application is the central orchestrator of the Planckian suite. It provides a unified graphical interface that connects all submodules — <code class="code docutils literal notranslate"><span class="pre">SteppenWolf</span></code>, <code class="code docutils literal notranslate"><span class="pre">Livingston</span></code>, <code class="code docutils literal notranslate"><span class="pre">Frankenstein</span></code>, <code class="code docutils literal notranslate"><span class="pre">Bovary</span></code>, and <code class="code docutils literal notranslate"><span class="pre">Metamorphosis</span></code> — into a coherent workflow for designing, compiling, and simulating superconducting quantum architectures.</p>
+<section id="purpose-and-scope">
+<h2>Purpose and Scope<a class="headerlink" href="#purpose-and-scope" title="Link to this heading">¶</a></h2>
+<p>ArchBuilder is designed as the top-level environment for the full life-cycle of a quantum processor layout, from theoretical conception to experimental calibration and simulation. It integrates circuit quantization, Hamiltonian modeling, pulse synthesis, and dynamic simulation into a single project framework represented by the <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> format.</p>
+</section>
+<section id="architecture-of-the-application">
+<h2>Architecture of the Application<a class="headerlink" href="#architecture-of-the-application" title="Link to this heading">¶</a></h2>
+<p>The main window, implemented by the class <code class="code docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code>, coordinates interaction between submodules. The graphical layout follows the logical pipeline of the Planckian workflow:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\texttt{SteppenWolf} \Rightarrow \texttt{Livingston} \Rightarrow \texttt{Frankenstein} \Rightarrow \texttt{Bovary} \Rightarrow \texttt{Metamorphosis}\]</div>
+</div>
+<p>Each stage corresponds to a specific layer of abstraction:</p>
+<ul class="simple">
+<li><p><strong>SteppenWolf:</strong> circuit-level quantization and Hamiltonian extraction.</p></li>
+<li><p><strong>Livingston:</strong> spatial layout editor and symbolic Hamiltonian visualization.</p></li>
+<li><p><strong>Frankenstein:</strong> pulse editor and operation builder (<code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files).</p></li>
+<li><p><strong>Bovary:</strong> pulse composer and compiler integration layer.</p></li>
+<li><p><strong>Metamorphosis:</strong> numerical simulator and dynamic evolution engine.</p></li>
+</ul>
+</section>
+<section id="the-arch-project-structure">
+<h2>The <cite>.arch</cite> Project Structure<a class="headerlink" href="#the-arch-project-structure" title="Link to this heading">¶</a></h2>
+<p>ArchBuilder projects are organized around the <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> file format — a structured JSON or ZIP-archived directory that encapsulates all files defining a specific quantum architecture. Each project folder contains:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">layout.json</span></code> — the quantum layout exported from Livingston.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">pulses_index.json</span></code> — compiled pulse operations from Frankenstein.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">circuit.json</span></code> — circuit-level information from SteppenWolf.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">simulator_config.json</span></code> — backend and runtime settings.</p></li>
+<li><p>Optional <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files and compiler scripts (<code class="code docutils literal notranslate"><span class="pre">.py</span></code>).</p></li>
+<li><p>A metadata header (<code class="code docutils literal notranslate"><span class="pre">.arch</span></code>) describing the QPU family, species, and compiler linkage.</p></li>
+</ul>
+</section>
+<section id="interface-layout">
+<h2>Interface Layout<a class="headerlink" href="#interface-layout" title="Link to this heading">¶</a></h2>
+<p>The main interface presents a grid of module icons connected by bidirectional arrows representing data flow. Each icon launches its respective module:</p>
+<ol class="arabic simple">
+<li><p>SteppenWolf</p></li>
+<li><p>Livingston</p></li>
+<li><p>Frankenstein</p></li>
+<li><p>Bovary</p></li>
+<li><p>Metamorphosis</p></li>
+</ol>
+<p>Arrows between modules can be toggled to enable automatic chaining — for example, linking Livingston’s output directly into the simulator. Status indicators display whether each stage (circuit, layout, pulses, etc.) is loaded and synchronized.</p>
+</section>
+<section id="core-capabilities">
+<h2>Core Capabilities<a class="headerlink" href="#core-capabilities" title="Link to this heading">¶</a></h2>
+<p><strong>Project Management</strong>
+Create, open, and save complete architecture projects. Projects are stored in human-readable folders or compressed into single <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> archives.</p>
+<p><strong>Module Integration</strong>
+Launches each Planckian submodule in a new window, handling file exchange and dependencies automatically.</p>
+<p><strong>Layout Metadata Synchronization</strong>
+Automatically extracts species, connectivity, and layout information from <code class="code docutils literal notranslate"><span class="pre">Livingston</span></code> outputs.</p>
+<p><strong>Pulse Operation Management</strong>
+Collects all operation definition files (<code class="code docutils literal notranslate"><span class="pre">.oper</span></code>) and validates them against species declared in the layout. Generates a <code class="code docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file listing valid operations, mappings, and metadata.</p>
+<p><strong>Compiler and Simulation Interface</strong>
+Integrates compilers and connects to the <code class="code docutils literal notranslate"><span class="pre">Bovary</span></code> and <code class="code docutils literal notranslate"><span class="pre">Metamorphosis</span></code> modules.</p>
+<p><strong>Plugin System</strong>
+Includes a plugin discovery and execution framework.</p>
+<p><strong>Logging and Version Control</strong>
+All actions are timestamped and can be exported as logs for reproducibility.</p>
+</section>
+<section id="qpu-representation-and-metadata">
+<h2>QPU Representation and Metadata<a class="headerlink" href="#qpu-representation-and-metadata" title="Link to this heading">¶</a></h2>
+<p>Each project corresponds to a <strong>Quantum Processing Unit (QPU)</strong> configuration. The metadata structure stores:</p>
+<ul class="simple">
+<li><p><strong>Family:</strong> architecture class (e.g., “TransmonChain”, “CavityGrid”).</p></li>
+<li><p><strong>Species:</strong> subsystem types (e.g., transmon, resonator, coupler).</p></li>
+<li><p><strong>Layout Path:</strong> JSON file describing spatial and logical connectivity.</p></li>
+<li><p><strong>Compiler:</strong> Python module implementing device-specific pulse compilation.</p></li>
+<li><p><strong>QPU Specs:</strong> auxiliary information such as qubit count or coherence data.</p></li>
+</ul>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_static/archbuilder/ArchBuilder2.png"><img alt="Example secondary interface" src="_static/archbuilder/ArchBuilder2.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example layout view in ArchBuilder.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="steppenwolf-circuit-loading-and-chiron-module">
+<h1>SteppenWolf Circuit Loading and Chiron Module<a class="headerlink" href="#steppenwolf-circuit-loading-and-chiron-module" title="Link to this heading">¶</a></h1>
+<p>A pre-saved or new <code class="code docutils literal notranslate"><span class="pre">.txt</span></code> file can be loaded through the top interface, which opens via the QuCat module, as shown below.</p>
+<figure class="align-left">
+<a class="reference internal image-reference" href="_static/archbuilder/ArchBuilder3.png"><img alt="SteppenWolf circuit import" src="_static/archbuilder/ArchBuilder3.png" style="width: 47%;" />
+</a>
+</figure>
+<figure class="align-right" id="id7">
+<a class="reference internal image-reference" href="_static/archbuilder/ArchBuilder4.png"><img alt="SteppenWolf circuit import" src="_static/archbuilder/ArchBuilder4.png" style="width: 47%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Opening a capacitively coupled two-transmon system in QuCat via SteppenWolf.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>When the file is saved, a screenshot is loaded into <strong>SteppenWolf</strong>, which automatically recognizes parameters that can be modified a posteriori in the editor.
+Users can specify whether transmons have flux, resonator, drive, or generic lines.
+Clicking <strong>Apply parameters</strong> applies or loads pre-saved parameters.
+Later modules recognize pairs such as <code class="code docutils literal notranslate"><span class="pre">C1</span></code>, <code class="code docutils literal notranslate"><span class="pre">J1</span></code>, etc., as transmons — this nomenclature should be used.</p>
+<p>Once parameters are applied, the system can be quantized via <strong>Generate Hamiltonian</strong>.
+Depending on system size, this may take time. The Hamiltonian is bosonic, quantized in the charge basis, and expanded as <span class="math notranslate nohighlight">\(a_j\)</span> and <span class="math notranslate nohighlight">\(a_j^\dagger\)</span>, where <span class="math notranslate nohighlight">\(j\)</span> labels the transmon.</p>
+<p>Plots for circuit modes (current, voltage, charge, and flux) can be generated via <strong>Show Modes</strong>.
+Couplings and their strengths are displayed directly in SteppenWolf.</p>
+<figure class="align-left">
+<a class="reference internal image-reference" href="_static/archbuilder/ArchBuilder5.png"><img alt="Coupling strengths" src="_static/archbuilder/ArchBuilder5.png" style="width: 47%;" />
+</a>
+</figure>
+<figure class="align-right" id="id8">
+<a class="reference internal image-reference" href="_static/archbuilder/ArchBuilder6.png"><img alt="Exported Hamiltonian" src="_static/archbuilder/ArchBuilder6.png" style="width: 47%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Couplings and their strengths generated via SteppenWolf (left), and the exported Hamiltonian loaded into ArchBuilder (right).</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="projection-to-qubit-modes">
+<h2>Projection to Qubit Modes<a class="headerlink" href="#projection-to-qubit-modes" title="Link to this heading">¶</a></h2>
+<p>Two methods are available for projection to qubit modes:</p>
+<ol class="arabic simple">
+<li><p><strong>Projectors</strong></p></li>
+<li><p><strong>Schrieffer–Wolf transformation</strong></p></li>
+</ol>
+<p>Alternatively, the Hamiltonian can be exported using the <strong>Export</strong> button.
+After export, the system is loaded into the main ArchBuilder window.
+Clicking on the arrow between SteppenWolf and Livingston (the <span class="math notranslate nohighlight">\(\hat{H}\)</span> symbol) loads the quantized Hamiltonian into the Hamiltonian editor.</p>
+</section>
+<section id="chiron-experimental-analysis-module">
+<h2>Chiron: Experimental Analysis Module<a class="headerlink" href="#chiron-experimental-analysis-module" title="Link to this heading">¶</a></h2>
+<p><strong>Chiron</strong> bridges theory and experiment by providing an interactive environment to <em>analyze, simulate, and visualize</em> measurable properties of superconducting qubits and their readout circuits.</p>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h3>
+<p>Chiron is a physics-oriented graphical interface designed to study properties of transmon qubits and resonators obtained from the quantized circuit.
+It uses the circuit’s parameter set (JSON format) as input and computes quantities such as:</p>
+<ul class="simple">
+<li><p>Josephson energy (<span class="math notranslate nohighlight">\(E_J\)</span>)</p></li>
+<li><p>Charging energy (<span class="math notranslate nohighlight">\(E_C\)</span>)</p></li>
+<li><p>Transition frequency (<span class="math notranslate nohighlight">\(f_{01}\)</span>)</p></li>
+<li><p>Anharmonicity (<span class="math notranslate nohighlight">\(\alpha\)</span>)</p></li>
+<li><p>Dispersive shift (<span class="math notranslate nohighlight">\(\chi\)</span>)</p></li>
+<li><p>Relaxation and dephasing times (<span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2^*\)</span>)</p></li>
+</ul>
+<p>Each analysis routine is organized into separate tabs within the GUI.</p>
+</section>
+<section id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Link to this heading">¶</a></h3>
+<p>Chiron is implemented as a multi-tab <code class="code docutils literal notranslate"><span class="pre">Tkinter</span></code> interface, built on a <code class="code docutils literal notranslate"><span class="pre">Notebook</span></code> widget.
+Each tab corresponds to a specific measurement or calibration procedure:</p>
+<ul class="simple">
+<li><p><strong>Transmon Tab</strong> – compute and plot intrinsic qubit parameters.</p></li>
+<li><p><strong>Resonator Tab</strong> – visualize qubit–resonator coupling.</p></li>
+<li><p><strong>Resonator Spectroscopy</strong> – simulate resonator response and flux dependence.</p></li>
+<li><p><strong>Qubit Spectroscopy</strong> – perform two-tone spectroscopy simulation.</p></li>
+<li><p><strong>π-Pulse Calibration</strong> – emulate Rabi oscillation calibration.</p></li>
+<li><p><strong>Coherence (T₁, T₂*)</strong> – simulate relaxation and dephasing using <code class="code docutils literal notranslate"><span class="pre">QuTiP</span></code>.</p></li>
+</ul>
+<p>Each tab includes parameter entry fields, live plots (via <code class="code docutils literal notranslate"><span class="pre">matplotlib</span></code>), and explanatory text describing the relevant physics.</p>
+</section>
+<section id="transmon-tab">
+<h3>Transmon Tab<a class="headerlink" href="#transmon-tab" title="Link to this heading">¶</a></h3>
+<p>The Transmon tab extracts transmon parameters from the circuit JSON generated by <code class="code docutils literal notranslate"><span class="pre">SteppenWolf</span></code>.
+Pairs of elements <span class="math notranslate nohighlight">\((J_i, C_i)\)</span> or <span class="math notranslate nohighlight">\((E_{J,i}, C_i)\)</span> are automatically detected and listed as qubits.</p>
+<p>Users can:</p>
+<ul>
+<li><p>Choose input units for the Josephson parameter — either <span class="math notranslate nohighlight">\(L_J\)</span> (nH) or <span class="math notranslate nohighlight">\(E_J\)</span> (J).
+When inductances are used, Chiron applies the conversion <span class="math notranslate nohighlight">\(E_J = (\hbar / 2e)^2 / L_J\)</span>.</p></li>
+<li><p>Compute derived quantities:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[E_C = \frac{e^2}{2C}, \quad
+f_{01} = \frac{1}{2\pi}\left(\frac{\sqrt{8E_JE_C}}{\hbar} - \frac{E_C}{\hbar}\right), \quad
+\alpha = -\frac{E_C}{\hbar}\]</div>
+</div>
+</li>
+<li><p>Display results in SI and GHz units.</p></li>
+<li><p>Plot <span class="math notranslate nohighlight">\(f_{01}\)</span> versus <span class="math notranslate nohighlight">\(E_J\)</span> or <span class="math notranslate nohighlight">\(L_J\)</span>, or visualize dispersive shift <span class="math notranslate nohighlight">\(\chi\)</span> vs. detuning <span class="math notranslate nohighlight">\(\Delta\)</span>.</p></li>
+</ul>
+<p>All computed parameters are cached per qubit for later use across analysis tabs.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_static/archbuilder/Chiron1.png"><img alt="Chiron module analysis" src="_static/archbuilder/Chiron1.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example plots generated by the Chiron module.</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="resonator-tab">
+<h3>Resonator Tab<a class="headerlink" href="#resonator-tab" title="Link to this heading">¶</a></h3>
+<p>The Resonator tab models the dispersive readout of a transmon coupled to a resonator.
+Given qubit frequency <span class="math notranslate nohighlight">\(\omega_q\)</span>, resonator frequency <span class="math notranslate nohighlight">\(\omega_r\)</span>, and coupling <span class="math notranslate nohighlight">\(g\)</span>,
+Chiron computes the dispersive shift:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\chi = -\frac{g^2}{\Delta}, \qquad \Delta = \omega_q - \omega_r\]</div>
+</div>
+<p>and plots the resonator dips corresponding to ground and excited qubit states —
+displayed as normalized transmission amplitudes <span class="math notranslate nohighlight">\(|S_{21}|\)</span> versus frequency.</p>
+<p>The user can adjust the resonator frequency, coupling, and linewidth interactively.</p>
+</section>
+<section id="resonator-spectroscopy-tab">
+<h3>Resonator Spectroscopy Tab<a class="headerlink" href="#resonator-spectroscopy-tab" title="Link to this heading">¶</a></h3>
+<p>This tab provides simulated traces of resonator transmission under different conditions:</p>
+<ul class="simple">
+<li><p><strong>Plot Resonator Dip:</strong> display the double-dip structure due to qubit-state-dependent shifts (<span class="math notranslate nohighlight">\(\omega_r \pm \chi\)</span>).</p></li>
+<li><p><strong>Plot vs Flux:</strong> show how <span class="math notranslate nohighlight">\(\chi\)</span> varies with flux <span class="math notranslate nohighlight">\(\Phi\)</span>, using a tunable qubit model <span class="math notranslate nohighlight">\(f_q(\Phi) = f_{01} + A\cos(2\pi\Phi/\Phi_0)\)</span>.</p></li>
+<li><p><strong>Plot Averaged:</strong> simulate noisy or averaged spectroscopy traces to mimic realistic experimental conditions.</p></li>
+</ul>
+<p>These tools allow visualization of how qubit–resonator coupling modifies resonator spectra.</p>
+</section>
+</section>
+</section>
+<section id="qubit-spectroscopy-and-calibration-tabs">
+<h1>Qubit Spectroscopy and Calibration Tabs<a class="headerlink" href="#qubit-spectroscopy-and-calibration-tabs" title="Link to this heading">¶</a></h1>
+<section id="qubit-spectroscopy-tab">
+<h2>Qubit Spectroscopy Tab<a class="headerlink" href="#qubit-spectroscopy-tab" title="Link to this heading">¶</a></h2>
+<p>The <strong>Qubit Spectroscopy</strong> tab simulates a typical two-tone spectroscopy measurement,
+in which a weak probe monitors resonator transmission while a drive tone sweeps across the qubit frequency.</p>
+<ul class="simple">
+<li><p>Displays transmission amplitude as a function of drive frequency.</p></li>
+<li><p>Shows the qubit resonance as a Lorentzian dip centered at <span class="math notranslate nohighlight">\(f_{01}\)</span>.</p></li>
+<li><p>Can plot qubit frequency versus flux bias to reproduce the characteristic <em>chevron</em> pattern of flux-tunable qubits.</p></li>
+</ul>
+</section>
+<section id="pulse-calibration-tab">
+<h2>π-Pulse Calibration Tab<a class="headerlink" href="#pulse-calibration-tab" title="Link to this heading">¶</a></h2>
+<p>The <strong>π-Pulse Calibration</strong> tab models Rabi oscillation experiments used to calibrate single-qubit gate parameters.
+Two modes are available:</p>
+<ul class="simple">
+<li><p><strong>Time Rabi:</strong>
+Drive amplitude is fixed while pulse length is swept.
+Excitation probability follows <span class="math notranslate nohighlight">\(P_e = \sin^2(\tfrac{1}{2}\Omega_R t)\)</span>,
+where <span class="math notranslate nohighlight">\(\Omega_R\)</span> is the Rabi frequency.</p></li>
+<li><p><strong>Power Rabi:</strong>
+Pulse length is fixed while drive amplitude varies.
+The π-pulse condition corresponds to the first oscillation maximum <span class="math notranslate nohighlight">\(\Omega_R t = \pi\)</span>.</p></li>
+</ul>
+<p>The resulting plots show oscillations in excited-state population, identifying the correct amplitude or duration for π-rotations.</p>
+</section>
+<section id="coherence-tab-t1-and-t2-simulations">
+<h2>Coherence Tab — T₁ and T₂* Simulations<a class="headerlink" href="#coherence-tab-t1-and-t2-simulations" title="Link to this heading">¶</a></h2>
+<p>The <strong>Coherence</strong> tab performs numerical simulations of qubit relaxation and dephasing using the <code class="code docutils literal notranslate"><span class="pre">QuTiP</span></code> library.</p>
+<ul class="simple">
+<li><p><strong>T₁ Relaxation:</strong>
+Solves the Lindblad master equation for a qubit initialized in the excited state,
+with collapse operator <span class="math notranslate nohighlight">\(\sqrt{1/T_1}\,\sigma_-\)</span>.
+The result shows exponential decay of the excited-state probability over time.</p></li>
+<li><p><strong>T₂* Ramsey Decay:</strong>
+Simulates a Ramsey interferometry sequence with two π/2 pulses separated by variable delay,
+including both relaxation and pure dephasing.
+The interference fringes illustrate coherence decay and detuning.</p></li>
+</ul>
+<p>The simulated traces correspond to measurable quantities such as the excited-state probability <span class="math notranslate nohighlight">\(P_e(t)\)</span> and Ramsey fringes for <span class="math notranslate nohighlight">\(\pm\Delta\)</span> detuning.</p>
+</section>
+<section id="chiron-integration-and-visualization">
+<h2>Chiron Integration and Visualization<a class="headerlink" href="#chiron-integration-and-visualization" title="Link to this heading">¶</a></h2>
+<p>Chiron automatically detects transmons and resonators from the JSON output of <code class="code docutils literal notranslate"><span class="pre">SteppenWolf</span></code>.
+Each variable pair <span class="math notranslate nohighlight">\((J_i, C_i)\)</span> or <span class="math notranslate nohighlight">\((E_{J,i}, C_i)\)</span> is recognized as a separate transmon,
+and parameters are propagated across all analysis tabs.</p>
+<p>A <strong>Show Circuit JSON</strong> utility lets users inspect the loaded structure directly.</p>
+<p>All plots are rendered interactively via embedded <code class="code docutils literal notranslate"><span class="pre">matplotlib</span></code> canvases, allowing users to:</p>
+<ul class="simple">
+<li><p>Zoom or rescale axes interactively.</p></li>
+<li><p>Compare results across tabs and parameter sets.</p></li>
+<li><p>Save plots externally through the standard <code class="code docutils literal notranslate"><span class="pre">matplotlib</span></code> interface.</p></li>
+</ul>
+<p>In essence, <strong>Chiron</strong> acts as the experimental twin of <code class="code docutils literal notranslate"><span class="pre">Livingston</span></code>:
+it takes the quantized circuit parameters and reproduces the expected physical device behavior.
+From fundamental quantities such as <span class="math notranslate nohighlight">\(E_J\)</span>, <span class="math notranslate nohighlight">\(E_C\)</span>, and <span class="math notranslate nohighlight">\(f_{01}\)</span>,
+to calibration and coherence simulations, Chiron provides a complete, interactive laboratory
+for superconducting qubit characterization within the <strong>ArchBuilder</strong> environment.</p>
+<figure class="align-left">
+<a class="reference internal image-reference" href="_static/archbuilder/Chiron1.png"><img alt="Chiron analysis 1" src="_static/archbuilder/Chiron1.png" style="width: 50%;" />
+</a>
+</figure>
+<figure class="align-right">
+<a class="reference internal image-reference" href="_static/archbuilder/Chiron2.png"><img alt="Chiron analysis 2" src="_static/archbuilder/Chiron2.png" style="width: 50%;" />
+</a>
+</figure>
+<figure class="align-left">
+<a class="reference internal image-reference" href="_static/archbuilder/Chiron3.png"><img alt="Chiron analysis 3" src="_static/archbuilder/Chiron3.png" style="width: 50%;" />
+</a>
+</figure>
+<figure class="align-right">
+<a class="reference internal image-reference" href="_static/archbuilder/Chiron4.png"><img alt="Chiron analysis 4" src="_static/archbuilder/Chiron4.png" style="width: 50%;" />
+</a>
+</figure>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_static/archbuilder/Chiron5.png"><img alt="Chiron plots overview" src="_static/archbuilder/Chiron5.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The Chiron module with multiple analysis tabs and example plots generated from qubit design parameters.</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="livingston-interactive-quantum-layout-editor">
+<h1>Livingston: Interactive Quantum Layout Editor<a class="headerlink" href="#livingston-interactive-quantum-layout-editor" title="Link to this heading">¶</a></h1>
+<p>The second module in <strong>ArchBuilder</strong> is <strong>Livingston</strong>,
+an interactive environment for building, visualizing, and analyzing quantum layouts and Hamiltonians.</p>
+<p>If opened without importing a circuit Hamiltonian, Livingston acts as a general-purpose Hamiltonian editor.</p>
+<p>Livingston provides a graphical representation of quantum architectures,
+allowing direct editing of <strong>degrees of freedom (DOFs)</strong>, <strong>interaction factors</strong>, and <strong>Lindblad channels</strong>.
+It functions as both a layout editor and symbolic Hamiltonian manager, interfaced with <code class="code docutils literal notranslate"><span class="pre">SymPy</span></code> and <code class="code docutils literal notranslate"><span class="pre">QuTiP</span></code> for analysis and export.</p>
+<section id="id1">
+<h2>Overview<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>The Livingston editor implements a real-time, grid-based canvas displaying all physical and logical elements of a quantum architecture:</p>
+<ul class="simple">
+<li><p><strong>DOFs (Degrees of Freedom):</strong> nodes representing quantum sites (qubits, resonators).</p></li>
+<li><p><strong>Factor Nodes:</strong> graph nodes defining multi-body Hamiltonian interactions between DOFs.</p></li>
+<li><p><strong>Lindblad Nodes:</strong> elements representing dissipative channels and environmental couplings.</p></li>
+<li><p><strong>Annotations:</strong> text labels for parameters or notes.</p></li>
+</ul>
+<p>The interface supports zooming, scrolling, undo/redo, parametric coupling management, and graphical export.
+All components are editable via mouse interaction or context menus.</p>
+<figure class="align-left">
+<a class="reference internal image-reference" href="_static/archbuilder/Livingston1.png"><img alt="Livingston full mode" src="_static/archbuilder/Livingston1.png" style="width: 47%;" />
+</a>
+</figure>
+<figure class="align-right" id="id11">
+<a class="reference internal image-reference" href="_static/archbuilder/Livingston2.png"><img alt="Livingston compact mode" src="_static/archbuilder/Livingston2.png" style="width: 47%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The two UI modes of Livingston when opened fresh without exporting circuits.</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="user-interaction-and-mouse-commands">
+<h1>User Interaction and Mouse Commands<a class="headerlink" href="#user-interaction-and-mouse-commands" title="Link to this heading">¶</a></h1>
+<p>The Livingston canvas is fully interactive. The following actions are supported:</p>
+<ul class="simple">
+<li><p><strong>Left Click:</strong>
+* On an empty grid cell – create a new DOF of the currently selected species.
+* On an existing DOF – select or deselect it.
+* Click and drag – draw a rectangular selection box over multiple DOFs or factors.</p></li>
+<li><p><strong>Double Click:</strong>
+* On a DOF – open its detailed property editor.
+* On a factor node – open the <em>Add Interaction</em> dialog.
+* On an empty cell – create a new DOF (quick-add mode).
+* On an annotation – open the text editor.</p></li>
+<li><p><strong>Right Click:</strong>
+* On empty space – add an annotation, paste a copied pattern, or undo.
+* On a DOF – open the DOF context menu (edit, delete, copy, drag, etc.).
+* On a factor node – open the factor context menu (add, edit, or remove interactions).</p></li>
+<li><p><strong>Mouse Wheel:</strong> zoom in or out around the cursor position.</p></li>
+</ul>
+<section id="toolbar-and-menu-system">
+<h2>Toolbar and Menu System<a class="headerlink" href="#toolbar-and-menu-system" title="Link to this heading">¶</a></h2>
+<p>Depending on the selected <code class="code docutils literal notranslate"><span class="pre">UI</span> <span class="pre">mode</span></code>, Livingston can operate in:</p>
+<ul class="simple">
+<li><p><strong>Full Mode</strong> – with a multi-row toolbar of buttons for all core operations.</p></li>
+<li><p><strong>Compact Mode</strong> – with a minimal toolbar and hierarchical menubar for smaller screens.</p></li>
+</ul>
+<section id="main-menus-and-functions">
+<h3>Main Menus and Functions<a class="headerlink" href="#main-menus-and-functions" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>File:</strong> load and save layouts (<code class="code docutils literal notranslate"><span class="pre">.json</span></code>); export the canvas as a PNG image; load dynamic layouts from external Python generators.</p></li>
+<li><p><strong>View:</strong> refresh or center the layout, toggle lock state (read-only mode), clear the canvas, and switch between UI modes.</p></li>
+<li><p><strong>Species:</strong> add or remove quantum species (each defined by name, color, and Hilbert-space dimension).</p></li>
+<li><p><strong>Quantum:</strong> add Hamiltonian and Lindblad terms; view and edit the Hamiltonian; inspect parameters and initial states.</p></li>
+<li><p><strong>Graph:</strong> create or display spanning trees and network topologies; export trees for matrix-product-state (MPS) or tensor-network analysis.</p></li>
+<li><p><strong>Export:</strong> save the Hamiltonian in symbolic (<code class="code docutils literal notranslate"><span class="pre">SymPy</span></code>) or object (<code class="code docutils literal notranslate"><span class="pre">QuTiP</span></code>) format for simulation.</p></li>
+</ul>
+</section>
+</section>
+<section id="editing-elements">
+<h2>Editing Elements<a class="headerlink" href="#editing-elements" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>DOFs:</strong>
+Each DOF stores its ID, position, species, Hilbert-space dimension, and driven roles (flux, resonator, drive, etc.).
+Double-clicking a DOF opens a detailed editor to modify these properties and its local Hamiltonian terms.</p></li>
+<li><p><strong>Factors:</strong>
+Created by selecting two or more DOFs and clicking <em>Add Interaction</em>.
+Each factor can contain multiple interaction terms (symbolic or numeric).
+Parameters may be shared across factors via symbolic identifiers.</p></li>
+<li><p><strong>Lindblad Terms:</strong>
+Added using <em>Add Lindblad(s)</em> on selected DOFs.
+Each term defines collapse operators and decay rates for open-system simulation.</p></li>
+<li><p><strong>Annotations:</strong>
+Simple text notes placed anywhere on the grid.
+Right-click to edit or delete them.</p></li>
+</ul>
+</section>
+<section id="hamiltonian-viewer">
+<h2>Hamiltonian Viewer<a class="headerlink" href="#hamiltonian-viewer" title="Link to this heading">¶</a></h2>
+<p>The <strong>View Hamiltonian</strong> window presents all interaction terms within the layout. It supports:</p>
+<ul class="simple">
+<li><p>Grouping duplicate terms and simplifying zero couplings.</p></li>
+<li><p>Adding Gaussian disorder or global rescaling to numeric couplings.</p></li>
+<li><p>Expanding <span class="math notranslate nohighlight">\(\sigma^\pm\sigma^\mp\)</span> products into Pauli components.</p></li>
+<li><p>Rewriting annihilation/creation operators (<span class="math notranslate nohighlight">\(a, a^\dagger\)</span>) into spin operators (<span class="math notranslate nohighlight">\(\sigma^\pm\)</span>).</p></li>
+<li><p>Computing and plotting the statistical distribution of coupling magnitudes <span class="math notranslate nohighlight">\(|J|\)</span>.</p></li>
+<li><p>Undo-safe editing of strengths, labels, and parameters.</p></li>
+</ul>
+</section>
+<section id="parametric-and-symbolic-variables">
+<h2>Parametric and Symbolic Variables<a class="headerlink" href="#parametric-and-symbolic-variables" title="Link to this heading">¶</a></h2>
+<p>All symbolic parameters in couplings (e.g., <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(J\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>) are automatically tracked in a dedicated registry.</p>
+<p>Each parameter record includes:</p>
+<ul class="simple">
+<li><p>Its type (interaction or Lindblad),</p></li>
+<li><p>A list of instances and default values,</p></li>
+<li><p>Cross-references to associated factor labels.</p></li>
+</ul>
+<p>The <em>Free Parameters</em> window lists all active symbolic variables, ensuring full reproducibility of exported Hamiltonians.</p>
+</section>
+<section id="spanning-trees-and-graph-tools">
+<h2>Spanning Trees and Graph Tools<a class="headerlink" href="#spanning-trees-and-graph-tools" title="Link to this heading">¶</a></h2>
+<p>Livingston can construct <strong>spanning trees</strong> or acyclic subgraphs among selected DOFs:</p>
+<ul class="simple">
+<li><p><strong>Automatic mode:</strong> generates a minimum-distance spanning tree using NetworkX.</p></li>
+<li><p><strong>Manual mode:</strong> lets the user draw connections interactively by clicking pairs of DOFs.</p></li>
+</ul>
+<p>Trees are stored with labels, colors, and optional root nodes.
+They can be displayed on the canvas or exported to JSON for MPS or tensor-network simulations.</p>
+</section>
+<section id="export-and-import">
+<h2>Export and Import<a class="headerlink" href="#export-and-import" title="Link to this heading">¶</a></h2>
+<p>Livingston provides multiple export pathways:</p>
+<ul class="simple">
+<li><p><strong>SymPy (.py):</strong> exports a fully symbolic Hamiltonian with noncommutative operators <span class="math notranslate nohighlight">\(X_i\)</span>, <span class="math notranslate nohighlight">\(Z_i\)</span>, <span class="math notranslate nohighlight">\(a_i\)</span>, <span class="math notranslate nohighlight">\(\sigma_i^\pm\)</span>.</p></li>
+<li><p><strong>QuTiP (.qu):</strong> generates <code class="code docutils literal notranslate"><span class="pre">Qobj</span></code> representations for simulation.</p></li>
+<li><p><strong>JSON:</strong> saves or reloads layouts, parameters, species, and spanning trees.</p></li>
+<li><p><strong>PNG:</strong> exports the current canvas as a publication-ready image.</p></li>
+</ul>
+</section>
+<section id="undo-and-autosave">
+<h2>Undo and Autosave<a class="headerlink" href="#undo-and-autosave" title="Link to this heading">¶</a></h2>
+<p>All user operations (additions, deletions, edits) are stored in an undo stack (depth 50).
+The window title indicates when unsaved changes exist.
+Layouts can be locked to prevent accidental modification during operations.</p>
+</section>
+<section id="visualization-and-color-coding">
+<h2>Visualization and Color Coding<a class="headerlink" href="#visualization-and-color-coding" title="Link to this heading">¶</a></h2>
+<p>On the Livingston canvas:</p>
+<ul class="simple">
+<li><p><strong>Blue squares:</strong> represent local DOFs. Species may be added with new colors—useful for globally controlled architectures.</p></li>
+<li><p><strong>Red circles:</strong> represent multi-DOF (non-local) interactions where Hamiltonian terms can be added or edited.
+<strong>Green circles:</strong> specialized indicators for local Hamiltonian terms.</p></li>
+<li><p>Selection highlights are drawn in blue.</p></li>
+<li><p>Annotations appear as yellow text bubbles with pin markers.</p></li>
+</ul>
+</section>
+<section id="summary-of-user-actions">
+<h2>Summary of User Actions<a class="headerlink" href="#summary-of-user-actions" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container" id="id12">
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Summary of common actions</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Action</strong></p></th>
+<th class="head"><p><strong>Effect</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Left-click on grid</p></td>
+<td><p>Create or select DOF</p></td>
+</tr>
+<tr class="row-odd"><td><p>Left-click + drag</p></td>
+<td><p>Box-select multiple elements</p></td>
+</tr>
+<tr class="row-even"><td><p>Double-click DOF</p></td>
+<td><p>Open DOF property editor</p></td>
+</tr>
+<tr class="row-odd"><td><p>Double-click factor</p></td>
+<td><p>Add new interaction term</p></td>
+</tr>
+<tr class="row-even"><td><p>Right-click DOF</p></td>
+<td><p>Edit or delete DOF, copy/paste pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p>Right-click factor</p></td>
+<td><p>Edit or rename factor node</p></td>
+</tr>
+<tr class="row-even"><td><p>Right-click empty space</p></td>
+<td><p>Add annotation, paste, or undo</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mouse wheel</p></td>
+<td><p>Zoom in/out</p></td>
+</tr>
+<tr class="row-even"><td><p>Ctrl+S</p></td>
+<td><p>Save layout as JSON</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ctrl+E</p></td>
+<td><p>Export Hamiltonian</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Livingston unifies the visual design of quantum architectures with symbolic and numerical Hamiltonian analysis.
+It bridges the gap between physical layout and theoretical Hamiltonian representation, supporting both human-guided and automated workflows.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_static/archbuilder/Livingston3.png"><img alt="Livingston export example" src="_static/archbuilder/Livingston3.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example of a circuit exported into Livingston. Lattices or interaction systems can also be generated dynamically using Python.</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="writing-dynamic-interaction-generators">
+<h1>Writing Dynamic Interaction Generators<a class="headerlink" href="#writing-dynamic-interaction-generators" title="Link to this heading">¶</a></h1>
+<p>Dynamic lattice generators (files prefixed with <code class="code docutils literal notranslate"><span class="pre">lattice_</span></code> or with names such as
+<code class="code docutils literal notranslate"><span class="pre">2dIsingDynamic.py</span></code>) define parameterized architectures that can be automatically
+produced within <strong>Livingston</strong> via the <em>Load Dynamic Layout (.py)</em> tool.</p>
+<p>Each generator is a self-contained Python module implementing a minimal interface consisting of
+a self-describing metadata dictionary and two callable functions:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_generator_metadata()</span></code> — returns a dictionary describing model parameters.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">generate_layout_tempfile(max_qubits,</span> <span class="pre">params)</span></code> — generates the layout and returns
+both its JSON data and the temporary file path for Livingston to load.</p></li>
+</ul>
+<p>This interface allows <strong>ArchBuilder</strong> to dynamically populate model-specific forms
+(e.g., Ising chains, Bose–Hubbard lattices, or custom graph Hamiltonians) and automatically construct
+layouts, factor nodes, and parameter maps.</p>
+<section id="id2">
+<h2>Overview<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>A dynamic generator must be <em>self-describing</em>, meaning it provides both its data structure
+and the semantic description of its parameters.
+When a user selects the file from Livingston’s <em>Dynamic Layout Generator</em> dialog,
+the metadata are parsed, a form is built automatically, and parameters are passed
+to the generator’s core function.</p>
+<p>Example: a 1D transverse-field Ising model with nearest-neighbor <span class="math notranslate nohighlight">\(ZZ\)</span> coupling and local <span class="math notranslate nohighlight">\(X\)</span> fields.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2dIsingDynamic.py</span>
+<span class="c1"># Self-describing dynamic generator for a 1D ZZ Ising model</span>
+<span class="c1"># with transverse X field and configurable boundary conditions.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">tempfile</span>
+
+<span class="n">_METADATA</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ising1D_ZZ_with_X&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;1D nearest-neighbor ZZ Ising with transverse X field&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;max_qubits&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;complex_str&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;(1+0j)&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;complex_str&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;(1+0j)&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;boundary&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span> <span class="s2">&quot;choices&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;periodic&quot;</span><span class="p">],</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_generator_metadata</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">_METADATA</span>
+</pre></div>
+</div>
+</section>
+<section id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">¶</a></h2>
+<p>The metadata block defines the generator’s human-readable information and input schema.
+The <code class="code docutils literal notranslate"><span class="pre">params</span></code> field declares adjustable parameters and their types (numeric, complex, enum, etc.).
+Livingston uses this to automatically generate parameter entry fields.</p>
+<ul class="simple">
+<li><p><strong>name</strong> – internal identifier of the generator.</p></li>
+<li><p><strong>description</strong> – displayed in the UI when selected.</p></li>
+<li><p><strong>params</strong> – dictionary of tunable parameters with types and defaults.</p></li>
+<li><p><strong>required</strong> – mandatory arguments (e.g., number of qubits or sites).</p></li>
+</ul>
+</section>
+<section id="parameter-handling">
+<h2>Parameter Handling<a class="headerlink" href="#parameter-handling" title="Link to this heading">¶</a></h2>
+<p>A helper function merges user-specified parameters with defaults and validates enumerations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_merged_params</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_METADATA</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">merged</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">defaults</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">defaults</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">merged</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="k">if</span> <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_METADATA</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">][</span><span class="s2">&quot;boundary&quot;</span><span class="p">][</span><span class="s2">&quot;choices&quot;</span><span class="p">]:</span>
+        <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_METADATA</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">][</span><span class="s2">&quot;boundary&quot;</span><span class="p">][</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">merged</span>
+</pre></div>
+</div>
+<p>This ensures the generator always produces a valid layout, even if the user omits optional fields.</p>
+</section>
+<section id="layout-structure">
+<h2>Layout Structure<a class="headerlink" href="#layout-structure" title="Link to this heading">¶</a></h2>
+<p>The generator returns a dictionary adhering to Livingston’s internal schema. It defines:</p>
+<ul class="simple">
+<li><p><strong>Species:</strong> physical types of degrees of freedom (DOFs), each with color and Hilbert dimension.</p></li>
+<li><p><strong>DOFs:</strong> a mapping from grid coordinates to qubit sites.</p></li>
+<li><p><strong>Factor Nodes:</strong> interaction hubs connecting DOFs and specifying Hamiltonian terms.</p></li>
+<li><p><strong>Parametric Map:</strong> associations between symbolic parameters (e.g., <span class="math notranslate nohighlight">\(J\)</span>, <span class="math notranslate nohighlight">\(G\)</span>) and
+corresponding interaction instances.</p></li>
+<li><p><strong>Initial State:</strong> optional description of the system’s starting state.</p></li>
+</ul>
+<p>For the Ising example, each site hosts a local <span class="math notranslate nohighlight">\(X\)</span> operator with coefficient <span class="math notranslate nohighlight">\(G\)</span>,
+and each nearest-neighbor pair is connected by a <span class="math notranslate nohighlight">\(Z \otimes Z\)</span> interaction with coefficient <span class="math notranslate nohighlight">\(J\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_layout</span><span class="p">(</span><span class="n">max_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">_merged_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">grid_size</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;LQ&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#1C64CF&quot;</span><span class="p">,</span> <span class="s2">&quot;hilbert_dim&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;is_local&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}}</span>
+
+    <span class="c1"># --- DOFs ---</span>
+    <span class="n">dofs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_qubits</span><span class="p">):</span>
+        <span class="n">dofs</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, 0)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;species&quot;</span><span class="p">:</span> <span class="s2">&quot;LQ&quot;</span><span class="p">,</span> <span class="s2">&quot;crossed_rabifactor&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s2">&quot;driven&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;generic&quot;</span><span class="p">],</span> <span class="s2">&quot;physical_dof&quot;</span><span class="p">:</span> <span class="s2">&quot;transmon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hilbert_dim&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;traced_out&quot;</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="p">}</span>
+
+    <span class="n">factor_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Local X terms (G)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_qubits</span><span class="p">):</span>
+        <span class="n">factor_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;center&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">grid_size</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+            <span class="s2">&quot;dof_ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;L</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;interactions&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="s2">&quot;dof_ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;operators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="s2">&quot;strength&quot;</span><span class="p">:</span> <span class="s2">&quot;(1+0j)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;L_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_0&quot;</span><span class="p">,</span> <span class="s2">&quot;operator_blocks&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s2">&quot;parametric&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span>
+            <span class="p">}],</span>
+        <span class="p">})</span>
+
+    <span class="c1"># Nearest-neighbor ZZ terms (J)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_pair</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">):</span>
+        <span class="n">cx</span> <span class="o">=</span> <span class="p">((</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">grid_size</span> <span class="o">+</span> <span class="p">(</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">grid_size</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="n">factor_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;center&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">cx</span><span class="p">,</span> <span class="mi">140</span><span class="p">],</span> <span class="s2">&quot;dof_ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">],</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;F</span><span class="si">{</span><span class="n">ii</span><span class="si">}{</span><span class="n">jj</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;interactions&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="s2">&quot;dof_ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">],</span> <span class="s2">&quot;operators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;strength&quot;</span><span class="p">:</span> <span class="s2">&quot;(1+0j)&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Interaction_2_sites_Z_Z&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;operator_blocks&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;parametric&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;J&quot;</span><span class="p">,</span>
+            <span class="p">}],</span>
+        <span class="p">})</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_qubits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">_add_pair</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span> <span class="ow">and</span> <span class="n">max_qubits</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">_add_pair</span><span class="p">(</span><span class="n">max_qubits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parametric-map">
+<h2>Parametric Map<a class="headerlink" href="#parametric-map" title="Link to this heading">¶</a></h2>
+<p>Symbolic parameters are linked to the specific interaction labels that use them.
+This allows the Livingston interface to edit <span class="math notranslate nohighlight">\(J\)</span> and <span class="math notranslate nohighlight">\(G\)</span> globally across all factors.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parametric_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;interaction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;instances&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;L_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_0&quot;</span><span class="p">,</span> <span class="s2">&quot;factor_label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;L</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">]}</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_qubits</span><span class="p">)</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;interaction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;instances&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Interaction_2_sites_Z_Z&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;factor_label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;F</span><span class="si">{</span><span class="n">i</span><span class="si">}{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]}</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_qubits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">]</span> <span class="o">+</span> <span class="p">(</span>
+            <span class="p">[{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Interaction_2_sites_Z_Z&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;factor_label&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;F</span><span class="si">{</span><span class="n">max_qubits</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">0&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]}]</span>
+            <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span> <span class="ow">and</span> <span class="n">max_qubits</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="output-contract">
+<h2>Output Contract<a class="headerlink" href="#output-contract" title="Link to this heading">¶</a></h2>
+<p>Each generator must provide a function that returns a temporary JSON file containing the layout.
+This is the entry point used by Livingston’s <em>Generate Dynamic Layout</em> dialog.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_layout_tempfile</span><span class="p">(</span><span class="n">max_qubits</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                             <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;ising1d_&quot;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="n">generate_layout</span><span class="p">(</span><span class="n">max_qubits</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">,</span>
+                                     <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="nb">dir</span><span class="p">,</span>
+                                     <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">tmp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;tmp_path&quot;</span><span class="p">:</span> <span class="n">tmp_path</span><span class="p">,</span>
+            <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">),</span>
+            <span class="s2">&quot;layout&quot;</span><span class="p">:</span> <span class="n">layout</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing-via-command-line">
+<h1>Testing via Command Line<a class="headerlink" href="#testing-via-command-line" title="Link to this heading">¶</a></h1>
+<p>For development convenience, generators can include a small command-line interface:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;1D Ising Generator&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--max-qubits&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--boundary&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;periodic&quot;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--J&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--G&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+    <span class="n">rec</span> <span class="o">=</span> <span class="n">generate_layout_tempfile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">max_qubits</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s2">&quot;tmp_path&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<section id="general-template">
+<h2>General Template<a class="headerlink" href="#general-template" title="Link to this heading">¶</a></h2>
+<p>When developing a new dynamic generator, the workflow can be summarized as:</p>
+<ol class="arabic simple">
+<li><p>Define the metadata (<code class="code docutils literal notranslate"><span class="pre">_METADATA</span></code>) with all tunable parameters.</p></li>
+<li><p>Implement <code class="code docutils literal notranslate"><span class="pre">get_generator_metadata()</span></code> to return it.</p></li>
+<li><p>Implement <code class="code docutils literal notranslate"><span class="pre">generate_layout()</span></code> to build:</p>
+<ul class="simple">
+<li><p>Species definitions.</p></li>
+<li><p>DOFs (<code class="code docutils literal notranslate"><span class="pre">id</span></code>, <code class="code docutils literal notranslate"><span class="pre">species</span></code>, coordinates).</p></li>
+<li><p>Factor nodes and interaction terms.</p></li>
+<li><p>The parametric map linking symbolic parameters to instances.</p></li>
+</ul>
+</li>
+<li><p>Implement <code class="code docutils literal notranslate"><span class="pre">generate_layout_tempfile()</span></code> as a wrapper that saves the layout to JSON.</p></li>
+</ol>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Use consistent coordinate keys: <code class="code docutils literal notranslate"><span class="pre">&quot;(x,</span> <span class="pre">y)&quot;</span></code> strings for DOFs.</p></li>
+<li><p>Ensure all <code class="code docutils literal notranslate"><span class="pre">dof_ids</span></code> are integers starting from 0.</p></li>
+<li><p>Match <code class="code docutils literal notranslate"><span class="pre">label</span></code> and <code class="code docutils literal notranslate"><span class="pre">factor_label</span></code> fields between interactions and the parametric map.</p></li>
+<li><p>Keep the layout minimal; omit empty fields (e.g., <code class="code docutils literal notranslate"><span class="pre">lindblad_terms</span> <span class="pre">=</span> <span class="pre">[]</span></code>).</p></li>
+<li><p>Include an <code class="code docutils literal notranslate"><span class="pre">initial_state</span></code> for quick visualization.</p></li>
+</ul>
+</section>
+<section id="extending-to-higher-dimensions">
+<h2>Extending to Higher Dimensions<a class="headerlink" href="#extending-to-higher-dimensions" title="Link to this heading">¶</a></h2>
+<p>To create two- or three-dimensional lattices, iterate over <span class="math notranslate nohighlight">\((x, y, z)\)</span> coordinates and connect
+nearest or next-nearest neighbors according to the desired topology.
+Periodic boundary conditions can be implemented by wrapping indices modulo the system size.</p>
+<p>Dynamic lattice generators enable Livingston to build Hamiltonian layouts procedurally from
+symbolic parameters. Each generator encapsulates both its metadata (for the UI) and its
+construction logic (for the layout engine).
+This design allows reproducible, scriptable architecture generation while maintaining
+full interoperability with ArchBuilder’s layout, Hamiltonian, and export subsystems.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_static/archbuilder/Livingston3.png"><img alt="Two-qubit Hamiltonian in Livingston" src="_static/archbuilder/Livingston3.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The two-qubit Hamiltonian shown in Livingston.
+<em>View Hamiltonian</em> allows parameter changes, rescaling, and the addition of disorder.
+The Edit-DOF window (right-click on a DOF) lets users mark DOFs to be traced out in simulations
+or designate local drive lines for later pulse design in the Pulse Composer.</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<hr class="docutils" />
+<section id="example-architectures">
+<h2>Example Architectures<a class="headerlink" href="#example-architectures" title="Link to this heading">¶</a></h2>
+<p>For example, the ladder and conveyor-belt architectures are shown below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_static/archbuilder/LivingstonLadder.png"><img alt="Ladder architecture" src="_static/archbuilder/LivingstonLadder.png" style="width: 95%;" />
+</a>
+</figure>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_static/archbuilder/LivingstonConveyor.png"><img alt="Conveyor belt architecture" src="_static/archbuilder/LivingstonConveyor.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Ladder and conveyor-belt architectures designed with Livingston (top and bottom respectively).</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="frankenstein-quantum-pulse-and-operation-editor">
+<h1>Frankenstein: Quantum Pulse and Operation Editor<a class="headerlink" href="#frankenstein-quantum-pulse-and-operation-editor" title="Link to this heading">¶</a></h1>
+<p><strong>Frankenstein</strong> is the <em>quantum pulse and operation editor</em> of the ArchBuilder suite.
+It provides a graphical and parametric interface bridging the <strong>Livingston layout editor</strong>
+(device-level architecture) and the <strong>AIgor synthesis engine</strong> (automatic pulse generation).</p>
+<section id="id3">
+<h2>Overview<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>Frankenstein allows users to design and visualize <strong>time-dependent control pulses</strong>
+(<span class="math notranslate nohighlight">\(\Omega_x\)</span>, <span class="math notranslate nohighlight">\(\Omega_y\)</span>, <span class="math notranslate nohighlight">\(\Omega_z\)</span>) and <strong>parametric envelopes</strong> for quantum operations.
+Each operation can be stored as a self-contained <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> file containing both the layout and pulse metadata.</p>
+<ul class="simple">
+<li><p><strong>Drive Pulses</strong> (<span class="math notranslate nohighlight">\(\Omega_x\)</span>, <span class="math notranslate nohighlight">\(\Omega_y\)</span>) – microwave controls acting on qubit drive lines.</p></li>
+<li><p><strong>Flux Pulses</strong> (<span class="math notranslate nohighlight">\(\Omega_z\)</span>) – DC or low-frequency flux controls for frequency tuning and couplings.</p></li>
+<li><p><strong>Parametric Pulses</strong> – analytical envelopes <span class="math notranslate nohighlight">\(f(t;\mathrm{params})\)</span> linked to symbolic layout parameters.</p></li>
+</ul>
+</section>
+<section id="interface-structure">
+<h2>Interface Structure<a class="headerlink" href="#interface-structure" title="Link to this heading">¶</a></h2>
+<p>The main window is organized into three functional areas:</p>
+<ol class="arabic simple">
+<li><p><strong>Operation Header:</strong> define the operation name, type (<code class="code docutils literal notranslate"><span class="pre">Tape</span></code>, <code class="code docutils literal notranslate"><span class="pre">Logical</span></code>, <code class="code docutils literal notranslate"><span class="pre">Analog</span></code>),
+control/target counts, and symbolic label (e.g., <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(CZ\)</span>).</p></li>
+<li><p><strong>Toolbar:</strong> buttons to load layouts, add Drive/Flux/Parametric pulses,
+view timelines, save <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files, and call the AIgor assistant.</p></li>
+<li><p><strong>Pulse Table and Visualization:</strong> a table lists all pulse segments;
+a timeline below shows activation intervals for each species and channel.</p></li>
+</ol>
+</section>
+<section id="pulse-creation-workflow">
+<h2>Pulse Creation Workflow<a class="headerlink" href="#pulse-creation-workflow" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Load a <code class="code docutils literal notranslate"><span class="pre">.json</span></code> layout from Livingston (provides species, colors, and control-line data).</p></li>
+<li><p>Add pulses:</p>
+<ul class="simple">
+<li><p><strong>Drive Pulse:</strong> select driven species, amplitude mode (<em>Fixed</em> or <em>Variable</em>), and waveform type (<em>Gaussian</em>, <em>DRAG</em>, <em>Custom</em>).</p></li>
+<li><p><strong>Flux Pulse:</strong> similar interface restricted to the <span class="math notranslate nohighlight">\(\Omega_z\)</span> channel.</p></li>
+<li><p><strong>Parametric Pulse:</strong> define analytic functions <span class="math notranslate nohighlight">\(f(t)\)</span> for symbolic parameters.</p></li>
+</ul>
+</li>
+<li><p>Each pulse defines a time window <span class="math notranslate nohighlight">\([T_0, T_f]\)</span> and corresponding amplitudes.</p></li>
+<li><p>Frankenstein automatically updates:</p>
+<ul class="simple">
+<li><p><strong>Timeline Overview:</strong> horizontal bars per species/channel.</p></li>
+<li><p><strong>Waveform Plots:</strong> plots of <span class="math notranslate nohighlight">\(\Omega_x\)</span>, <span class="math notranslate nohighlight">\(\Omega_y\)</span>, <span class="math notranslate nohighlight">\(\Omega_z\)</span>, and parametric functions.</p></li>
+</ul>
+</li>
+<li><p>Save the result as a <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> file or send it directly to ArchBuilder for compilation.</p></li>
+</ol>
+</section>
+<section id="the-oper-file-format">
+<h2>The <cite>.oper</cite> File Format<a class="headerlink" href="#the-oper-file-format" title="Link to this heading">¶</a></h2>
+<p>An <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> file encodes a complete quantum operation definition in JSON format, including layout and pulses:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Planckian Pulse Editor&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CZ&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logical&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CZ&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;max_control&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;min_control&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;max_target&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;parametric_global&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;pulses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;LQ 0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;T0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;Tf&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">&quot;Omega_x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;Omega_y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;Omega_z&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;layout&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> file acts as a <strong>unit operation container</strong>:</p>
+<ul class="simple">
+<li><p>Bundles the hardware layout with control signals.</p></li>
+<li><p>Preserves species names and color mappings.</p></li>
+<li><p>Can be reopened in Frankenstein for editing or sent to ArchBuilder for scheduling.</p></li>
+</ul>
+<p>Frankenstein uses a NumPy-based sandbox to safely evaluate analytical expressions.
+All data can be exchanged with <strong>AIgor</strong> for automatic pulse synthesis or optimization.</p>
+<figure class="align-left">
+<a class="reference internal image-reference" href="_static/archbuilder/frankenstein1.png"><img alt="Frankenstein GUI 1" src="_static/archbuilder/frankenstein1.png" style="width: 50%;" />
+</a>
+</figure>
+<figure class="align-right" id="id16">
+<a class="reference internal image-reference" href="_static/archbuilder/frankenstein2.png"><img alt="Frankenstein GUI 2" src="_static/archbuilder/frankenstein2.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A CZ gate for the ladder architecture developed in Frankenstein.</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="bovary-executing-pulses-and-operations-through-compilers">
+<h1>Bovary: Executing Pulses and Operations Through Compilers<a class="headerlink" href="#bovary-executing-pulses-and-operations-through-compilers" title="Link to this heading">¶</a></h1>
+<section id="id4">
+<h2>Overview<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p><strong>Bovary</strong> is the <em>Pulse Composer</em> of the <strong>ArchBuilder</strong> suite — a unifying environment bridging
+high-level circuit design with pulse-level physical control.
+It works in symbiosis with Frankenstein and provides an interactive GUI for visualizing,
+composing, and exporting gate-and-pulse sequences that can be simulated via the
+<strong>Metamorphosis/Zhivago</strong> engine or deployed on hardware.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_static/archbuilder/Bovary1.png"><img alt="Bovary interface 1" src="_static/archbuilder/Bovary1.png" style="width: 75%;" />
+</a>
+</figure>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_static/archbuilder/Bovary2.png"><img alt="Bovary interface 2" src="_static/archbuilder/Bovary2.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The Bovary interface with a CZ gate compiled and an error gate.</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>At its core, Bovary serves as a <strong>translator between abstract gate logic and executable pulse physics</strong>, integrating:</p>
+<ul class="simple">
+<li><p><strong>Layout</strong> (<code class="code docutils literal notranslate"><span class="pre">.json</span></code>) generated by Livingston.</p></li>
+<li><p><strong>Pulse Operations</strong> (<code class="code docutils literal notranslate"><span class="pre">.oper</span></code>) created in Frankenstein.</p></li>
+<li><p><strong>Architecture Specification</strong> (<code class="code docutils literal notranslate"><span class="pre">.arch</span></code>) defining the system.</p></li>
+</ul>
+</section>
+<section id="key-capabilities">
+<h2>Key Capabilities<a class="headerlink" href="#key-capabilities" title="Link to this heading">¶</a></h2>
+<p>When launched from ArchBuilder, Bovary automatically loads:</p>
+<ul class="simple">
+<li><p>The active <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> file defining qubits, connectivity, and pulse directories.</p></li>
+<li><p>The selected <strong>compiler</strong> module for gate expansion and QPU-state tracking.</p></li>
+<li><p>The <strong>noise model</strong>, either <em>Logical</em> or <em>Open (Lindblad)</em>.</p></li>
+</ul>
+<p>This synchronization ensures the pulse composer is aware of both logical structure and physical constraints.</p>
+<p>The interface consists of three main panes:</p>
+<ol class="arabic simple">
+<li><p><strong>Gate Selector</strong> – choose gates, qubits, and parameters.</p></li>
+<li><p><strong>Circuit Preview Canvas</strong> – an interactive, zoomable circuit layout.</p></li>
+<li><p><strong>QASM Code View</strong> – auto-generated OpenQASM 2.0 output.</p></li>
+</ol>
+<p>Users can:</p>
+<ul class="simple">
+<li><p>Add Logical, Tape, Analog, or Error gates.</p></li>
+<li><p>Insert <em>Separators</em> (barriers) to organize circuit regions.</p></li>
+<li><p>Inspect and remove gates interactively.</p></li>
+<li><p>Double-click a gate to open the <strong>QPU Inspector</strong>, displaying system state after the operation.</p></li>
+</ul>
+<p>The compiler defines both primitive gate transformations and <strong>composite operations (macros)</strong>.
+Bovary uses this for:</p>
+<ul class="simple">
+<li><p>Automatic gate expansion via <code class="code docutils literal notranslate"><span class="pre">get_gate_list()</span></code>.</p></li>
+<li><p>Real-time QPU-state updates via <code class="code docutils literal notranslate"><span class="pre">update_QPU_state()</span></code>.</p></li>
+<li><p>Consistency checking between logical and physical layers.</p></li>
+</ul>
+<p>Macros such as <code class="code docutils literal notranslate"><span class="pre">MoveRight</span></code>, <code class="code docutils literal notranslate"><span class="pre">EROL</span></code>, and <code class="code docutils literal notranslate"><span class="pre">ELOR</span></code>
+are displayed as callable operations in the gate palette.</p>
+</section>
+<section id="noise-paradigms">
+<h2>Noise Paradigms<a class="headerlink" href="#noise-paradigms" title="Link to this heading">¶</a></h2>
+<p>Bovary supports two distinct noise paradigms:</p>
+<div class="table-wrapper colwidths-given docutils container" id="id18">
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Noise Modes</span><a class="headerlink" href="#id18" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Noise Type</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>UI Behavior</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Logical</em></p></td>
+<td><p>Symbolic error channels (bit-flip, phase-flip, depolarizing) defined in an external JSON model and applied probabilistically at the logical level.</p></td>
+<td><p><em>Error Gates</em> become selectable; label turns blue when active.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Open</em></p></td>
+<td><p>Continuous Lindblad-type noise (<span class="math notranslate nohighlight">\(\gamma\)</span>, <span class="math notranslate nohighlight">\(\kappa\)</span>) applied directly during simulation.</p></td>
+<td><p><em>Error Gates</em> disabled; mode shown as green <em>Open Noise Mode</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Users can toggle noise activation using the <strong>Activate Noise</strong> checkbox,
+allowing both noise-free and decoherence-inclusive runs within one interface.</p>
+</section>
+<section id="quantum-pulse-visualization">
+<h2>Quantum Pulse Visualization<a class="headerlink" href="#quantum-pulse-visualization" title="Link to this heading">¶</a></h2>
+<p>For any composed circuit, Bovary can:</p>
+<ul class="simple">
+<li><p>Plot the temporal evolution of <span class="math notranslate nohighlight">\(\Omega_x\)</span>, <span class="math notranslate nohighlight">\(\Omega_y\)</span>, and <span class="math notranslate nohighlight">\(\Omega_z\)</span> for each species.</p></li>
+<li><p>Display DRAG, Gaussian, and custom waveforms using integrated Matplotlib rendering.</p></li>
+<li><p>Merge multiple pulse definitions into a synchronized timeline.</p></li>
+</ul>
+<p>This lets theorists and experimentalists visually inspect pulse-level implementations.</p>
+</section>
+<section id="full-state-inspection-and-debugging-tools">
+<h2>Full-State Inspection and Debugging Tools<a class="headerlink" href="#full-state-inspection-and-debugging-tools" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>QPU Inspector:</strong> tree visualization of the internal <code class="code docutils literal notranslate"><span class="pre">QPU_specs</span></code> dictionary at any circuit step.</p></li>
+<li><p><strong>Timeline Viewer:</strong> scrollable representation of gate order with navigation to intermediate states.</p></li>
+<li><p><strong>Layout Viewer:</strong> interactive schematic showing geometry, Hamiltonian couplings, and parameters.</p></li>
+</ul>
+<p>These tools make Bovary a transparent diagnostic bridge between circuit design and pulse-level execution.</p>
+</section>
+</section>
+<section id="simulation-and-export">
+<h1>Simulation and Export<a class="headerlink" href="#simulation-and-export" title="Link to this heading">¶</a></h1>
+<p>Bovary integrates seamlessly with <strong>Metamorphosis (Zhivago)</strong> — the MPS engine used for end-to-end simulation and benchmarking.</p>
+<ul class="simple">
+<li><p><strong>Run Simulation:</strong> execute pulse sequences and visualize final states.</p></li>
+<li><p><strong>Run Comparison:</strong> compare two architectures or layouts to compute fidelity and overlap metrics.</p></li>
+</ul>
+<p>Simulations can be performed with or without noise models, toggled via the corresponding modes.</p>
+<section id="export-options">
+<h2>Export Options<a class="headerlink" href="#export-options" title="Link to this heading">¶</a></h2>
+<p>Bovary can export:</p>
+<ul class="simple">
+<li><p>Pulse sequences as <code class="code docutils literal notranslate"><span class="pre">.operseq</span></code> files</p></li>
+<li><p>Circuits as valid <strong>OpenQASM 2.0</strong> code</p></li>
+<li><p>Intermediate QPU states as <code class="code docutils literal notranslate"><span class="pre">.json</span></code> snapshots for reproducibility</p></li>
+</ul>
+</section>
+</section>
+<section id="qec-logical-error-module">
+<h1>QEC Logical Error Module<a class="headerlink" href="#qec-logical-error-module" title="Link to this heading">¶</a></h1>
+<p>A core component of the <em>Logical</em> noise model in Bovary is the <strong>QEC Logical Error Module</strong>,
+which allows users to define <em>error gates</em> that emulate logical-level faults such as bit-flip, phase-flip, or depolarizing channels.</p>
+<section id="logical-error-editor">
+<h2>Logical Error Editor<a class="headerlink" href="#logical-error-editor" title="Link to this heading">¶</a></h2>
+<p>The integrated <strong>Noise Model Editor</strong> enables users to:</p>
+<ul class="simple">
+<li><p>Define symbolic error gates (e.g., <code class="code docutils literal notranslate"><span class="pre">Xerr</span></code>, <code class="code docutils literal notranslate"><span class="pre">Zerr</span></code>, <code class="code docutils literal notranslate"><span class="pre">Depol</span></code>)</p></li>
+<li><p>Assign probabilities and physical operators (X, Y, Z, or mixed)</p></li>
+<li><p>Optionally link them to existing logical operations for diagnostic correlation</p></li>
+</ul>
+<p>Each defined logical error is stored as a JSON file, for example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;bitflip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Xerr&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;X&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;linked_gate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;X&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logical bit-flip error&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These definitions are imported automatically when the <em>Logical</em> noise model is activated.
+They are theoretical constructs and do not require pulse files — instead, they are applied statistically
+during simulation or QEC evaluation.</p>
+<p>When a logical noise model is active, the interface enables the <strong>Error Gates</strong> section,
+highlighting the noise label in blue.
+For <em>Open (Lindblad)</em> models, this section remains disabled.</p>
+</section>
+</section>
+<section id="writing-and-integrating-a-compiler-in-archbuilder">
+<h1>Writing and Integrating a Compiler in ArchBuilder<a class="headerlink" href="#writing-and-integrating-a-compiler-in-archbuilder" title="Link to this heading">¶</a></h1>
+<p>The control hierarchy in <code class="code docutils literal notranslate"><span class="pre">ArchBuilder</span></code> distinguishes between three complementary levels of quantum operations:
+<strong>logical</strong>, <strong>tape</strong>, and <strong>analog</strong>.
+This structure separates abstract computational intent from its physical implementation and continuous-time dynamics.
+Each level corresponds to a layer of abstraction within the <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> manifest.</p>
+<section id="logical-operations">
+<h2>Logical Operations<a class="headerlink" href="#logical-operations" title="Link to this heading">¶</a></h2>
+<p>Logical operations describe transformations within the computational subspace
+<span class="math notranslate nohighlight">\(\mathcal{H}_{\mathrm{comp}} \cong (\mathbb{C}^2)^{\otimes N}\)</span>.
+They correspond to unitary operators <span class="math notranslate nohighlight">\(U_{\mathrm{logical}} \in \mathrm{SU}(2^N)\)</span> such as single-qubit rotations, entangling gates, or measurements.</p>
+<p>Logical operations are independent of physical implementation — they describe <em>what</em> is done, not <em>how</em>.
+In ArchBuilder, they are represented symbolically (e.g., <code class="code docutils literal notranslate"><span class="pre">X</span></code>, <code class="code docutils literal notranslate"><span class="pre">Y</span></code>, <code class="code docutils literal notranslate"><span class="pre">CNOT</span></code>)
+and linked to calibrated pulse definitions in <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files.</p>
+</section>
+<section id="tape-operations">
+<h2>Tape Operations<a class="headerlink" href="#tape-operations" title="Link to this heading">¶</a></h2>
+<p>Tape operations bridge logical instructions and physical control.
+They are expressed as sequences of Hamiltonians, swaps, and pulse envelopes acting on the device’s degrees of freedom.
+Each tape operation specifies which physical sites are active and how they are driven.</p>
+<p>Formally:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[U_{\mathrm{tape}} = \mathcal{T}\exp\!\left(-i\!\int_{\mathcal{T}} [H_0 + H_{\mathrm{ctrl}}(t)]\, dt\right)\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(H_0\)</span> is the static background Hamiltonian and <span class="math notranslate nohighlight">\(H_{\mathrm{ctrl}}(t)\)</span> encodes time-dependent control fields from <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files.</p>
+<p>Compilers operate at this level, decomposing logical instructions into hardware-legal pulse sequences subject to connectivity and control constraints.</p>
+</section>
+<section id="analog-operations">
+<h2>Analog Operations<a class="headerlink" href="#analog-operations" title="Link to this heading">¶</a></h2>
+<p>Analog operations extend the framework to continuous-time dynamics.
+Rather than discrete gates, they define a time-dependent Hamiltonian schedule:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[H(t) = H_0 + \sum_\alpha \lambda_\alpha(t)\, O_\alpha\]</div>
+</div>
+<p>where control parameters <span class="math notranslate nohighlight">\(\lambda_\alpha(t)\)</span> may vary smoothly (Gaussian, polynomial, or numeric waveforms).
+This encompasses adiabatic state preparation, annealing, and Hamiltonian simulation protocols.</p>
+<p>In ArchBuilder, analog operations are represented by parametric <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files with symbolic pulse fields,
+visualizable and editable within Bovary or Frankenstein, and combinable with logical or tape operations.</p>
+</section>
+<section id="hierarchy-and-interaction">
+<h2>Hierarchy and Interaction<a class="headerlink" href="#hierarchy-and-interaction" title="Link to this heading">¶</a></h2>
+<p>Together, these classes form a layered abstraction hierarchy:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Logical  →  Tape  →  Analog
+</pre></div>
+</div>
+<p>Logical operations express the computation; tape operations describe physical execution via pulses and swaps;
+analog operations generalize to continuous-time control.</p>
+<p>This hierarchy forms the foundation of ArchBuilder’s compiler system:
+the compiler translates logical instructions into tape-level operations consistent with the analog framework.</p>
+</section>
+<section id="motivation-and-context">
+<h2>Motivation and Context<a class="headerlink" href="#motivation-and-context" title="Link to this heading">¶</a></h2>
+<p>The compiler in ArchBuilder translates high-level logic into executable pulse sequences consistent with
+connectivity, control lines, and species definitions.
+It represents the mapping</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[U_{\mathrm{logical}} \longmapsto \{\,\text{tape operations},\, \text{pulse sequences}\,\}\]</div>
+</div>
+<p>taking abstract gates as input and outputting ordered lists of hardware-level operations encoded as <code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files.</p>
+</section>
+<section id="role-of-the-qpu-specs-field">
+<h2>Role of the <code class="docutils literal notranslate"><span class="pre">QPU_specs</span></code> Field<a class="headerlink" href="#role-of-the-qpu-specs-field" title="Link to this heading">¶</a></h2>
+<p>Each <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> manifest includes a <code class="code docutils literal notranslate"><span class="pre">&quot;qpu_specs&quot;</span></code> section describing the physical and logical structure of the QPU.
+This field is editable from within <strong>ArchCreator</strong> and defines how a compiler interprets the architecture.</p>
+<p>Example — ring architecture:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;qpu_specs&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;num_qubits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;species&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;connectivity&quot;</span><span class="p">:</span> <span class="s2">&quot;ring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;active_register&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s2">&quot;quantum_interface&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s2">&quot;routing&quot;</span><span class="p">:</span> <span class="s2">&quot;nearest_neighbor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;swap_operations&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hh&quot;</span><span class="p">,</span> <span class="s2">&quot;gg&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;compiler_defaults&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;global_mode&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;allow_wraparound&quot;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example — ladder architecture:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;qpu_specs&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;cols&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;icc_position&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;oneq_sites&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">]},</span>
+    <span class="s2">&quot;twoq_sites&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;cols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">]}],</span>
+    <span class="s2">&quot;measure_cols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">],</span>
+    <span class="s2">&quot;movement&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;column_species&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;7&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;species_to_gate&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;right&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;Move_LR_red_RL_blue_green&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;Move_LR_blue_green_RL_red&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;Move_LR_blue_green_RL_red&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;left&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;Move_LR_blue_green_RL_red&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;Move_LR_red_RL_blue_green&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;Move_LR_red_RL_blue_green&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;forbidden_cols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This dictionary defines default register mapping, accessible interactions,
+and control assumptions (global vs. local).
+The compiler reads it to determine how logical qubits are embedded in hardware and how routing and tape operations are planned.</p>
+</section>
+<section id="compiler-architecture-in-archbuilder">
+<h2>Compiler Architecture in ArchBuilder<a class="headerlink" href="#compiler-architecture-in-archbuilder" title="Link to this heading">¶</a></h2>
+<p>A compiler is a Python module (<code class="code docutils literal notranslate"><span class="pre">.py</span></code>) linked to the architecture through:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;compiler&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_compiler&quot;</span>
+</pre></div>
+</div>
+<p>When Bovary or ArchBuilder loads the architecture, the module is imported dynamically
+and must define at least two key functions:</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_gate_list(QPU_state,</span> <span class="pre">gate,</span> <span class="pre">controls,</span> <span class="pre">targets,</span> <span class="pre">theta)</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">update_QPU_state(QPU_state,</span> <span class="pre">circuit)</span></code></p></li>
+</ol>
+<section id="the-get-gate-list-interface">
+<h3>1. The <code class="docutils literal notranslate"><span class="pre">get_gate_list</span></code> Interface<a class="headerlink" href="#the-get-gate-list-interface" title="Link to this heading">¶</a></h3>
+<p>Defines compilation logic: given a logical gate and QPU state, return the list of
+hardware-level gates needed to realize it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_gate_list</span><span class="p">(</span><span class="n">QPU_state</span><span class="p">,</span> <span class="n">gate</span><span class="p">,</span> <span class="n">controls</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Expand a logical operation into a list of hardware-level gates.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">QPU_state</span><span class="p">,</span> <span class="n">gate_list</span><span class="p">,</span> <span class="n">theta_list</span><span class="p">,</span> <span class="n">controls_list</span><span class="p">,</span> <span class="n">targets_list</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">QPU_state</span></code> – current physical register configuration.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gate</span></code> – logical symbol (e.g., “CNOT”, “SWAP”).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">controls</span></code>, <code class="code docutils literal notranslate"><span class="pre">targets</span></code>, <code class="code docutils literal notranslate"><span class="pre">theta</span></code> – logical gate parameters.</p></li>
+<li><p>Returns updated <code class="code docutils literal notranslate"><span class="pre">QPU_state</span></code> and lists of hardware operations.</p></li>
+</ul>
+<p>This function can encode routing logic (e.g., translate distant CNOTs into SWAP + local gates).</p>
+</section>
+<section id="the-update-qpu-state-interface">
+<h3>2. The <code class="docutils literal notranslate"><span class="pre">update_QPU_state</span></code> Interface<a class="headerlink" href="#the-update-qpu-state-interface" title="Link to this heading">¶</a></h3>
+<p>Maintains compiler bookkeeping for logical qubit positions after each operation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_QPU_state</span><span class="p">(</span><span class="n">QPU_state</span><span class="p">,</span> <span class="n">circuit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update the QPU state after applying a list of operations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">circuit</span><span class="p">:</span>
+        <span class="c1"># Update routing or active register</span>
+        <span class="n">QPU_state</span> <span class="o">=</span> <span class="n">perform_swap</span><span class="p">(</span><span class="n">QPU_state</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">QPU_state</span>
+</pre></div>
+</div>
+<p>Used by <strong>Bovary’s QPU Inspector</strong> to display logical-to-physical mapping over time.</p>
+</section>
+</section>
+<section id="defining-compiler-macros-and-composite-gates">
+<h2>Defining Compiler Macros and Composite Gates<a class="headerlink" href="#defining-compiler-macros-and-composite-gates" title="Link to this heading">¶</a></h2>
+<p>ArchBuilder allows compilers to define <strong>composite operations</strong>, i.e., gate macros that appear as
+single entries in Bovary but expand to multiple primitive gates.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">COMPOSITES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;evriodle&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Tape&quot;</span><span class="p">,</span> <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;EROL&quot;</span><span class="p">,</span> <span class="s2">&quot;sequence&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hh&quot;</span><span class="p">,</span> <span class="s2">&quot;gg&quot;</span><span class="p">]},</span>
+    <span class="s2">&quot;evleodri&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Tape&quot;</span><span class="p">,</span> <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;ELOR&quot;</span><span class="p">,</span> <span class="s2">&quot;sequence&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gg&quot;</span><span class="p">,</span> <span class="s2">&quot;hh&quot;</span><span class="p">]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each composite is tagged by type (e.g., <em>Tape</em>, <em>Logical</em>, <em>Analog</em>), symbol, and sequence.
+Bovary lists these under their gate families, enabling concise macro definitions for
+complex routing patterns while keeping the GUI uncluttered.</p>
+</section>
+<section id="example-a-minimal-compiler">
+<h2>Example: A Minimal Compiler<a class="headerlink" href="#example-a-minimal-compiler" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_compiler.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="n">COMPOSITES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;swap_pair&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Tape&quot;</span><span class="p">,</span> <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;SW2&quot;</span><span class="p">,</span> <span class="s2">&quot;sequence&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;SWAP12&quot;</span><span class="p">,</span> <span class="s2">&quot;SWAP23&quot;</span><span class="p">]}</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_gate_list</span><span class="p">(</span><span class="n">QPU_state</span><span class="p">,</span> <span class="n">gate</span><span class="p">,</span> <span class="n">controls</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">gate</span> <span class="o">==</span> <span class="s2">&quot;CNOT&quot;</span><span class="p">:</span>
+        <span class="c1"># Replace with SWAP + local gate + SWAP</span>
+        <span class="n">gate_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SWAP12&quot;</span><span class="p">,</span> <span class="s2">&quot;CNOT12&quot;</span><span class="p">,</span> <span class="s2">&quot;SWAP12&quot;</span><span class="p">]</span>
+        <span class="n">controls_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">targets_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">theta_list</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">gate_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">gate</span><span class="p">]</span>
+        <span class="n">controls_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">controls</span><span class="p">]</span>
+        <span class="n">targets_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">targets</span><span class="p">]</span>
+        <span class="n">theta_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta</span><span class="p">]</span>
+
+    <span class="n">QPU_state</span><span class="p">[</span><span class="s2">&quot;last_gate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gate</span>
+    <span class="k">return</span> <span class="n">QPU_state</span><span class="p">,</span> <span class="n">gate_list</span><span class="p">,</span> <span class="n">theta_list</span><span class="p">,</span> <span class="n">controls_list</span><span class="p">,</span> <span class="n">targets_list</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_QPU_state</span><span class="p">(</span><span class="n">QPU_state</span><span class="p">,</span> <span class="n">circuit</span><span class="p">):</span>
+    <span class="n">new_state</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">QPU_state</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">circuit</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">op</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;gate&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;SWAP12&quot;</span><span class="p">:</span>
+            <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+            <span class="n">new_state</span><span class="p">[</span><span class="s2">&quot;register&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">new_state</span><span class="p">[</span><span class="s2">&quot;register&quot;</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">new_state</span><span class="p">[</span><span class="s2">&quot;register&quot;</span><span class="p">][</span><span class="n">j</span><span class="p">],</span>
+                <span class="n">new_state</span><span class="p">[</span><span class="s2">&quot;register&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_state</span>
+</pre></div>
+</div>
+<p>When referenced in the <code class="code docutils literal notranslate"><span class="pre">.arch</span></code> file, this compiler expands logical gates
+into detailed pulse-level instructions, automatically updating register positions in the QPU Inspector.</p>
+</section>
+<section id="integration-with-the-arch-manifest">
+<h2>Integration with the <code class="docutils literal notranslate"><span class="pre">.arch</span></code> Manifest<a class="headerlink" href="#integration-with-the-arch-manifest" title="Link to this heading">¶</a></h2>
+<p>Compilers are linked via:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;compiler&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_compiler&quot;</span>
+</pre></div>
+</div>
+<p>and stored as <code class="code docutils literal notranslate"><span class="pre">my_compiler.py</span></code> within the project directory.
+When a project is opened, ArchBuilder imports the compiler module, exposing
+its composite gates and routing logic to Bovary.
+The <code class="code docutils literal notranslate"><span class="pre">qpu_specs</span></code> field governs topology, swap rules, and drive constraints,
+while the compiler implements the logic for translating instructions into hardware-level actions.</p>
+</section>
+</section>
+<section id="coordination-between-layout-pulses-and-compiler">
+<h1>Coordination Between Layout, Pulses, and Compiler<a class="headerlink" href="#coordination-between-layout-pulses-and-compiler" title="Link to this heading">¶</a></h1>
+<p>The layout, pulse definitions, and compiler form a coherent triad:</p>
+<ul class="simple">
+<li><p>The <strong>layout</strong> defines the static Hamiltonian and species connectivity.</p></li>
+<li><p>The <strong>pulses</strong> (<code class="code docutils literal notranslate"><span class="pre">.oper</span></code> files) define the available local and two-body
+operations and their analog implementations.</p></li>
+<li><p>The <strong>compiler</strong> defines how to dynamically sequence these operations
+to realize high-level logical circuits.</p></li>
+</ul>
+<p>The compiler thus acts as a <strong>semantic bridge</strong> — it reads topology and species
+from the layout, calls operations defined in the pulse library, and produces
+executable tapes that <strong>Bovary</strong> or <strong>Metamorphosis</strong> can simulate directly.</p>
+</section>
+<section id="best-practices-for-compiler-design">
+<h1>Best Practices for Compiler Design<a class="headerlink" href="#best-practices-for-compiler-design" title="Link to this heading">¶</a></h1>
+<p>To ensure consistency and reproducibility across architectures, we recommend the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Respect Layout Connectivity:</strong>
+Only generate operations that act on valid pairs defined by the layout’s factor graph.</p></li>
+<li><p><strong>Keep QPU State Explicit:</strong>
+Treat <code class="code docutils literal notranslate"><span class="pre">QPU_state</span></code> as the single source of truth for the register configuration.</p></li>
+<li><p><strong>Document Composite Gates:</strong>
+Provide readable symbols and descriptive comments for each macro operation.</p></li>
+<li><p><strong>Avoid Hidden Defaults:</strong>
+All routing and swap behaviors should derive from <code class="code docutils literal notranslate"><span class="pre">qpu_specs</span></code> fields,
+not hard-coded constants.</p></li>
+<li><p><strong>Test with Bovary:</strong>
+Verify that logical gates compile correctly and that the <strong>QPU Inspector</strong>
+updates at each step.</p></li>
+</ol>
+</section>
+<section id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h1>
+<p>In summary, a compiler in <strong>ArchBuilder</strong> translates the formal structures introduced earlier into executable control logic.
+It interprets the architecture’s <code class="code docutils literal notranslate"><span class="pre">qpu_specs</span></code>, expands logical gates into tape-level operations,
+and maintains the QPU’s evolving logical-to-physical mapping.</p>
+<p>Together with the layout and pulse layers, the compiler completes the <strong>ArchBuilder abstraction chain</strong>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Layout (.json)  →  Pulses (.oper)  →  Compiler (.py)  →  Circuit / Tape
+</pre></div>
+</div>
+<p>This modular design ensures that new compilers can be written for arbitrary hardware layouts,
+topologies, and control paradigms — making <strong>ArchBuilder</strong> a living framework for quantum
+architecture design, simulation, and compilation.</p>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="installation.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">User Guide</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Planckian srl
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">ArchBuilder: Integrated Quantum Architecture Environment</a><ul>
+<li><a class="reference internal" href="#purpose-and-scope">Purpose and Scope</a></li>
+<li><a class="reference internal" href="#architecture-of-the-application">Architecture of the Application</a></li>
+<li><a class="reference internal" href="#the-arch-project-structure">The <cite>.arch</cite> Project Structure</a></li>
+<li><a class="reference internal" href="#interface-layout">Interface Layout</a></li>
+<li><a class="reference internal" href="#core-capabilities">Core Capabilities</a></li>
+<li><a class="reference internal" href="#qpu-representation-and-metadata">QPU Representation and Metadata</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#steppenwolf-circuit-loading-and-chiron-module">SteppenWolf Circuit Loading and Chiron Module</a><ul>
+<li><a class="reference internal" href="#projection-to-qubit-modes">Projection to Qubit Modes</a></li>
+<li><a class="reference internal" href="#chiron-experimental-analysis-module">Chiron: Experimental Analysis Module</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#structure">Structure</a></li>
+<li><a class="reference internal" href="#transmon-tab">Transmon Tab</a></li>
+<li><a class="reference internal" href="#resonator-tab">Resonator Tab</a></li>
+<li><a class="reference internal" href="#resonator-spectroscopy-tab">Resonator Spectroscopy Tab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qubit-spectroscopy-and-calibration-tabs">Qubit Spectroscopy and Calibration Tabs</a><ul>
+<li><a class="reference internal" href="#qubit-spectroscopy-tab">Qubit Spectroscopy Tab</a></li>
+<li><a class="reference internal" href="#pulse-calibration-tab">π-Pulse Calibration Tab</a></li>
+<li><a class="reference internal" href="#coherence-tab-t1-and-t2-simulations">Coherence Tab — T₁ and T₂* Simulations</a></li>
+<li><a class="reference internal" href="#chiron-integration-and-visualization">Chiron Integration and Visualization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#livingston-interactive-quantum-layout-editor">Livingston: Interactive Quantum Layout Editor</a><ul>
+<li><a class="reference internal" href="#id1">Overview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-interaction-and-mouse-commands">User Interaction and Mouse Commands</a><ul>
+<li><a class="reference internal" href="#toolbar-and-menu-system">Toolbar and Menu System</a><ul>
+<li><a class="reference internal" href="#main-menus-and-functions">Main Menus and Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#editing-elements">Editing Elements</a></li>
+<li><a class="reference internal" href="#hamiltonian-viewer">Hamiltonian Viewer</a></li>
+<li><a class="reference internal" href="#parametric-and-symbolic-variables">Parametric and Symbolic Variables</a></li>
+<li><a class="reference internal" href="#spanning-trees-and-graph-tools">Spanning Trees and Graph Tools</a></li>
+<li><a class="reference internal" href="#export-and-import">Export and Import</a></li>
+<li><a class="reference internal" href="#undo-and-autosave">Undo and Autosave</a></li>
+<li><a class="reference internal" href="#visualization-and-color-coding">Visualization and Color Coding</a></li>
+<li><a class="reference internal" href="#summary-of-user-actions">Summary of User Actions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-dynamic-interaction-generators">Writing Dynamic Interaction Generators</a><ul>
+<li><a class="reference internal" href="#id2">Overview</a></li>
+<li><a class="reference internal" href="#metadata">Metadata</a></li>
+<li><a class="reference internal" href="#parameter-handling">Parameter Handling</a></li>
+<li><a class="reference internal" href="#layout-structure">Layout Structure</a></li>
+<li><a class="reference internal" href="#parametric-map">Parametric Map</a></li>
+<li><a class="reference internal" href="#output-contract">Output Contract</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing-via-command-line">Testing via Command Line</a><ul>
+<li><a class="reference internal" href="#general-template">General Template</a></li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li><a class="reference internal" href="#extending-to-higher-dimensions">Extending to Higher Dimensions</a></li>
+<li><a class="reference internal" href="#example-architectures">Example Architectures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#frankenstein-quantum-pulse-and-operation-editor">Frankenstein: Quantum Pulse and Operation Editor</a><ul>
+<li><a class="reference internal" href="#id3">Overview</a></li>
+<li><a class="reference internal" href="#interface-structure">Interface Structure</a></li>
+<li><a class="reference internal" href="#pulse-creation-workflow">Pulse Creation Workflow</a></li>
+<li><a class="reference internal" href="#the-oper-file-format">The <cite>.oper</cite> File Format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bovary-executing-pulses-and-operations-through-compilers">Bovary: Executing Pulses and Operations Through Compilers</a><ul>
+<li><a class="reference internal" href="#id4">Overview</a></li>
+<li><a class="reference internal" href="#key-capabilities">Key Capabilities</a></li>
+<li><a class="reference internal" href="#noise-paradigms">Noise Paradigms</a></li>
+<li><a class="reference internal" href="#quantum-pulse-visualization">Quantum Pulse Visualization</a></li>
+<li><a class="reference internal" href="#full-state-inspection-and-debugging-tools">Full-State Inspection and Debugging Tools</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simulation-and-export">Simulation and Export</a><ul>
+<li><a class="reference internal" href="#export-options">Export Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qec-logical-error-module">QEC Logical Error Module</a><ul>
+<li><a class="reference internal" href="#logical-error-editor">Logical Error Editor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-and-integrating-a-compiler-in-archbuilder">Writing and Integrating a Compiler in ArchBuilder</a><ul>
+<li><a class="reference internal" href="#logical-operations">Logical Operations</a></li>
+<li><a class="reference internal" href="#tape-operations">Tape Operations</a></li>
+<li><a class="reference internal" href="#analog-operations">Analog Operations</a></li>
+<li><a class="reference internal" href="#hierarchy-and-interaction">Hierarchy and Interaction</a></li>
+<li><a class="reference internal" href="#motivation-and-context">Motivation and Context</a></li>
+<li><a class="reference internal" href="#role-of-the-qpu-specs-field">Role of the <code class="docutils literal notranslate"><span class="pre">QPU_specs</span></code> Field</a></li>
+<li><a class="reference internal" href="#compiler-architecture-in-archbuilder">Compiler Architecture in ArchBuilder</a><ul>
+<li><a class="reference internal" href="#the-get-gate-list-interface">1. The <code class="docutils literal notranslate"><span class="pre">get_gate_list</span></code> Interface</a></li>
+<li><a class="reference internal" href="#the-update-qpu-state-interface">2. The <code class="docutils literal notranslate"><span class="pre">update_QPU_state</span></code> Interface</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#defining-compiler-macros-and-composite-gates">Defining Compiler Macros and Composite Gates</a></li>
+<li><a class="reference internal" href="#example-a-minimal-compiler">Example: A Minimal Compiler</a></li>
+<li><a class="reference internal" href="#integration-with-the-arch-manifest">Integration with the <code class="docutils literal notranslate"><span class="pre">.arch</span></code> Manifest</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#coordination-between-layout-pulses-and-compiler">Coordination Between Layout, Pulses, and Compiler</a></li>
+<li><a class="reference internal" href="#best-practices-for-compiler-design">Best Practices for Compiler Design</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

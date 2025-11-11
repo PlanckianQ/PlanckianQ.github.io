@@ -1,0 +1,1891 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Steppenwolf package" href="Steppenwolf.html"><link rel="prev" title="Frankenstein package" href="Frankenstein.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Livingston package - Archbuilder 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Archbuilder 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Archbuilder 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Package Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Livingston package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">Architecture_builder</a><input aria-label="Toggle navigation of Architecture_builder" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="Architecture_builder.html">Architecture_builder package</a><input aria-label="Toggle navigation of Architecture_builder package" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Livingston package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/Livingston.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="livingston-package">
+<h1>Livingston package<a class="headerlink" href="#livingston-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-Livingston.livingston">
+<span id="livingston-livingston-module"></span><h2>Livingston.livingston module<a class="headerlink" href="#module-Livingston.livingston" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston.Annotation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston.</span></span><span class="sig-name descname"><span class="pre">Annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#333333'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#ffffcc'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.Annotation" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Text annotation displayed on the Livingston canvas.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.Annotation.bg">
+<span class="sig-name descname"><span class="pre">bg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffffcc'</span></em><a class="headerlink" href="#Livingston.livingston.Annotation.bg" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.Annotation.center">
+<span class="sig-name descname"><span class="pre">center</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#Livingston.livingston.Annotation.center" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.Annotation.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#333333'</span></em><a class="headerlink" href="#Livingston.livingston.Annotation.color" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.Annotation.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#Livingston.livingston.Annotation.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston.FactorNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston.</span></span><span class="sig-name descname"><span class="pre">FactorNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center:</span> <span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof_ids:</span> <span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.FactorNode" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Graph node representing a Hamiltonian interaction factor.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.FactorNode.center">
+<span class="sig-name descname"><span class="pre">center</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#Livingston.livingston.FactorNode.center" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.FactorNode.dof_ids">
+<span class="sig-name descname"><span class="pre">dof_ids</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Livingston.livingston.FactorNode.dof_ids" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.FactorNode.interactions">
+<span class="sig-name descname"><span class="pre">interactions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Livingston.livingston.FactorNode.interactions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.FactorNode.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'F'</span></em><a class="headerlink" href="#Livingston.livingston.FactorNode.label" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston.LindbladNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston.</span></span><span class="sig-name descname"><span class="pre">LindbladNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parametric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.LindbladNode" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container for a Lindblad dissipator definition.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.LindbladNode.dof_ids">
+<span class="sig-name descname"><span class="pre">dof_ids</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Livingston.livingston.LindbladNode.dof_ids" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.LindbladNode.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#Livingston.livingston.LindbladNode.label" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.LindbladNode.operators">
+<span class="sig-name descname"><span class="pre">operators</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Livingston.livingston.LindbladNode.operators" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.LindbladNode.parametric">
+<span class="sig-name descname"><span class="pre">parametric</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#Livingston.livingston.LindbladNode.parametric" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.LindbladNode.rate">
+<span class="sig-name descname"><span class="pre">rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#Livingston.livingston.LindbladNode.rate" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston.</span></span><span class="sig-name descname"><span class="pre">PlanckianLivingston</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ui_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compact'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Main Livingston layout editor window.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.add_annotation_at_canvas">
+<span class="sig-name descname"><span class="pre">add_annotation_at_canvas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.add_annotation_at_canvas" title="Link to this definition">¶</a></dt>
+<dd><p>Prompt for text and drop an annotation at canvas coords.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.add_factor_node">
+<span class="sig-name descname"><span class="pre">add_factor_node</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.add_factor_node" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new factor node connecting the currently selected DOFs.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>A factor node represents a Hamiltonian interaction term connecting two or more DOFs.</p></li>
+<li><p>Requires at least two DOFs to be selected.</p></li>
+<li><p>Prevents creation of duplicate factors with identical DOF sets.</p></li>
+<li><p>Automatically places the factor node at the geometric center (in world coordinates)
+of the selected DOFs, and adjusts position to avoid overlap.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tkinter.messagebox.showinfo</strong> – If fewer than two DOFs are selected.</p></li>
+<li><p><strong>tkinter.messagebox.showwarning</strong> – If a factor between the same DOFs already exists.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.add_interaction_to_factor">
+<span class="sig-name descname"><span class="pre">add_interaction_to_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.add_interaction_to_factor" title="Link to this definition">¶</a></dt>
+<dd><p>Open the interaction creation dialog for a given factor node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The factor node to which a new interaction will be added.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Opens an interactive non-blocking dialog (see <cite>livingston_funcs.add_interaction_dialog</cite>).</p></li>
+<li><p>Once the user completes the dialog, results are automatically appended
+to the given factor.</p></li>
+<li><p>Updates DOF neighbor lists accordingly.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.add_species_dialog">
+<span class="sig-name descname"><span class="pre">add_species_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.add_species_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Open a dialog to add a new species to the layout.</p>
+<p class="rubric">Notes</p>
+<p>Prompts the user for:
+- Species name
+- Color
+- Hilbert space dimension
+Updates the species list and redraws toolbar buttons.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.ask_grid_size">
+<span class="sig-name descname"><span class="pre">ask_grid_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.ask_grid_size" title="Link to this definition">¶</a></dt>
+<dd><p>Prompt the user to set a new grid size.</p>
+<p>Opens a dialog box to enter a new integer grid dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.build_menubar">
+<span class="sig-name descname"><span class="pre">build_menubar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.build_menubar" title="Link to this definition">¶</a></dt>
+<dd><p>Create Livingston’s main menubar for compact UI mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.build_ui">
+<span class="sig-name descname"><span class="pre">build_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.build_ui" title="Link to this definition">¶</a></dt>
+<dd><p>Construct the main Livingston user interface (stable layout).</p>
+<ul class="simple">
+<li><p>Toolbar lives in its own fixed top container.</p></li>
+<li><p>Canvas and scrollbars live in a persistent bottom container.</p></li>
+<li><p>Toggling UI mode only rebuilds the toolbar frame, never the canvas frame.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.canvas_to_grid">
+<span class="sig-name descname"><span class="pre">canvas_to_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.canvas_to_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Convert canvas-space coordinates to grid indices.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.canvas_to_world">
+<span class="sig-name descname"><span class="pre">canvas_to_world</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.canvas_to_world" title="Link to this definition">¶</a></dt>
+<dd><p>Convert canvas-space coordinates to grid indices.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.center_view_on_layout">
+<span class="sig-name descname"><span class="pre">center_view_on_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.center_view_on_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Center the visible canvas region on the layout contents.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Centers on the geometric middle of all DOFs and factor nodes.</p></li>
+<li><p>Uses the scrollregion for accurate positioning.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters">
+<span class="sig-name descname"><span class="pre">cleanup_orphan_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snapshot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Clean up unused parametric variable entries from the architecture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>snapshot</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, pushes an undo snapshot when modifications occur.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Removes parameter instances that no longer have any active references.</p></li>
+<li><p>Updates <code class="xref py py-attr docutils literal notranslate"><span class="pre">parametric_map</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">parametric_variables</span></code> accordingly.</p></li>
+<li><p>If <cite>snapshot</cite> is True, adds the change to the undo history.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.clear_canvas">
+<span class="sig-name descname"><span class="pre">clear_canvas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.clear_canvas" title="Link to this definition">¶</a></dt>
+<dd><p>Clear the entire layout from the canvas.</p>
+<p>Removes all DOFs, factors, Lindblad terms, and parameters,
+but retains species definitions and grid size.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.clear_selection">
+<span class="sig-name descname"><span class="pre">clear_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.clear_selection" title="Link to this definition">¶</a></dt>
+<dd><p>Clear all selected DOFs and factor nodes.</p>
+<p class="rubric">Notes</p>
+<p>Redraws the canvas to remove selection outlines.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.copy_factor_node">
+<span class="sig-name descname"><span class="pre">copy_factor_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.copy_factor_node" title="Link to this definition">¶</a></dt>
+<dd><p>Copy a Hamiltonian factor node and its interactions to an internal clipboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The factor node to copy.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The copied factor, including all its interaction terms, is stored in
+the temporary attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">_copied_factor</span></code>. Use
+<a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.paste_factor_node" title="Livingston.livingston.PlanckianLivingston.paste_factor_node"><code class="xref py py-func docutils literal notranslate"><span class="pre">paste_factor_node()</span></code></a> to attach the copied factor to another
+set of DOFs. Parametric metadata and species assignments are preserved.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.copy_selected_pattern">
+<span class="sig-name descname"><span class="pre">copy_selected_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.copy_selected_pattern" title="Link to this definition">¶</a></dt>
+<dd><p>Copy a pattern of selected DOFs and associated factor nodes.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The copied pattern is stored internally for later use in paste operations.</p></li>
+<li><p>The reference anchor for placement is the top-left grid position
+(minimum x and y among selected DOFs).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.create_spanning_tree_dialog">
+<span class="sig-name descname"><span class="pre">create_spanning_tree_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.create_spanning_tree_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Create a spanning tree among selected DOFs.</p>
+<section id="modes">
+<h3>Modes<a class="headerlink" href="#modes" title="Link to this heading">¶</a></h3>
+<p>1️ Automatic – build a minimum-distance spanning tree.
+2️ Manual – user clicks pairs of DOFs to add edges; double-click finishes.</p>
+<blockquote>
+<div><p>Includes live cycle detection and visual feedback.</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.delete_annotation">
+<span class="sig-name descname"><span class="pre">delete_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.delete_annotation" title="Link to this definition">¶</a></dt>
+<dd><p>Delete the annotation at the specified index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> (<em>int</em>) – Index of the annotation to remove.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.delete_dof_dialog">
+<span class="sig-name descname"><span class="pre">delete_dof_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.delete_dof_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Delete a DOF and all associated interactions after user confirmation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coord</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Grid coordinates of the DOF to delete.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Automatically removes all interactions and factors linked to the DOF.</p></li>
+<li><p>Updates the parametric map to remove orphaned parameters.</p></li>
+<li><p>Triggers an undo snapshot for safety.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.delete_dof_selection">
+<span class="sig-name descname"><span class="pre">delete_dof_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.delete_dof_selection" title="Link to this definition">¶</a></dt>
+<dd><p>Delete all currently selected DOFs and related interactions.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Removes all DOFs currently selected.</p></li>
+<li><p>Cleans up any factors connected exclusively to deleted DOFs.</p></li>
+<li><p>Removes associated parametric entries and updates undo stack.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.delete_factor">
+<span class="sig-name descname"><span class="pre">delete_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.delete_factor" title="Link to this definition">¶</a></dt>
+<dd><p>Delete a factor node and all associated interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The factor node to delete.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>All factor nodes sharing the same label are deleted together.</p></li>
+<li><p>Associated parametric references are automatically cleaned up.</p></li>
+<li><p>Creates an undo snapshot before deletion.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.double_click">
+<span class="sig-name descname"><span class="pre">double_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.double_click" title="Link to this definition">¶</a></dt>
+<dd><p>Handle double-click actions on the layout canvas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>tkinter.Event</em>) – The double-click event object, containing click coordinates.</p></li>
+<li><p><strong>Behavior</strong></p></li>
+<li><p><strong>--------</strong></p></li>
+<li><p><strong>annotation</strong> (<em>- **On</em>) – </p></li>
+<li><p><strong>DOF</strong> (<em>- **On</em>) – </p></li>
+<li><p><strong>node</strong> (<em>- **On factor</em>) – </p></li>
+<li><p><strong>cell</strong> (<em>- **On empty</em>) – <p>(if layout is unlocked).</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.draw" title="Link to this definition">¶</a></dt>
+<dd><p>Redraw the entire layout canvas.</p>
+<p class="rubric">Notes</p>
+<p>This method handles all visual rendering of:
+- The grid background
+- DOFs (with IDs, species color, and trace indicators)
+- Factor nodes (red or green, with connecting lines)
+- Current selection outlines
+- Text annotations (with colored labels and background)</p>
+<p>The canvas view is automatically rescaled to reflect zoom level.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.draw_species_buttons">
+<span class="sig-name descname"><span class="pre">draw_species_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.draw_species_buttons" title="Link to this definition">¶</a></dt>
+<dd><p>Refresh the species selection buttons in the toolbar.</p>
+<p class="rubric">Notes</p>
+<p>Each button represents one species type, color-coded by its defined color.
+Local species are marked with <cite>(L)</cite> in their labels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.edit_annotation">
+<span class="sig-name descname"><span class="pre">edit_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.edit_annotation" title="Link to this definition">¶</a></dt>
+<dd><p>Edit the text of an existing annotation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> (<em>int</em>) – Index of the annotation in the list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.edit_dof_window">
+<span class="sig-name descname"><span class="pre">edit_dof_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.edit_dof_window" title="Link to this definition">¶</a></dt>
+<dd><p>Open a detailed editing window for a given DOF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coord</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – The grid coordinate of the DOF to edit.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Allows modification of species, Rabi factor, driven roles, and Hilbert dimension.</p></li>
+<li><p>Displays local factor interactions and enables adding, deleting, or clearing local terms.</p></li>
+<li><p>Supports parameterized local interactions with per-species linkage.</p></li>
+<li><p>Provides full undo integration.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.edit_interaction">
+<span class="sig-name descname"><span class="pre">edit_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.edit_interaction" title="Link to this definition">¶</a></dt>
+<dd><p>Open an interactive editor for a given Hamiltonian interaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The parent factor node containing the interaction to edit.</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index of the interaction within the factor’s <cite>interactions</cite> list.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This editor allows you to:
+- Modify the <strong>operator list</strong>, <strong>interaction label</strong>, and <strong>strength</strong>.
+- Convert interactions to <strong>parametric form</strong>, linking them to shared parameters.
+- Assign a <strong>species</strong> (for species-linked parameter sweeps).
+- Automatically manage consistency of the parametric map.</p>
+<p>The editor supports automatic cleanup and undo integration:
+- Changing parameter names updates references in <cite>parametric_map</cite>.
+- Old unused parameters are removed via <a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters" title="Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters"><code class="xref py py-func docutils literal notranslate"><span class="pre">cleanup_orphan_parameters()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.edit_lindblad_terms">
+<span class="sig-name descname"><span class="pre">edit_lindblad_terms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.edit_lindblad_terms" title="Link to this definition">¶</a></dt>
+<dd><p>Open a dialog to view or add Lindblad dissipator terms for selected DOFs.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Each Lindblad term corresponds to an operator product acting on one or more DOFs.</p></li>
+<li><p>Allows creation of new Lindblad terms or deletion of existing ones related to the current selection.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.export_canvas_as_png">
+<span class="sig-name descname"><span class="pre">export_canvas_as_png</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.export_canvas_as_png" title="Link to this definition">¶</a></dt>
+<dd><p>Export the current Livingston canvas view as a PNG image.</p>
+<p>Uses the same reliable method as QuCAT:
+- Automatically recenters the layout so all elements are visible.
+- Captures the canvas area at full resolution.
+- Respects the ‘show_labels’ toggle from the View menu.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.export_canvas_clean_png">
+<span class="sig-name descname"><span class="pre">export_canvas_clean_png</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.export_canvas_clean_png" title="Link to this definition">¶</a></dt>
+<dd><p>Export a clean, dot-free version of the canvas as a transparent PNG.</p>
+<ul class="simple">
+<li><p>Removes grid dots entirely.</p></li>
+<li><p>Captures layout with transparent background.</p></li>
+<li><p>Respects the ‘show_labels’ toggle (labels hidden if toggled off).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.export_mps_topology">
+<span class="sig-name descname"><span class="pre">export_mps_topology</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.export_mps_topology" title="Link to this definition">¶</a></dt>
+<dd><p>Export all spanning trees to a JSON file for MPS backend usage.
+Each tree is represented as an adjacency list and saved separately.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.export_quantum_object">
+<span class="sig-name descname"><span class="pre">export_quantum_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.export_quantum_object" title="Link to this definition">¶</a></dt>
+<dd><p>Export the current Hamiltonian and Lindblad operators as QuTiP objects.</p>
+<p>Builds the system Hamiltonian and collapse operators from the
+current layout and saves them using <cite>qutip.qsave()</cite> for later
+simulation with QuTiP.</p>
+<p class="rubric">Notes</p>
+<p>The export includes:
+- Hamiltonian H (as <cite>H.qu</cite>)
+- Collapse operators <cite>c_op_*.qu</cite>
+- A manifest JSON file describing system metadata</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.export_sympy_hamiltonian">
+<span class="sig-name descname"><span class="pre">export_sympy_hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.export_sympy_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd><p>Export the Hamiltonian to a symbolic SymPy-compatible Python file.</p>
+<p>Prompts the user to choose a save path and writes a <cite>.py</cite> file
+that reconstructs the Hamiltonian in symbolic form using SymPy.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Each interaction is written as a product of site-tagged operators.</p></li>
+<li><p>Parametric couplings are represented as symbolic parameters.</p></li>
+<li><p>Metadata includes Hilbert dimensions, species map, and defaults.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.finish_selection">
+<span class="sig-name descname"><span class="pre">finish_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.finish_selection" title="Link to this definition">¶</a></dt>
+<dd><p>Finalize a selection or single-click action on the canvas.</p>
+<p>Handles both:
+- Click-selection of a single DOF or factor node.
+- Box-selection of multiple DOFs/factors when the user drags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.from_dict">
+<span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.from_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Load a layout directly from a Python dictionary (without file I/O).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A layout structure produced by <cite>get_layout()</cite> or loaded from JSON.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.from_json">
+<span class="sig-name descname"><span class="pre">from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.from_json" title="Link to this definition">¶</a></dt>
+<dd><p>Load a layout directly from a JSON file path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.generate_dynamic_layout_dialog">
+<span class="sig-name descname"><span class="pre">generate_dynamic_layout_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.generate_dynamic_layout_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Open a dialog for generating a dynamic layout from a Python module.</p>
+<section id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Ask the user to select a generator <cite>.py</cite> file.</p></li>
+<li><p>Load its metadata via <cite>get_generator_metadata()</cite>.</p></li>
+<li><p>Build a parameter input form dynamically.</p></li>
+<li><p>Call <cite>generate_layout_tempfile()</cite> and load the resulting layout.</p></li>
+</ol>
+<p class="rubric">Notes</p>
+<p>This system allows integration of external layout generators that
+return JSON-formatted architecture layouts for Livingston.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.get_layout">
+<span class="sig-name descname"><span class="pre">get_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.get_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Build a dictionary representing the current Livingston layout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complete layout data structure including:
+- grid size
+- species definitions
+- DOFs and their parameters
+- factor nodes and interactions
+- Lindblad terms
+- annotations
+- parametric map
+- initial state configuration (if present)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This dictionary is used for both saving the layout to JSON
+and transferring data between components.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.get_next_available_dof_id">
+<span class="sig-name descname"><span class="pre">get_next_available_dof_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.get_next_available_dof_id" title="Link to this definition">¶</a></dt>
+<dd><p>Return the next available integer DOF ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The lowest non-conflicting DOF ID.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Scans all existing DOFs and returns the first unused ID starting from 0.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.get_saved_path">
+<span class="sig-name descname"><span class="pre">get_saved_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.get_saved_path" title="Link to this definition">¶</a></dt>
+<dd><p>Return the last saved layout path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Path to the last saved layout file, if available.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.grid_to_canvas">
+<span class="sig-name descname"><span class="pre">grid_to_canvas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.grid_to_canvas" title="Link to this definition">¶</a></dt>
+<dd><p>Convert grid indices to canvas-space coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.grid_to_world">
+<span class="sig-name descname"><span class="pre">grid_to_world</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.grid_to_world" title="Link to this definition">¶</a></dt>
+<dd><p>Convert grid coordinates to world-space coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.identify_selected_dofs">
+<span class="sig-name descname"><span class="pre">identify_selected_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.identify_selected_dofs" title="Link to this definition">¶</a></dt>
+<dd><p>Identify (merge) multiple selected DOFs into a single one.</p>
+<p>Prompts the user for:
+1. Which DOF ID to keep.
+2. Whether to merge local (1-body) terms from all DOFs or keep only</p>
+<blockquote>
+<div><p>those of the kept DOF.</p>
+</div></blockquote>
+<p>All other selected DOFs are removed.
+All interactions referencing removed DOFs are rewired to the kept DOF.
+New factors are created as needed to preserve connectivity.</p>
+<p>Undo-safe and parametric-map aware.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.import_sympy_dialog">
+<span class="sig-name descname"><span class="pre">import_sympy_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.import_sympy_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Import a Hamiltonian from a SymPy expression or Python module.</p>
+<p>Allows the user to:
+- Select a <cite>.py</cite> file defining a symbolic Hamiltonian (<cite>H</cite> or <cite>get_hamiltonian()</cite>).
+- Or paste a SymPy expression directly into a dialog box.</p>
+<p>Once imported, the SymPy expression is parsed into Livingston factor nodes
+and interactions via <code class="xref py py-func docutils literal notranslate"><span class="pre">_import_sympy_expression()</span></code>.</p>
+<p class="rubric">Notes</p>
+<p>This dialog supports automatic extraction of:
+- <cite>hilbert_dims</cite> (per-DOF Hilbert space sizes)
+- <cite>param_defaults</cite> (default values for parameters)
+- <cite>species_by_dof</cite> (mapping of DOFs to species)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.left_click">
+<span class="sig-name descname"><span class="pre">left_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.left_click" title="Link to this definition">¶</a></dt>
+<dd><p>Handle left mouse button events on the canvas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – Mouse click event captured by the canvas.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If clicking on an existing DOF: toggles selection.</p></li>
+<li><p>If clicking on an empty grid cell: creates a new DOF at that location.</p></li>
+<li><p>Behavior is disabled when layout is locked.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.list_interactions_for_dof">
+<span class="sig-name descname"><span class="pre">list_interactions_for_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.list_interactions_for_dof" title="Link to this definition">¶</a></dt>
+<dd><p>Display all local interactions for a given DOF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dof_id</strong> (<em>int</em>) – The DOF identifier to inspect.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Opens a scrollable window listing all local interaction terms acting on
+the selected DOF, with options to edit or delete each term.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.list_interactions_multidof">
+<span class="sig-name descname"><span class="pre">list_interactions_multidof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.list_interactions_multidof" title="Link to this definition">¶</a></dt>
+<dd><p>Display all Hamiltonian and Lindblad interactions associated with a multi-DOF factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The factor node for which to display interactions.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The list includes both Hamiltonian terms and Lindblad dissipators that
+act on the same DOFs as this factor.</p></li>
+<li><p>Provides buttons to <strong>edit</strong> or <strong>delete</strong> Hamiltonian terms.</p></li>
+<li><p>Lindblad terms are listed as informational only (read-only).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.load_layout">
+<span class="sig-name descname"><span class="pre">load_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.load_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Load a layout JSON file into Livingston.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the JSON layout file. If None, opens a file dialog.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Loads DOFs, factors, interactions, Lindblad terms, and annotations.
+Automatically merges duplicate factors by DOF set and rebuilds neighbor relations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.on_close">
+<span class="sig-name descname"><span class="pre">on_close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.on_close" title="Link to this definition">¶</a></dt>
+<dd><p>Handle window close event.</p>
+<p>Prompts to save unsaved changes before closing and destroys
+both the Livingston frame and its parent window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.open_circuit_export_panel">
+<span class="sig-name descname"><span class="pre">open_circuit_export_panel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.open_circuit_export_panel" title="Link to this definition">¶</a></dt>
+<dd><p>Open the ‘Circuit Export’ panel for exporting the current layout as a
+physical circuit netlist (.txt) or other future formats.</p>
+<p>Currently supports:
+- Capacitive coupling network generation
+- QuCAT-compatible planar .txt output</p>
+<p>This panel will later support Steppenwolf-compatible exports.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.paste_factor_node">
+<span class="sig-name descname"><span class="pre">paste_factor_node</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.paste_factor_node" title="Link to this definition">¶</a></dt>
+<dd><p>Paste the last copied factor onto user-specified DOFs.</p>
+<p class="rubric">Notes</p>
+<p>Opens an interactive dialog listing the DOF IDs of the source factor
+and asks for one replacement DOF ID per source.  The new factor will be
+attached to those DOFs.  If a factor with the same DOF set already
+exists, the copied interactions are appended there (labels made unique);
+otherwise a new <a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">FactorNode</span></code></a> is created at the geometric center
+of the specified DOFs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.paste_pattern">
+<span class="sig-name descname"><span class="pre">paste_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.paste_pattern" title="Link to this definition">¶</a></dt>
+<dd><p>Paste a previously copied pattern of DOFs and factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target_coord</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – The grid coordinate where the pattern anchor will be placed.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The pasted pattern includes all selected DOFs and any factor nodes
+fully contained within the copied region.</p></li>
+<li><p>Performs collision detection before placing new elements.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.refresh_layout">
+<span class="sig-name descname"><span class="pre">refresh_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.refresh_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Automatically reposition factor nodes to maintain a tidy visual layout.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><strong>Multi-DOF factors</strong> are centered between their connected DOFs.</p></li>
+<li><p><strong>Local (1-DOF) factors</strong> are placed just above and to the right
+of their corresponding DOF.</p></li>
+<li><p>The method ensures that no factor overlaps with existing DOFs or
+other factors by invoking <code class="xref py py-func docutils literal notranslate"><span class="pre">_displace_factor_if_overlapping()</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkinter.messagebox.showinfo</strong> – If the layout is locked (editing disabled).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.remove_interaction_and_cleanup">
+<span class="sig-name descname"><span class="pre">remove_interaction_and_cleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.remove_interaction_and_cleanup" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an interaction from a factor and update the parametric map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The factor node from which the interaction will be removed.</p></li>
+<li><p><strong>interaction</strong> (<a class="reference internal" href="#Livingston.livingston_core.Interaction" title="Livingston.livingston_core.Interaction"><em>Interaction</em></a>) – The interaction object to remove.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If the interaction is parametric, its reference is removed from
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">parametric_map</span></code>.</p></li>
+<li><p>After removal, orphaned parameter entries are automatically pruned
+via <a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters" title="Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters"><code class="xref py py-func docutils literal notranslate"><span class="pre">cleanup_orphan_parameters()</span></code></a>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.remove_species_dialog">
+<span class="sig-name descname"><span class="pre">remove_species_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.remove_species_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an existing non-local species.</p>
+<p class="rubric">Notes</p>
+<p>Opens a prompt to select a removable species. Local species (e.g., LQ)
+are protected and cannot be removed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.rename_factor_node">
+<span class="sig-name descname"><span class="pre">rename_factor_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.rename_factor_node" title="Link to this definition">¶</a></dt>
+<dd><p>Rename a factor node via a popup dialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The factor node whose label should be changed.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Automatically records an undo snapshot before renaming.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.restore_normal_bindings">
+<span class="sig-name descname"><span class="pre">restore_normal_bindings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.restore_normal_bindings" title="Link to this definition">¶</a></dt>
+<dd><p>Fully restore Livingston’s normal canvas event bindings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma">
+<span class="sig-name descname"><span class="pre">rewrite_annihilation_to_sigma</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma" title="Link to this definition">¶</a></dt>
+<dd><p>EXPERIMENTAL MODULE: Replace annihilation and creation operators with spin operators.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Replaces ‘a’ → ‘σ⁻’ (lowering operator)</p></li>
+<li><p>Replaces ‘a†’ or ‘adag’ → ‘σ⁺’ (raising operator)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis">
+<span class="sig-name descname"><span class="pre">rewrite_products_to_paulis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis" title="Link to this definition">¶</a></dt>
+<dd><p>EXPERIMENTAL MODULE:
+Rewrite σ⁺σ⁻ and σ⁻σ⁺ products in the Hamiltonian into Pauli terms.</p>
+<p class="rubric">Notes</p>
+<p>Replaces combinations of raising and lowering operators with
+equivalent Pauli operator decompositions:
+- σ⁻σ⁺ → ½I - ½Z
+- σ⁺σ⁻ → ½I + ½Z</p>
+<p>A new interaction term is generated for each resulting Pauli component.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.right_click">
+<span class="sig-name descname"><span class="pre">right_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.right_click" title="Link to this definition">¶</a></dt>
+<dd><p>Handle right-click events on the canvas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – Mouse event containing click coordinates and widget context.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Depending on the target under the cursor:
+- Opens annotation editing menu.
+- Opens DOF (Degree of Freedom) or factor node context menus.
+- Displays a general background context menu when clicking empty space.</p>
+<p>Includes dynamic options for:
+- Editing, copying, deleting, or dragging selected DOFs.
+- Pasting copied patterns.
+- Adding annotations.
+- Undoing last changes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.save_layout">
+<span class="sig-name descname"><span class="pre">save_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.save_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Save the current layout to a JSON file.</p>
+<p>Opens a save dialog and writes the complete layout data structure
+(DOFs, factors, interactions, Lindblad terms, parameters, etc.)
+to a JSON file for later reuse.</p>
+<p class="rubric">Notes</p>
+<p>The saved layout can be reloaded with <a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.load_layout" title="Livingston.livingston.PlanckianLivingston.load_layout"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_layout()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.save_layout_as">
+<span class="sig-name descname"><span class="pre">save_layout_as</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.save_layout_as" title="Link to this definition">¶</a></dt>
+<dd><p>Save the current layout to a new file path without changing the active save target.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Opens a Save As dialog and writes the layout to the chosen file.</p></li>
+<li><p>Does NOT update <cite>self.saved_path</cite> or the window title.</p></li>
+<li><p>Useful for exporting snapshots or backups while continuing to work
+with the original layout file.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.select_all_dofs">
+<span class="sig-name descname"><span class="pre">select_all_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.select_all_dofs" title="Link to this definition">¶</a></dt>
+<dd><p>Select all DOFs currently in the layout.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.select_all_elements">
+<span class="sig-name descname"><span class="pre">select_all_elements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.select_all_elements" title="Link to this definition">¶</a></dt>
+<dd><p>Select all DOFs and factor nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.set_dirty">
+<span class="sig-name descname"><span class="pre">set_dirty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.set_dirty" title="Link to this definition">¶</a></dt>
+<dd><p>Mark the layout as dirty (meaning unsaved changes).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dirty</strong> (<em>bool</em>) – Whether to mark as modified (True) or clean (False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.set_initial_state_dialog">
+<span class="sig-name descname"><span class="pre">set_initial_state_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.set_initial_state_dialog" title="Link to this definition">¶</a></dt>
+<dd><p>Open a dialog for defining the system’s initial quantum state.</p>
+<p>Allows entry of custom basis states and complex amplitudes.
+Automatically normalizes and validates the user-provided state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.set_species">
+<span class="sig-name descname"><span class="pre">set_species</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">species</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.set_species" title="Link to this definition">¶</a></dt>
+<dd><p>Set the current active species for new DOF placements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>species</strong> (<a class="reference internal" href="#Livingston.livingston_core.Species" title="Livingston.livingston_core.Species"><em>Species</em></a>) – The species object to set as active for future DOF creation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_annotation_menu">
+<span class="sig-name descname"><span class="pre">show_annotation_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_annotation_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Display the context menu for an annotation.</p>
+<p>Provides edit and delete options, as well as Undo when available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_canvas_menu">
+<span class="sig-name descname"><span class="pre">show_canvas_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_canvas_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Display the general canvas context menu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – Mouse event containing the clicked position.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Provides a paste action at the clicked grid location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_dof_menu">
+<span class="sig-name descname"><span class="pre">show_dof_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_dof_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Display a context menu for a DOF (Degree of Freedom).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Grid coordinate of the DOF.</p></li>
+<li><p><strong>event</strong> (<em>tkinter.Event</em>) – Right-click event triggering the menu.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Options vary depending on layout lock state:
+- <strong>Edit DOF</strong>: opens a property editor.
+- <strong>Delete DOF</strong>: removes the selected DOF (if layout unlocked).
+- <strong>Undo Last Change</strong>: restores the previous snapshot, if available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_factor_menu">
+<span class="sig-name descname"><span class="pre">show_factor_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_factor_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Display context menu for a factor node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor</strong> (<a class="reference internal" href="#Livingston.livingston.FactorNode" title="Livingston.livingston.FactorNode"><em>FactorNode</em></a>) – The selected factor node.</p></li>
+<li><p><strong>event</strong> (<em>tkinter.Event</em>) – Right-click event triggering the menu.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Menu options include:
+- Add interaction
+- Rename factor
+- View or list interactions
+- Drag, clear selection, or delete
+- Undo last modification (if available)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_hamiltonian">
+<span class="sig-name descname"><span class="pre">show_hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd><p>Display and manage all Hamiltonian interaction terms in the layout.</p>
+<p>Opens an interactive window listing all interactions (Hamiltonian terms)
+grouped by their corresponding factor nodes. The interface allows users
+to <strong>view</strong>, <strong>select</strong>, <strong>analyze</strong>, <strong>rescale</strong>, and <strong>simplify</strong>
+the coupling terms of the current architecture.</p>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Display:</strong> Shows all defined interaction terms grouped by factor.</p></li>
+<li><p><strong>Selection:</strong> Click lines to highlight or select specific interactions.</p></li>
+<li><p><strong>Parameter inspection:</strong> Displays parametric couplings with defaults.</p></li>
+<li><dl class="simple">
+<dt><strong>Editing:</strong></dt><dd><ul>
+<li><p>Group duplicate terms with identical operators and DOFs.</p></li>
+<li><p>Simplify (remove zero-strength terms).</p></li>
+<li><p>Apply Gaussian disorder or rescaling to numeric couplings.</p></li>
+<li><p>Rewrite <cite>a</cite>, <cite>a†</cite> operators as σ⁺/σ⁻ or expand σ±σ∓ to Pauli terms.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Statistical tools:</strong></dt><dd><ul>
+<li><p>Compute ⟨<a href="#id21"><span class="problematic" id="id22">|J|</span></a>⟩ (mean absolute coupling) and standard deviation σ.</p></li>
+<li><p>Plot histogram of <a href="#id23"><span class="problematic" id="id24">|J|</span></a> distribution for selected couplings.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Undo support:</strong> All destructive operations (simplify, rescale, etc.)
+trigger <cite>snapshot_layout()</cite> for full undo safety.</p></li>
+</ul>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Parametric (symbolic) terms are not modified by rescaling or disorder.</p></li>
+<li><p>Non-Hermitian terms can optionally be highlighted in red if
+<cite>CONSIDER_NONHERMITIAN = True</cite>.</p></li>
+<li><p>The view updates automatically after every change.</p></li>
+<li><p>Interaction removal automatically updates the parametric map.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma" title="Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rewrite_annihilation_to_sigma</span></code></a></dt><dd><p>Replace <cite>a</cite>, <cite>a†</cite> with σ± operators.</p>
+</dd>
+<dt><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis" title="Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rewrite_products_to_paulis</span></code></a></dt><dd><p>Expand σ± products into Pauli Z and I components.</p>
+</dd>
+<dt><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.snapshot_layout" title="Livingston.livingston.PlanckianLivingston.snapshot_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">snapshot_layout</span></code></a></dt><dd><p>Saves undo states.</p>
+</dd>
+<dt><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters" title="Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cleanup_orphan_parameters</span></code></a></dt><dd><p>Cleans unused parameter entries.</p>
+</dd>
+</dl>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_lindblad_terms">
+<span class="sig-name descname"><span class="pre">show_lindblad_terms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_lindblad_terms" title="Link to this definition">¶</a></dt>
+<dd><p>Display a list of all defined Lindblad dissipators.</p>
+<p>Opens a scrollable window showing:
+- Each Lindblad term’s label, operators, and rate.
+- Buttons to remove individual terms.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_parametric_variables">
+<span class="sig-name descname"><span class="pre">show_parametric_variables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_parametric_variables" title="Link to this definition">¶</a></dt>
+<dd><p>Display a window listing all defined parametric variables.</p>
+<p>Opens a read-only table of parameters defined in the current layout,
+showing their type, usage (factor and label), and default values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.show_spanning_trees">
+<span class="sig-name descname"><span class="pre">show_spanning_trees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.show_spanning_trees" title="Link to this definition">¶</a></dt>
+<dd><p>Display all defined spanning trees in a scrollable window.</p>
+<p>Each tree can be:
+- 👁️ Shown/hidden dynamically on the canvas.
+- 🗑️ Deleted individually.
+- 🗑️ All cleared at once.</p>
+<p>The view updates automatically and supports undo.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.snapshot_layout">
+<span class="sig-name descname"><span class="pre">snapshot_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.snapshot_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Save a deep copy of the current layout for undo operations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.start_drag_selected">
+<span class="sig-name descname"><span class="pre">start_drag_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.start_drag_selected" title="Link to this definition">¶</a></dt>
+<dd><p>Start dragging currently selected DOFs and/or factor nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em><em>, </em><em>optional</em>) – The mouse event that initiated the drag.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method enables live previews during drag operations and
+sets up motion and release event bindings for the drag action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.start_selection">
+<span class="sig-name descname"><span class="pre">start_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.start_selection" title="Link to this definition">¶</a></dt>
+<dd><p>Begin a mouse drag or click-based selection gesture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – Mouse button press event.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.to_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Return the current layout as a pure Python dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Layout structure identical to what <cite>get_layout()</cite> returns.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.to_json">
+<span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.to_json" title="Link to this definition">¶</a></dt>
+<dd><p>Save the current layout as JSON (or return JSON string if no path given).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.to_qutip">
+<span class="sig-name descname"><span class="pre">to_qutip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.to_qutip" title="Link to this definition">¶</a></dt>
+<dd><p>Build and return the Hamiltonian (and optional c_ops) as QuTiP objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>(H, c_ops) where:</dt><dd><ul class="simple">
+<li><p>H is the full Hamiltonian (qutip.Qobj)</p></li>
+<li><p>c_ops is a list of collapse operators</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.toggle_labels">
+<span class="sig-name descname"><span class="pre">toggle_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.toggle_labels" title="Link to this definition">¶</a></dt>
+<dd><p>Toggle visibility of DOF and factor labels (IDs and names).</p>
+<p>When hidden, the layout displays only the shapes and connections,
+ideal for exporting clean figures or screenshots.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.toggle_lock_layout">
+<span class="sig-name descname"><span class="pre">toggle_lock_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.toggle_lock_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Toggle between locked and unlocked layout editing mode.</p>
+<p>When locked:
+- Prevents modification of DOFs and factors.
+- Updates UI button colors and status indicator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.toggle_ui_mode">
+<span class="sig-name descname"><span class="pre">toggle_ui_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.toggle_ui_mode" title="Link to this definition">¶</a></dt>
+<dd><p>Switch between full and compact toolbar layouts (non-destructive).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.undo_last_action">
+<span class="sig-name descname"><span class="pre">undo_last_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.undo_last_action" title="Link to this definition">¶</a></dt>
+<dd><p>Undo the most recent layout modification.</p>
+<p>Restores the most recent snapshot from the undo stack, reverting
+all DOFs, factors, annotations, and parametric maps to that state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.update_selection">
+<span class="sig-name descname"><span class="pre">update_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.update_selection" title="Link to this definition">¶</a></dt>
+<dd><p>Update the rectangular selection box while dragging the mouse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – Mouse motion event.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston.PlanckianLivingston.world_to_canvas">
+<span class="sig-name descname"><span class="pre">world_to_canvas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.PlanckianLivingston.world_to_canvas" title="Link to this definition">¶</a></dt>
+<dd><p>Convert world-space coordinates to canvas coordinates.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston.SpanningTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston.</span></span><span class="sig-name descname"><span class="pre">SpanningTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#8888ff'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston.SpanningTree" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a spanning tree among a subset (or all) of the DOFs.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.SpanningTree.label">
+<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#Livingston.livingston.SpanningTree.label" title="Link to this definition">¶</a></dt>
+<dd><p>Name or identifier of the tree (e.g., “T1”, “MPS_chain”).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.SpanningTree.edges">
+<span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#Livingston.livingston.SpanningTree.edges" title="Link to this definition">¶</a></dt>
+<dd><p>List of (source_id, target_id) pairs defining tree connectivity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[int, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.SpanningTree.root_id">
+<span class="sig-name descname"><span class="pre">root_id</span></span><a class="headerlink" href="#Livingston.livingston.SpanningTree.root_id" title="Link to this definition">¶</a></dt>
+<dd><p>DOF ID chosen as the root of the tree (optional, for ordered trees).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.SpanningTree.directed">
+<span class="sig-name descname"><span class="pre">directed</span></span><a class="headerlink" href="#Livingston.livingston.SpanningTree.directed" title="Link to this definition">¶</a></dt>
+<dd><p>If True, edges are treated as directed from parent→child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Livingston.livingston.SpanningTree.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#Livingston.livingston.SpanningTree.color" title="Link to this definition">¶</a></dt>
+<dd><p>Display color for drawing the tree edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#8888ff'</span></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">directed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">edges</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">root_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Livingston.livingston_core">
+<span id="livingston-livingston-core-module"></span><h2>Livingston.livingston_core module<a class="headerlink" href="#module-Livingston.livingston_core" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston_core.CompositeOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">CompositeOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latex_symbol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_hermitian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.CompositeOperator" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston_core.CompositeOperator.decompose">
+<span class="sig-name descname"><span class="pre">decompose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.CompositeOperator.decompose" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston_core.DOF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">DOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crossed_rabifactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driven</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_hamiltonians</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">physical_dof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transmon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilbert_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.DOF" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston_core.Interaction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">Interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operators</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator_blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parametric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.Interaction" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Livingston.livingston_core.Interaction.validate_against_dofs">
+<span class="sig-name descname"><span class="pre">validate_against_dofs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.Interaction.validate_against_dofs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston_core.OperatorDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">OperatorDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbolic_expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supported_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_hermitian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.OperatorDef" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Livingston.livingston_core.Species">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">Species</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilbert_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.Species" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_core.color_cycle">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">color_cycle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.color_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_core.get_valid_operators_for_dim">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_core.</span></span><span class="sig-name descname"><span class="pre">get_valid_operators_for_dim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_core.get_valid_operators_for_dim" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-Livingston.livingston_funcs">
+<span id="livingston-livingston-funcs-module"></span><h2>Livingston.livingston_funcs module<a class="headerlink" href="#module-Livingston.livingston_funcs" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.add_interaction_between">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">add_interaction_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.add_interaction_between" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.add_interaction_dialog">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">add_interaction_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.add_interaction_dialog" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.build_H0">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">build_H0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.build_H0" title="Link to this definition">¶</a></dt>
+<dd><p>Build H0 = sum_i ∑_k strength_k * op_k^{(i)}
+usig qubits[q][‘local_Ham’] = [(op_name, strength),…].
+<cite>qubits</cite> is a dictionary with the following form:
+.. code-block:: python</p>
+<blockquote>
+<div><dl class="simple">
+<dt>qubits[int(qid)] = {‘x’<span class="classifier">pos[0],</span></dt><dd><p>‘y’ : pos[1],
+‘color’ : color,
+‘species’ : specie,
+‘hilbert_dim’ : dimH,
+‘local_Ham’ : [(op[0],strength) for op,strength in zip(ham_ops,ham_strengths)],
+‘crossed_rabifactor’ : rabifactor}</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.build_Hint">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">build_Hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.build_Hint" title="Link to this definition">¶</a></dt>
+<dd><p>Build Hint = sum_{(i&lt;j)} ∑_alpha strength_alpha * (op_i ⊗ op_j ⊗ …)
+from the dictionary <cite>interactions</cite>:</p>
+<blockquote>
+<div><p>self.interactions[‘(0,1)’] = [[op_str, strength],…]</p>
+</div></blockquote>
+<p>where op_str is like: ‘X0 ⊗ Y1’.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.complex_prod">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">complex_prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.complex_prod" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.edit_dof_window">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">edit_dof_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.edit_dof_window" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.select_dof">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">select_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.select_dof" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Livingston.livingston_funcs.str_to_qobj">
+<span class="sig-prename descclassname"><span class="pre">Livingston.livingston_funcs.</span></span><span class="sig-name descname"><span class="pre">str_to_qobj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Livingston.livingston_funcs.str_to_qobj" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-Livingston">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Livingston" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="Steppenwolf.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Steppenwolf package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="Frankenstein.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Frankenstein package</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Planckian srl
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Livingston package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-Livingston.livingston">Livingston.livingston module</a><ul>
+<li><a class="reference internal" href="#Livingston.livingston.Annotation"><code class="docutils literal notranslate"><span class="pre">Annotation</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston.Annotation.bg"><code class="docutils literal notranslate"><span class="pre">Annotation.bg</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.Annotation.center"><code class="docutils literal notranslate"><span class="pre">Annotation.center</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.Annotation.color"><code class="docutils literal notranslate"><span class="pre">Annotation.color</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.Annotation.text"><code class="docutils literal notranslate"><span class="pre">Annotation.text</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Livingston.livingston.FactorNode"><code class="docutils literal notranslate"><span class="pre">FactorNode</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston.FactorNode.center"><code class="docutils literal notranslate"><span class="pre">FactorNode.center</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.FactorNode.dof_ids"><code class="docutils literal notranslate"><span class="pre">FactorNode.dof_ids</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.FactorNode.interactions"><code class="docutils literal notranslate"><span class="pre">FactorNode.interactions</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.FactorNode.label"><code class="docutils literal notranslate"><span class="pre">FactorNode.label</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Livingston.livingston.LindbladNode"><code class="docutils literal notranslate"><span class="pre">LindbladNode</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston.LindbladNode.dof_ids"><code class="docutils literal notranslate"><span class="pre">LindbladNode.dof_ids</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.LindbladNode.label"><code class="docutils literal notranslate"><span class="pre">LindbladNode.label</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.LindbladNode.operators"><code class="docutils literal notranslate"><span class="pre">LindbladNode.operators</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.LindbladNode.parametric"><code class="docutils literal notranslate"><span class="pre">LindbladNode.parametric</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.LindbladNode.rate"><code class="docutils literal notranslate"><span class="pre">LindbladNode.rate</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.add_annotation_at_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_annotation_at_canvas()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.add_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_factor_node()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.add_interaction_to_factor"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_interaction_to_factor()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.add_species_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.add_species_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.ask_grid_size"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.ask_grid_size()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.build_menubar"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.build_menubar()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.build_ui"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.build_ui()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.canvas_to_grid"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.canvas_to_grid()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.canvas_to_world"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.canvas_to_world()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.center_view_on_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.center_view_on_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.cleanup_orphan_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.clear_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.clear_canvas()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.clear_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.clear_selection()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.copy_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.copy_factor_node()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.copy_selected_pattern"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.copy_selected_pattern()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.create_spanning_tree_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.create_spanning_tree_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.delete_annotation"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_annotation()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.delete_dof_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_dof_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.delete_dof_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_dof_selection()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.delete_factor"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.delete_factor()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.double_click"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.double_click()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.draw"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.draw()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.draw_species_buttons"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.draw_species_buttons()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.edit_annotation"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_annotation()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.edit_dof_window"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_dof_window()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.edit_interaction"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_interaction()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.edit_lindblad_terms"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.edit_lindblad_terms()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.export_canvas_as_png"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_canvas_as_png()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.export_canvas_clean_png"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_canvas_clean_png()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.export_mps_topology"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_mps_topology()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.export_quantum_object"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_quantum_object()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.export_sympy_hamiltonian"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.export_sympy_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.finish_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.finish_selection()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.from_dict"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.from_json"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.from_json()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.generate_dynamic_layout_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.generate_dynamic_layout_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.get_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.get_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.get_next_available_dof_id"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.get_next_available_dof_id()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.get_saved_path"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.get_saved_path()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.grid_to_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.grid_to_canvas()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.grid_to_world"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.grid_to_world()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.identify_selected_dofs"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.identify_selected_dofs()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.import_sympy_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.import_sympy_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.left_click"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.left_click()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.list_interactions_for_dof"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.list_interactions_for_dof()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.list_interactions_multidof"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.list_interactions_multidof()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.load_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.load_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.on_close"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.on_close()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.open_circuit_export_panel"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.open_circuit_export_panel()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.paste_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.paste_factor_node()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.paste_pattern"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.paste_pattern()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.refresh_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.refresh_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.remove_interaction_and_cleanup"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.remove_interaction_and_cleanup()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.remove_species_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.remove_species_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.rename_factor_node"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.rename_factor_node()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.restore_normal_bindings"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.restore_normal_bindings()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.rewrite_annihilation_to_sigma()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.rewrite_products_to_paulis()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.right_click"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.right_click()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.save_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.save_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.save_layout_as"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.save_layout_as()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.select_all_dofs"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.select_all_dofs()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.select_all_elements"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.select_all_elements()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.set_dirty"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.set_dirty()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.set_initial_state_dialog"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.set_initial_state_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.set_species"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.set_species()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_annotation_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_annotation_menu()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_canvas_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_canvas_menu()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_dof_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_dof_menu()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_factor_menu"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_factor_menu()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_hamiltonian"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_lindblad_terms"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_lindblad_terms()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_parametric_variables"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_parametric_variables()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.show_spanning_trees"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.show_spanning_trees()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.snapshot_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.snapshot_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.start_drag_selected"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.start_drag_selected()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.start_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.start_selection()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.to_dict"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.to_dict()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.to_json"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.to_json()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.to_qutip"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.to_qutip()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.toggle_labels"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.toggle_labels()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.toggle_lock_layout"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.toggle_lock_layout()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.toggle_ui_mode"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.toggle_ui_mode()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.undo_last_action"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.undo_last_action()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.update_selection"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.update_selection()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.PlanckianLivingston.world_to_canvas"><code class="docutils literal notranslate"><span class="pre">PlanckianLivingston.world_to_canvas()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Livingston.livingston.SpanningTree"><code class="docutils literal notranslate"><span class="pre">SpanningTree</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston.SpanningTree.label"><code class="docutils literal notranslate"><span class="pre">SpanningTree.label</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.SpanningTree.edges"><code class="docutils literal notranslate"><span class="pre">SpanningTree.edges</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.SpanningTree.root_id"><code class="docutils literal notranslate"><span class="pre">SpanningTree.root_id</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.SpanningTree.directed"><code class="docutils literal notranslate"><span class="pre">SpanningTree.directed</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston.SpanningTree.color"><code class="docutils literal notranslate"><span class="pre">SpanningTree.color</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">SpanningTree.color</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">SpanningTree.directed</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">SpanningTree.edges</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">SpanningTree.label</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">SpanningTree.root_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Livingston.livingston_core">Livingston.livingston_core module</a><ul>
+<li><a class="reference internal" href="#Livingston.livingston_core.CompositeOperator"><code class="docutils literal notranslate"><span class="pre">CompositeOperator</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston_core.CompositeOperator.decompose"><code class="docutils literal notranslate"><span class="pre">CompositeOperator.decompose()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Livingston.livingston_core.DOF"><code class="docutils literal notranslate"><span class="pre">DOF</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_core.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a><ul>
+<li><a class="reference internal" href="#Livingston.livingston_core.Interaction.validate_against_dofs"><code class="docutils literal notranslate"><span class="pre">Interaction.validate_against_dofs()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Livingston.livingston_core.OperatorDef"><code class="docutils literal notranslate"><span class="pre">OperatorDef</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_core.Species"><code class="docutils literal notranslate"><span class="pre">Species</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_core.color_cycle"><code class="docutils literal notranslate"><span class="pre">color_cycle()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_core.get_valid_operators_for_dim"><code class="docutils literal notranslate"><span class="pre">get_valid_operators_for_dim()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Livingston.livingston_funcs">Livingston.livingston_funcs module</a><ul>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.add_interaction_between"><code class="docutils literal notranslate"><span class="pre">add_interaction_between()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.add_interaction_dialog"><code class="docutils literal notranslate"><span class="pre">add_interaction_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.build_H0"><code class="docutils literal notranslate"><span class="pre">build_H0()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.build_Hint"><code class="docutils literal notranslate"><span class="pre">build_Hint()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.complex_prod"><code class="docutils literal notranslate"><span class="pre">complex_prod()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.edit_dof_window"><code class="docutils literal notranslate"><span class="pre">edit_dof_window()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.select_dof"><code class="docutils literal notranslate"><span class="pre">select_dof()</span></code></a></li>
+<li><a class="reference internal" href="#Livingston.livingston_funcs.str_to_qobj"><code class="docutils literal notranslate"><span class="pre">str_to_qobj()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Livingston">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

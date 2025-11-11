@@ -1,0 +1,91 @@
+Archbuilder Documentation
+=========================
+
+Welcome to the Archbuilder API and package documentation.
+This documentation covers all main packages, submodules, and public interfaces
+of the `Architecture_builder` codebase.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Package Contents:
+
+   ArchBuilder
+   AIgor
+   Bovary
+   Frankenstein
+   Livingston
+   Steppenwolf
+   modules
+
+----------------------------
+Main Modules
+----------------------------
+
+.. automodule:: ArchBuilder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+----------------------------
+Subpackages Overview
+----------------------------
+
+AIgor
+-----
+
+.. automodule:: AIgor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Bovary
+------
+
+.. automodule:: Bovary
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Frankenstein
+------------
+
+.. automodule:: Frankenstein
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Livingston
+----------
+
+.. automodule:: Livingston
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Steppenwolf
+-----------
+
+.. automodule:: Steppenwolf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Installation:
+
+   installation  
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: User Documentation:
+
+   archbuilder_manual
+----------------------------
+Indices and Tables
+----------------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

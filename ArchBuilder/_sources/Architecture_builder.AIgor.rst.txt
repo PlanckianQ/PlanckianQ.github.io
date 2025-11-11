@@ -1,0 +1,37 @@
+Architecture\_builder.AIgor package
+===================================
+
+Submodules
+----------
+
+Architecture\_builder.AIgor.aigor module
+----------------------------------------
+
+.. automodule:: Architecture_builder.AIgor.aigor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.AIgor.aigor\_temp module
+----------------------------------------------
+
+.. automodule:: Architecture_builder.AIgor.aigor_temp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.AIgor.test\_log module
+--------------------------------------------
+
+.. automodule:: Architecture_builder.AIgor.test_log
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Architecture_builder.AIgor
+   :members:
+   :undoc-members:
+   :show-inheritance:

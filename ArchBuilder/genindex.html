@@ -1,0 +1,1686 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#"><link rel="search" title="Search" href="search.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 --><title>Index - Archbuilder 0.1 documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Archbuilder 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Archbuilder 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Package Contents:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ArchBuilder.html">ArchBuilder package</a><input aria-label="Toggle navigation of ArchBuilder package" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">Architecture_builder</a><input aria-label="Toggle navigation of Architecture_builder" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html">ArchBuilder: Integrated Quantum Architecture Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#steppenwolf-circuit-loading-and-chiron-module">SteppenWolf Circuit Loading and Chiron Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#qubit-spectroscopy-and-calibration-tabs">Qubit Spectroscopy and Calibration Tabs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#livingston-interactive-quantum-layout-editor">Livingston: Interactive Quantum Layout Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#user-interaction-and-mouse-commands">User Interaction and Mouse Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#writing-dynamic-interaction-generators">Writing Dynamic Interaction Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#testing-via-command-line">Testing via Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#frankenstein-quantum-pulse-and-operation-editor">Frankenstein: Quantum Pulse and Operation Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#bovary-executing-pulses-and-operations-through-compilers">Bovary: Executing Pulses and Operations Through Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#simulation-and-export">Simulation and Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#qec-logical-error-module">QEC Logical Error Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#writing-and-integrating-a-compiler-in-archbuilder">Writing and Integrating a Compiler in ArchBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#coordination-between-layout-pulses-and-compiler">Coordination Between Layout, Pulses, and Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#best-practices-for-compiler-design">Best Practices for Compiler Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#summary">Summary</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_annotation_at_canvas">add_annotation_at_canvas() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.add_drive_pulse">add_drive_pulse() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.add_error_dialog">add_error_dialog() (Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_factor_node">add_factor_node() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.add_flux_pulse">add_flux_pulse() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.add_gate">add_gate() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.add_gate_to_circuit">add_gate_to_circuit() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_funcs.add_interaction_between">add_interaction_between() (in module Livingston.livingston_funcs)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_funcs.add_interaction_dialog">add_interaction_dialog() (in module Livingston.livingston_funcs)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_interaction_to_factor">add_interaction_to_factor() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#Qubit.Qubit.add_noise">add_noise() (Qubit.Qubit method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.add_operation_from_path">add_operation_from_path() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id5">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.add_operation_from_path">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#Interaction.Interaction.add_operator">add_operator() (Interaction.Interaction method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.add_parametric_pulses">add_parametric_pulses() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.add_separator">add_separator() (Bovary.bovary.GateSelectorFrame method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.bovary.SubGUI.add_separator">(Bovary.bovary.SubGUI method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.add_species_dialog">add_species_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.adjust_name_column">adjust_name_column() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.adjust_window_width_to_unitary">adjust_window_width_to_unitary() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li>
+    AIgor
+
+        <ul>
+          <li><a href="AIgor.html#module-AIgor">module</a>, <a href="index.html#module-AIgor">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    AIgor.aigor
+
+        <ul>
+          <li><a href="AIgor.html#module-AIgor.aigor">module</a>
+</li>
+        </ul></li>
+        <li>
+    AIgor.aigor_temp
+
+        <ul>
+          <li><a href="AIgor.html#module-AIgor.aigor_temp">module</a>
+</li>
+        </ul></li>
+        <li>
+    AIgor.test_log
+
+        <ul>
+          <li><a href="AIgor.html#module-AIgor.test_log">module</a>
+</li>
+        </ul></li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.allowed_drives">allowed_drives (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.ALLOWED_FUNCS">ALLOWED_FUNCS (Frankenstein.frankenstein.PulseEditorApp attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.Annotation">Annotation (class in Livingston.livingston)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.any_parametric_pulses">any_parametric_pulses() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.gui_utils.apply_parameters">apply_parameters() (in module Steppenwolf.gui_utils)</a>
+
+        <ul>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.apply_parameters">(Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        </ul></li>
+        <li>
+    arch_creator
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-arch_creator">module</a>
+</li>
+        </ul></li>
+        <li>
+    ArchBuilder
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-0">module</a>, <a href="ArchBuilder.html#module-ArchBuilder">[1]</a>, <a href="index.html#module-ArchBuilder">[2]</a>
+</li>
+        </ul></li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp">ArchBuilderApp (class in ArchBuilder)</a>, <a href="ArchBuilder.html#id0">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow">ArchCreatorWindow (class in arch_creator)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.ArchitectureSelectorFrame">ArchitectureSelectorFrame (class in Bovary.bovary)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.arrow_button">arrow_button() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id6">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.arrow_button">[2]</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.ask_grid_size">ask_grid_size() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.assign_term_positions">assign_term_positions() (in module Steppenwolf.circuit_builder)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.Annotation.bg">bg (Livingston.livingston.Annotation attribute)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.bosonic_annihilation">bosonic_annihilation() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.bosonic_annihilation_ops">bosonic_annihilation_ops() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li>
+    Bovary
+
+        <ul>
+          <li><a href="Bovary.html#module-Bovary">module</a>, <a href="index.html#module-Bovary">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    Bovary.bovary
+
+        <ul>
+          <li><a href="Bovary.html#module-Bovary.bovary">module</a>
+</li>
+        </ul></li>
+        <li>
+    Bovary.noise_model_editor
+
+        <ul>
+          <li><a href="Bovary.html#module-Bovary.noise_model_editor">module</a>
+</li>
+        </ul></li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_H0">build_H0() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston_funcs.build_H0">(in module Livingston.livingston_funcs)</a>
+</li>
+        </ul></li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_Hdrive">build_Hdrive() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_Hint">build_Hint() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston_funcs.build_Hint">(in module Livingston.livingston_funcs)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.build_interface">build_interface() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id7">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.build_interface">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.build_json_spec">build_json_spec() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.build_json_spec_from_pauli">build_json_spec_from_pauli() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.build_menubar">build_menubar() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.build_pulses_index_from_collected">build_pulses_index_from_collected() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id8">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.build_pulses_index_from_collected">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.build_qasm_from_circuit">build_qasm_from_circuit() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.build_tensor_operator">build_tensor_operator() (in module AIgor.aigor)</a>
+</li>
+        <li><a href="ArchBuilder.html#useful_func.build_tensor_operator_general">build_tensor_operator_general() (in module useful_func)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.build_ui">build_ui() (arch_creator.ArchCreatorWindow method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.build_ui">(Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+</li>
+          <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.build_ui">(Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        </ul></li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.build_unitary">build_unitary() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.cancel_gate">cancel_gate() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.canvas_to_grid">canvas_to_grid() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.canvas_to_world">canvas_to_world() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.Annotation.center">center (Livingston.livingston.Annotation attribute)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston.FactorNode.center">(Livingston.livingston.FactorNode attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.center_view_on_layout">center_view_on_layout() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.circuit">circuit (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.circuit_name">circuit_name (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.circuit_path">circuit_path (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder">CircuitBuilder (class in Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame">CircuitPreviewFrame (class in Bovary.bovary)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.cleanup_orphan_parameters">cleanup_orphan_parameters() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.clear">clear() (Bovary.bovary.CircuitPreviewFrame method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.bovary.CodeEditorFrame.clear">(Bovary.bovary.CodeEditorFrame method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.clear_canvas">clear_canvas() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.clear_circuit_file">clear_circuit_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.clear_compiler_file">clear_compiler_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.clear_layoutgen_file">clear_layoutgen_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.clear_selection">clear_selection() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ProgressWindow.ProgressWindow.close">close() (ProgressWindow.ProgressWindow method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.CodeEditorFrame">CodeEditorFrame (class in Bovary.bovary)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.collect_free_parameters">collect_free_parameters() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.Annotation.color">color (Livingston.livingston.Annotation attribute)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston.SpanningTree.color">(Livingston.livingston.SpanningTree attribute)</a>, <a href="Livingston.html#id0">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston_core.color_cycle">color_cycle() (in module Livingston.livingston_core)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.colormap">colormap (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_funcs.complex_prod">complex_prod() (in module Livingston.livingston_funcs)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_core.CompositeOperator">CompositeOperator (class in Livingston.livingston_core)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.compute_josephson_inductance">compute_josephson_inductance() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li>
+    conf
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-conf">module</a>
+</li>
+        </ul></li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.configure_simulator">configure_simulator() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id9">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.configure_simulator">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.conversion_Ej">conversion_Ej() (in module Steppenwolf.useful_func)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.conversion_Lj">conversion_Lj() (in module Steppenwolf.useful_func)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.copy_factor_node">copy_factor_node() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.copy_selected_pattern">copy_selected_pattern() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.create_spanning_tree_dialog">create_spanning_tree_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.critical_current_to_inductance">critical_current_to_inductance() (in module Steppenwolf.useful_func)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.critical_current_to_josephson_energy">critical_current_to_josephson_energy() (in module Steppenwolf.useful_func)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.custom_pulse_paths">custom_pulse_paths (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston_core.CompositeOperator.decompose">decompose() (Livingston.livingston_core.CompositeOperator method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.decompose_hamiltonian">decompose_hamiltonian() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.decompose_pauli_operator">decompose_pauli_operator() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_annotation">delete_annotation() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_dof_dialog">delete_dof_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_dof_selection">delete_dof_selection() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.delete_error">delete_error() (Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.delete_factor">delete_factor() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.delete_selected_segment">delete_selected_segment() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.delete_selected_segment">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.SpanningTree.directed">directed (Livingston.livingston.SpanningTree attribute)</a>, <a href="Livingston.html#id17">[1]</a>
+</li>
+        <li><a href="ArchBuilder.html#plugin_manager.PluginManager.discover_plugins">discover_plugins() (plugin_manager.PluginManager method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.gui_utils.display_modes">display_modes() (in module Steppenwolf.gui_utils)</a>
+
+        <ul>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.display_modes">(in module Steppenwolf.steppenwolf_gui)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston_core.DOF">DOF (class in Livingston.livingston_core)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.FactorNode.dof_ids">dof_ids (Livingston.livingston.FactorNode attribute)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston.LindbladNode.dof_ids">(Livingston.livingston.LindbladNode attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.double_click">double_click() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.draw">draw() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.draw_species_buttons">draw_species_buttons() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.SpanningTree.edges">edges (Livingston.livingston.SpanningTree attribute)</a>, <a href="Livingston.html#id18">[1]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.edit">edit (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_annotation">edit_annotation() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_funcs.edit_dof_window">edit_dof_window() (in module Livingston.livingston_funcs)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_dof_window">(Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        </ul></li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.edit_error_dialog">edit_error_dialog() (Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_interaction">edit_interaction() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.edit_lindblad_terms">edit_lindblad_terms() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.edit_noise_model">edit_noise_model() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.test_log.TextHandler.emit">emit() (AIgor.test_log.TextHandler method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.enable_bovary_button">enable_bovary_button() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id10">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.enable_bovary_button">[2]</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_canvas_as_png">export_canvas_as_png() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_canvas_clean_png">export_canvas_clean_png() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.export_json">export_json() (Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+
+        <ul>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.export_json">(Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_mps_topology">export_mps_topology() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.export_pulses">export_pulses() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_quantum_object">export_quantum_object() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.export_sympy_hamiltonian">export_sympy_hamiltonian() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.extract_indices">extract_indices() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.extract_monomials">extract_monomials() (in module Steppenwolf.circuit_builder)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.FactorNode">FactorNode (class in Livingston.livingston)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.final_unitary">final_unitary (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.find_optimal_pulses">find_optimal_pulses() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.finish_selection">finish_selection() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li>
+    Frankenstein
+
+        <ul>
+          <li><a href="Frankenstein.html#module-Frankenstein">module</a>, <a href="index.html#module-Frankenstein">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    Frankenstein.frankenstein
+
+        <ul>
+          <li><a href="Frankenstein.html#module-Frankenstein.frankenstein">module</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.from_dict">from_dict() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.from_json">from_json() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame">GateSelectorFrame (class in Bovary.bovary)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.generate_all_monomials">generate_all_monomials() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.gui_utils.generate_and_decompose_hamiltonian">generate_and_decompose_hamiltonian() (in module Steppenwolf.gui_utils)</a>
+
+        <ul>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.generate_and_decompose_hamiltonian">(in module Steppenwolf.steppenwolf_gui)</a>
+</li>
+        </ul></li>
+        <li>
+    generate_docs
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-generate_docs">module</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.generate_dynamic_layout_dialog">generate_dynamic_layout_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.generate_hamiltonian">generate_hamiltonian() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.generate_monomials_from_hamiltonian">generate_monomials_from_hamiltonian() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.generate_ordered_pairs">generate_ordered_pairs() (in module Steppenwolf.useful_func)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.generate_wire_path">generate_wire_path() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_anharmonicities">get_anharmonicities() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_and_hamiltonian_params">get_circuit_and_hamiltonian_params() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_file_info">get_circuit_file_info() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.get_circuit_json">get_circuit_json() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id11">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.get_circuit_json">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_coefficients">get_coefficients() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_crosskerr">get_crosskerr() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_hamiltonian">get_current_hamiltonian() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_json">get_current_json() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_eigen">get_eigen() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_f_k_A_chi">get_f_k_A_chi() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_frequencies">get_frequencies() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_kerr_anarmonicities_frequencies">get_kerr_anarmonicities_frequencies() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.get_layout">get_layout() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.get_layout_json">get_layout_json() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id12">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.get_layout_json">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.get_modes_topology">get_modes_topology() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.get_next_available_dof_id">get_next_available_dof_id() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.get_project_data">get_project_data() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id13">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.get_project_data">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.get_pulses_json">get_pulses_json() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id14">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.get_pulses_json">[2]</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.get_saved_path">get_saved_path() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_core.get_valid_operators_for_dim">get_valid_operators_for_dim() (in module Livingston.livingston_core)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.grid_to_canvas">grid_to_canvas() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.grid_to_world">grid_to_world() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.H_stat">H_stat (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_add_flux_pulse">handle_add_flux_pulse() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_add_pulse">handle_add_pulse() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_amplitude_choice">handle_amplitude_choice() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_custom_choice">handle_custom_choice() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_flux_amplitude_choice">handle_flux_amplitude_choice() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_flux_custom_choice">handle_flux_custom_choice() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.handle_phase_choice">handle_phase_choice() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.has_any_pulses">has_any_pulses() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.hide_error">hide_error() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.hide_tape">hide_tape() (Bovary.bovary.SubGUI method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.id_unitary">id_unitary (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.identify_selected_dofs">identify_selected_dofs() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.import_json">import_json() (Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.import_module_from_path">import_module_from_path() (in module Bovary.bovary)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.import_sympy_dialog">import_sympy_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.inductance_to_critical_current">inductance_to_critical_current() (in module Steppenwolf.useful_func)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.insert_gate">insert_gate() (Bovary.bovary.CircuitPreviewFrame method)</a>
+</li>
+        <li>
+    Interaction
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-Interaction">module</a>
+</li>
+        </ul></li>
+        <li><a href="ArchBuilder.html#Interaction.Interaction">Interaction (class in Interaction)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston_core.Interaction">(class in Livingston.livingston_core)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.FactorNode.interactions">interactions (Livingston.livingston.FactorNode attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.josephson_energy_to_critical_current">josephson_energy_to_critical_current() (in module Steppenwolf.useful_func)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.json_to_circuit_string">json_to_circuit_string() (in module Steppenwolf.circuit_builder)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.FactorNode.label">label (Livingston.livingston.FactorNode attribute)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston.LindbladNode.label">(Livingston.livingston.LindbladNode attribute)</a>
+</li>
+          <li><a href="Livingston.html#Livingston.livingston.SpanningTree.label">(Livingston.livingston.SpanningTree attribute)</a>, <a href="Livingston.html#id19">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.layout">layout (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.left_click">left_click() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li>
+    libraries
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-libraries">module</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.LindbladNode">LindbladNode (class in Livingston.livingston)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.list_interactions_for_dof">list_interactions_for_dof() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.list_interactions_multidof">list_interactions_multidof() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li>
+    Livingston
+
+        <ul>
+          <li><a href="Livingston.html#module-Livingston">module</a>, <a href="index.html#module-Livingston">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    Livingston.livingston
+
+        <ul>
+          <li><a href="Livingston.html#module-Livingston.livingston">module</a>
+</li>
+        </ul></li>
+        <li>
+    Livingston.livingston_core
+
+        <ul>
+          <li><a href="Livingston.html#module-Livingston.livingston_core">module</a>
+</li>
+        </ul></li>
+        <li>
+    Livingston.livingston_funcs
+
+        <ul>
+          <li><a href="Livingston.html#module-Livingston.livingston_funcs">module</a>
+</li>
+        </ul></li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.load_architecture">load_architecture() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_circuit">load_circuit() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id15">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_circuit">[2]</a>
+
+        <ul>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_circuit">(Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.ArchitectureSelectorFrame.load_compiler">load_compiler() (Bovary.bovary.ArchitectureSelectorFrame method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.load_compiler_from_path">load_compiler_from_path() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_dynamics">load_dynamics() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id16">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_dynamics">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.ArchitectureSelectorFrame.load_file">load_file() (Bovary.bovary.ArchitectureSelectorFrame method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_image_button">load_image_button() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id17">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_image_button">[2]</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.load_layout">load_layout() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_layout">(ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id18">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_layout">[2]</a>
+</li>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.load_layout">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+          <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.load_layout">(Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        </ul></li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.load_noise_model_dialog">load_noise_model_dialog() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.load_noise_model_from_path">load_noise_model_from_path() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_param_file">load_param_file() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_plugins">load_plugins() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id19">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_plugins">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_project_from_folder">load_project_from_folder() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id20">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_project_from_folder">[2]</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.load_pulse_file">load_pulse_file() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.load_pulses">load_pulses() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id21">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.load_pulses">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.load_qasm">load_qasm() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.load_species_pulse">load_species_pulse() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.load_unitary_file">load_unitary_file() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.load_unitary_table">load_unitary_table() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.log">log() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id22">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.log">[2]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="AIgor.html#AIgor.test_log.main">main() (in module AIgor.test_log)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.match_key">match_key() (in module Steppenwolf.steppenwolf_gui)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology">modes_topology (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="AIgor.html#module-AIgor">AIgor</a>, <a href="index.html#module-AIgor">[1]</a>
+</li>
+          <li><a href="AIgor.html#module-AIgor.aigor">AIgor.aigor</a>
+</li>
+          <li><a href="AIgor.html#module-AIgor.aigor_temp">AIgor.aigor_temp</a>
+</li>
+          <li><a href="AIgor.html#module-AIgor.test_log">AIgor.test_log</a>
+</li>
+          <li><a href="ArchBuilder.html#module-arch_creator">arch_creator</a>
+</li>
+          <li><a href="ArchBuilder.html#module-0">ArchBuilder</a>, <a href="ArchBuilder.html#module-ArchBuilder">[1]</a>, <a href="index.html#module-ArchBuilder">[2]</a>
+</li>
+          <li><a href="Bovary.html#module-Bovary">Bovary</a>, <a href="index.html#module-Bovary">[1]</a>
+</li>
+          <li><a href="Bovary.html#module-Bovary.bovary">Bovary.bovary</a>
+</li>
+          <li><a href="Bovary.html#module-Bovary.noise_model_editor">Bovary.noise_model_editor</a>
+</li>
+          <li><a href="ArchBuilder.html#module-conf">conf</a>
+</li>
+          <li><a href="Frankenstein.html#module-Frankenstein">Frankenstein</a>, <a href="index.html#module-Frankenstein">[1]</a>
+</li>
+          <li><a href="Frankenstein.html#module-Frankenstein.frankenstein">Frankenstein.frankenstein</a>
+</li>
+          <li><a href="ArchBuilder.html#module-generate_docs">generate_docs</a>
+</li>
+          <li><a href="ArchBuilder.html#module-Interaction">Interaction</a>
+</li>
+          <li><a href="ArchBuilder.html#module-libraries">libraries</a>
+</li>
+          <li><a href="Livingston.html#module-Livingston">Livingston</a>, <a href="index.html#module-Livingston">[1]</a>
+</li>
+          <li><a href="Livingston.html#module-Livingston.livingston">Livingston.livingston</a>
+</li>
+          <li><a href="Livingston.html#module-Livingston.livingston_core">Livingston.livingston_core</a>
+</li>
+          <li><a href="Livingston.html#module-Livingston.livingston_funcs">Livingston.livingston_funcs</a>
+</li>
+          <li><a href="ArchBuilder.html#module-plugin_manager">plugin_manager</a>
+</li>
+          <li><a href="ArchBuilder.html#module-print_path">print_path</a>
+</li>
+          <li><a href="ArchBuilder.html#module-ProgressWindow">ProgressWindow</a>
+</li>
+          <li><a href="ArchBuilder.html#module-Qubit">Qubit</a>
+</li>
+          <li><a href="ArchBuilder.html#module-qutipsave">qutipsave</a>
+</li>
+          <li><a href="Steppenwolf.html#module-Steppenwolf">Steppenwolf</a>, <a href="index.html#module-Steppenwolf">[1]</a>
+</li>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.circuit_builder">Steppenwolf.circuit_builder</a>
+</li>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.gui_utils">Steppenwolf.gui_utils</a>
+</li>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.steppenwolf_gui">Steppenwolf.steppenwolf_gui</a>
+</li>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.useful_func">Steppenwolf.useful_func</a>
+</li>
+          <li><a href="ArchBuilder.html#module-useful_func">useful_func</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.n_modes">n_modes (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.neighbours">neighbours (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.new_circuit">new_circuit() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.new_project">new_project() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id23">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.new_project">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI">NoiseModelSubGUI (class in Bovary.noise_model_editor)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.on_arch_saved">on_arch_saved() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id24">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.on_arch_saved">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.on_archcreator_close">on_archcreator_close() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.on_archcreator_update">on_archcreator_update() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id25">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.on_archcreator_update">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.on_bovary_closed">on_bovary_closed() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id26">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.on_bovary_closed">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.on_close">on_close() (Bovary.bovary.SubGUI method)</a>
+
+        <ul>
+          <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.on_close">(Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.on_close">(Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        </ul></li>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.on_gate_selected">on_gate_selected() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.on_oper_selected">on_oper_selected() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id27">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.on_oper_selected">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.on_steppenwolf_export">on_steppenwolf_export() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id28">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.on_steppenwolf_export">[2]</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.open_aigor">open_aigor() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.open_arch_creator">open_arch_creator() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id29">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.open_arch_creator">[2]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.open_circuit_export_panel">open_circuit_export_panel() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.open_detail_window">open_detail_window() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.open_frankenstein">open_frankenstein() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id30">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.open_frankenstein">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.open_in_bovary">open_in_bovary() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id31">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.open_in_bovary">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.open_noise_model_editor">open_noise_model_editor() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.open_project">open_project() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id32">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.open_project">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.open_qpu_inspector">open_qpu_inspector() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.open_qpu_inspector_at">open_qpu_inspector_at() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.open_tensor_builder">open_tensor_builder() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.operation_name">operation_name (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_core.OperatorDef">OperatorDef (class in Livingston.livingston_core)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.LindbladNode.operators">operators (Livingston.livingston.LindbladNode attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.LindbladNode.parametric">parametric (Livingston.livingston.LindbladNode attribute)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.parse_angle">parse_angle() (in module AIgor.aigor)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.parse_operator_sequence">parse_operator_sequence() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.parse_single_op">parse_single_op() (in module AIgor.aigor)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.paste_factor_node">paste_factor_node() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.paste_pattern">paste_pattern() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.path_loaded">path_loaded (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston">PlanckianLivingston (class in Livingston.livingston)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.plot">plot (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.plot_pulse">plot_pulse() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.plot_pulses">plot_pulses() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li>
+    plugin_manager
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-plugin_manager">module</a>
+</li>
+        </ul></li>
+        <li><a href="ArchBuilder.html#plugin_manager.PluginInfo">PluginInfo (class in plugin_manager)</a>
+</li>
+        <li><a href="ArchBuilder.html#plugin_manager.PluginManager">PluginManager (class in plugin_manager)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.populate_gate_list">populate_gate_list() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.gui_utils.populate_param_fields">populate_param_fields() (in module Steppenwolf.gui_utils)</a>
+
+        <ul>
+          <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.populate_param_fields">(in module Steppenwolf.steppenwolf_gui)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.populate_qubit_list">populate_qubit_list() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.prefill_fields">prefill_fields() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.print_hamiltonian_monomials">print_hamiltonian_monomials() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.print_network">print_network (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+        <li>
+    print_path
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-print_path">module</a>
+</li>
+        </ul></li>
+        <li><a href="ArchBuilder.html#print_path.print_tree">print_tree() (in module print_path)</a>
+</li>
+        <li>
+    ProgressWindow
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-ProgressWindow">module</a>
+</li>
+        </ul></li>
+        <li><a href="ArchBuilder.html#ProgressWindow.ProgressWindow">ProgressWindow (class in ProgressWindow)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit">project_hamiltonian_to_qubit() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit_SW">project_hamiltonian_to_qubit_SW() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.project_to_qubit">project_to_qubit() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.prompt_param_overrides_for_gate">prompt_param_overrides_for_gate() (Bovary.bovary.CircuitPreviewFrame method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.bovary.SubGUI.prompt_param_overrides_for_gate">(Bovary.bovary.SubGUI method)</a>
+</li>
+        </ul></li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp">PulseEditorApp (class in Frankenstein.frankenstein)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Q" class="genindex-section">
+  <h2>Q</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    Qubit
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-Qubit">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="ArchBuilder.html#Qubit.Qubit">Qubit (class in Qubit)</a>
+</li>
+        <li>
+    qutipsave
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-qutipsave">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.LindbladNode.rate">rate (Livingston.livingston.LindbladNode attribute)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.rebuild_pulse_index">rebuild_pulse_index() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id33">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.rebuild_pulse_index">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.reconstruct_hamiltonian_from_monomials">reconstruct_hamiltonian_from_monomials() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.redraw_circuit">redraw_circuit() (Bovary.bovary.CircuitPreviewFrame method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.refresh_arch_metadata_from_layout">refresh_arch_metadata_from_layout() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id34">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.refresh_arch_metadata_from_layout">[2]</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.refresh_details">refresh_details() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.refresh_layout">refresh_layout() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.refresh_oper_dropdown">refresh_oper_dropdown() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id35">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.refresh_oper_dropdown">[2]</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.refresh_timeline">refresh_timeline() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.noise_model_editor.NoiseModelSubGUI.refresh_tree">refresh_tree() (Bovary.noise_model_editor.NoiseModelSubGUI method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.remove_gate_at_index">remove_gate_at_index() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.remove_interaction_and_cleanup">remove_interaction_and_cleanup() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.remove_selected_operation">remove_selected_operation() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.remove_species_dialog">remove_species_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.rename_factor_node">rename_factor_node() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.reset_project">reset_project() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id36">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.reset_project">[2]</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.reset_window">reset_window() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.restore_normal_bindings">restore_normal_bindings() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.rewrite_annihilation_to_sigma">rewrite_annihilation_to_sigma() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.rewrite_products_to_paulis">rewrite_products_to_paulis() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.right_click">right_click() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.root">root (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.SpanningTree.root_id">root_id (Livingston.livingston.SpanningTree attribute)</a>, <a href="Livingston.html#id20">[1]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.run_comparison_zhivago">run_comparison_zhivago() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#plugin_manager.PluginManager.run_plugin">run_plugin() (plugin_manager.PluginManager method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.run_selected_plugin">run_selected_plugin() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id37">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.run_selected_plugin">[2]</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.run_simulation">run_simulation() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id38">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.run_simulation">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.run_simulation_zhivago">run_simulation_zhivago() (Bovary.bovary.SubGUI method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.save_and_send_to_archbuilder">save_and_send_to_archbuilder() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.save_arch_file">save_arch_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.save_as_arch">save_as_arch() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id39">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.save_as_arch">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_as_bundle">save_as_bundle() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_json_to_file">save_json_to_file() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.save_layout">save_layout() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.save_layout_as">save_layout_as() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.save_log">save_log() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id40">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.save_log">[2]</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_param_file">save_param_file() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.save_project">save_project() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id41">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.save_project">[2]</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.save_pulse_file">save_pulse_file() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.save_qasm">save_qasm() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.save_unitary_file">save_unitary_file() (AIgor.aigor.UnitaryEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.saving_path">saving_path (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.scan_oper_files">scan_oper_files() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id42">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.scan_oper_files">[2]</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.select_all_dofs">select_all_dofs() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.select_all_elements">select_all_elements() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.select_circuit_file">select_circuit_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.select_compiler_file">select_compiler_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_funcs.select_dof">select_dof() (in module Livingston.livingston_funcs)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.select_layout_file">select_layout_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#arch_creator.ArchCreatorWindow.select_layoutgen_file">select_layoutgen_file() (arch_creator.ArchCreatorWindow method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.set_controller">set_controller() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.set_dirty">set_dirty() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.set_error_gates_grayed">set_error_gates_grayed() (Bovary.bovary.CircuitPreviewFrame method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.set_gate_lists">set_gate_lists() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.set_initial_state_dialog">set_initial_state_dialog() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ProgressWindow.ProgressWindow.set_message">set_message() (ProgressWindow.ProgressWindow method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CircuitPreviewFrame.set_metadata">set_metadata() (Bovary.bovary.CircuitPreviewFrame method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.set_modes_topology">set_modes_topology() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.set_params">set_params() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.set_species">set_species() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.set_variable_components">set_variable_components() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.setup_plot">setup_plot() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.setup_table">setup_table() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.setup_table">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        </ul></li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.setup_ui">setup_ui() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.setup_ui">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_annotation_menu">show_annotation_menu() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_canvas_menu">show_canvas_menu() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_custom_controls">show_custom_controls() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_custom_controls_flux">show_custom_controls_flux() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_dof_menu">show_dof_menu() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_drag_controls">show_drag_controls() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_factor_menu">show_factor_menu() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_gaussian_controls">show_gaussian_controls() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_gaussian_controls_flux">show_gaussian_controls_flux() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_hamiltonian">show_hamiltonian() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_in_phase_controls">show_in_phase_controls() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.show_interaction_info">show_interaction_info() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.bovary.SubGUI.show_interaction_info">(Bovary.bovary.SubGUI method)</a>
+</li>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_interaction_info">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_lindblad_terms">show_lindblad_terms() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.show_modes">show_modes() (Steppenwolf.steppenwolf_gui.SteppenwolfGUI method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.show_normal_modes">show_normal_modes() (Steppenwolf.circuit_builder.CircuitBuilder method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_out_of_phase_controls">show_out_of_phase_controls() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_out_of_phase_controls_flux">show_out_of_phase_controls_flux() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_parametric_variables">show_parametric_variables() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.show_plugin_info">show_plugin_info() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id43">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.show_plugin_info">[2]</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.show_qubit_info">show_qubit_info() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.bovary.SubGUI.show_qubit_info">(Bovary.bovary.SubGUI method)</a>
+</li>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.show_qubit_info">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.show_spanning_trees">show_spanning_trees() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.snapshot_layout">snapshot_layout() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.SpanningTree">SpanningTree (class in Livingston.livingston)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_core.Species">Species (class in Livingston.livingston_core)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.start_drag_selected">start_drag_selected() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.start_selection">start_selection() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.useful_func.state_generation">state_generation() (in module Steppenwolf.useful_func)</a>
+</li>
+        <li>
+    Steppenwolf
+
+        <ul>
+          <li><a href="Steppenwolf.html#module-Steppenwolf">module</a>, <a href="index.html#module-Steppenwolf">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    Steppenwolf.circuit_builder
+
+        <ul>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.circuit_builder">module</a>
+</li>
+        </ul></li>
+        <li>
+    Steppenwolf.gui_utils
+
+        <ul>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.gui_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    Steppenwolf.steppenwolf_gui
+
+        <ul>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.steppenwolf_gui">module</a>
+</li>
+        </ul></li>
+        <li>
+    Steppenwolf.useful_func
+
+        <ul>
+          <li><a href="Steppenwolf.html#module-Steppenwolf.useful_func">module</a>
+</li>
+        </ul></li>
+        <li><a href="Steppenwolf.html#Steppenwolf.steppenwolf_gui.SteppenwolfGUI">SteppenwolfGUI (class in Steppenwolf.steppenwolf_gui)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston_funcs.str_to_qobj">str_to_qobj() (in module Livingston.livingston_funcs)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI">SubGUI (class in Bovary.bovary)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.sw_project_to_qubit">sw_project_to_qubit() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.symbolic_string">symbolic_string() (in module Steppenwolf.circuit_builder)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.tensor_up">tensor_up() (in module Steppenwolf.circuit_builder)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.Annotation.text">text (Livingston.livingston.Annotation attribute)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.test_log.TextHandler">TextHandler (class in AIgor.test_log)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.to_dict">to_dict() (Livingston.livingston.PlanckianLivingston method)</a>
+
+        <ul>
+          <li><a href="ArchBuilder.html#Qubit.Qubit.to_dict">(Qubit.Qubit method)</a>
+</li>
+        </ul></li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.to_json">to_json() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.to_qutip">to_qutip() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.toggle_labels">toggle_labels() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.toggle_link">toggle_link() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id44">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.toggle_link">[2]</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.toggle_lock_layout">toggle_lock_layout() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.toggle_noise_active">toggle_noise_active() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.toggle_ui_mode">toggle_ui_mode() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.truncate_hamiltonian">truncate_hamiltonian() (in module Steppenwolf.circuit_builder)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.undo_last_action">undo_last_action() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.unitaries">unitaries (AIgor.aigor.UnitaryEditorApp attribute)</a>
+</li>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp">UnitaryEditorApp (class in AIgor.aigor)</a>
+</li>
+        <li><a href="ArchBuilder.html#ProgressWindow.ProgressWindow.update">update() (ProgressWindow.ProgressWindow method)</a>
+</li>
+        <li><a href="ArchBuilder.html#ArchBuilder.ArchBuilderApp.update_buttons">update_buttons() (ArchBuilder.ArchBuilderApp method)</a>, <a href="ArchBuilder.html#id45">[1]</a>, <a href="index.html#ArchBuilder.ArchBuilderApp.update_buttons">[2]</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.CodeEditorFrame.update_code">update_code() (Bovary.bovary.CodeEditorFrame method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Bovary.html#Bovary.bovary.GateSelectorFrame.update_gate_list">update_gate_list() (Bovary.bovary.GateSelectorFrame method)</a>
+</li>
+        <li><a href="Bovary.html#Bovary.bovary.SubGUI.update_message_text">update_message_text() (Bovary.bovary.SubGUI method)</a>
+</li>
+        <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.update_parametric_button_state">update_parametric_button_state() (Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.update_selection">update_selection() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+        <li>
+    useful_func
+
+        <ul>
+          <li><a href="ArchBuilder.html#module-useful_func">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston_core.Interaction.validate_against_dofs">validate_against_dofs() (Livingston.livingston_core.Interaction method)</a>
+</li>
+        <li><a href="Steppenwolf.html#Steppenwolf.circuit_builder.CircuitBuilder.variable_component">variable_component (Steppenwolf.circuit_builder.CircuitBuilder attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="AIgor.html#AIgor.aigor.UnitaryEditorApp.view_layout">view_layout() (AIgor.aigor.UnitaryEditorApp method)</a>
+
+        <ul>
+          <li><a href="Bovary.html#Bovary.bovary.SubGUI.view_layout">(Bovary.bovary.SubGUI method)</a>
+</li>
+          <li><a href="Frankenstein.html#Frankenstein.frankenstein.PulseEditorApp.view_layout">(Frankenstein.frankenstein.PulseEditorApp method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="Livingston.html#Livingston.livingston.PlanckianLivingston.world_to_canvas">world_to_canvas() (Livingston.livingston.PlanckianLivingston method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="ArchBuilder.html#generate_docs.write_file">write_file() (in module generate_docs)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Planckian srl
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

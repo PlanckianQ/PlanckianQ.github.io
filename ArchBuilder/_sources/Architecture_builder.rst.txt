@@ -1,0 +1,137 @@
+Architecture\_builder package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   AIgor
+   Bovary
+   Frankenstein
+   Livingston
+   Steppenwolf
+
+Submodules
+----------
+
+Architecture\_builder.ArchBuilder module
+----------------------------------------
+
+.. automodule:: Architecture_builder.ArchBuilder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Interaction module
+----------------------------------------
+
+.. automodule:: Architecture_builder.Interaction
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.ProgressWindow module
+-------------------------------------------
+
+.. automodule:: Architecture_builder.ProgressWindow
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Qubit module
+----------------------------------
+
+.. automodule:: Architecture_builder.Qubit
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.arch\_creator module
+------------------------------------------
+
+.. automodule:: Architecture_builder.arch_creator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.conf module
+---------------------------------
+
+.. automodule:: Architecture_builder.conf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.generate\_docs module
+-------------------------------------------
+
+.. automodule:: Architecture_builder.generate_docs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.libraries module
+--------------------------------------
+
+.. automodule:: Architecture_builder.libraries
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.livingston\_api module
+--------------------------------------------
+
+.. automodule:: Architecture_builder.livingston_api
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.opt\_pulse\_converter module
+--------------------------------------------------
+
+.. automodule:: Architecture_builder.opt_pulse_converter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.plugin\_manager module
+--------------------------------------------
+
+.. automodule:: Architecture_builder.plugin_manager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.print\_path module
+----------------------------------------
+
+.. automodule:: Architecture_builder.print_path
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.qutipsave module
+--------------------------------------
+
+.. automodule:: Architecture_builder.qutipsave
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.useful\_func module
+-----------------------------------------
+
+.. automodule:: Architecture_builder.useful_func
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Architecture_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,1414 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Architecture_builder" href="modules.html"><link rel="prev" title="Livingston package" href="Livingston.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Steppenwolf package - Archbuilder 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Archbuilder 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Archbuilder 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Package Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="ArchBuilder.html">ArchBuilder package</a><input aria-label="Toggle navigation of ArchBuilder package" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l2 current has-children"><a class="current reference internal" href="#">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">Architecture_builder</a><input aria-label="Toggle navigation of Architecture_builder" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html">ArchBuilder: Integrated Quantum Architecture Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#steppenwolf-circuit-loading-and-chiron-module">SteppenWolf Circuit Loading and Chiron Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#qubit-spectroscopy-and-calibration-tabs">Qubit Spectroscopy and Calibration Tabs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#livingston-interactive-quantum-layout-editor">Livingston: Interactive Quantum Layout Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#user-interaction-and-mouse-commands">User Interaction and Mouse Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#writing-dynamic-interaction-generators">Writing Dynamic Interaction Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#testing-via-command-line">Testing via Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#frankenstein-quantum-pulse-and-operation-editor">Frankenstein: Quantum Pulse and Operation Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#bovary-executing-pulses-and-operations-through-compilers">Bovary: Executing Pulses and Operations Through Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#simulation-and-export">Simulation and Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#qec-logical-error-module">QEC Logical Error Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#writing-and-integrating-a-compiler-in-archbuilder">Writing and Integrating a Compiler in ArchBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#coordination-between-layout-pulses-and-compiler">Coordination Between Layout, Pulses, and Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#best-practices-for-compiler-design">Best Practices for Compiler Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#summary">Summary</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/Steppenwolf.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="steppenwolf-package">
+<h1>Steppenwolf package<a class="headerlink" href="#steppenwolf-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="steppenwolf-annealer-module">
+<h2>Steppenwolf.Annealer module<a class="headerlink" href="#steppenwolf-annealer-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="steppenwolf-annealing-routine-module">
+<h2>Steppenwolf.annealing_routine module<a class="headerlink" href="#steppenwolf-annealing-routine-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-Steppenwolf.circuit_builder">
+<span id="steppenwolf-circuit-builder-module"></span><h2>Steppenwolf.circuit_builder module<a class="headerlink" href="#module-Steppenwolf.circuit_builder" title="Link to this heading">¶</a></h2>
+<p>RA-14_04_2025</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">CircuitBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<section id="author">
+<h3>Author<a class="headerlink" href="#author" title="Link to this heading">¶</a></h3>
+<p>Riccardo Aiudi  (<a class="reference external" href="mailto:raiudi&#37;&#52;&#48;planckian&#46;co">raiudi<span>&#64;</span>planckian<span>&#46;</span>co</a>)
+Date: April 14, 2025</p>
+<p>Class object to deal with a lumped-element circuit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.circuit_name">
+<span class="sig-name descname"><span class="pre">circuit_name</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.circuit_name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the circuit. This is saved in a .txt file whose filname is “circuit_name.txt”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.circuit_path">
+<span class="sig-name descname"><span class="pre">circuit_path</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.circuit_path" title="Link to this definition">¶</a></dt>
+<dd><p>Filepath of the circuit_name file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.edit">
+<span class="sig-name descname"><span class="pre">edit</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.edit" title="Link to this definition">¶</a></dt>
+<dd><p>Wheter edit the circuit. Default is True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.plot" title="Link to this definition">¶</a></dt>
+<dd><p>Wheter plot the circuit once built. Default is False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.print_network">
+<span class="sig-name descname"><span class="pre">print_network</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.print_network" title="Link to this definition">¶</a></dt>
+<dd><p>Wheter print the circuit once built. Default is False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.circuit">
+<span class="sig-name descname"><span class="pre">circuit</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.circuit" title="Link to this definition">¶</a></dt>
+<dd><p>This is the main character of the object. This attribute stores the circuit object taken form QuCat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>GUI (QuCat)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.variable_component">
+<span class="sig-name descname"><span class="pre">variable_component</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.variable_component" title="Link to this definition">¶</a></dt>
+<dd><p>Dictionary containing all the variable components of the circuit. Keys are the name of the components
+(as indicated during the building) and values are the corresponding values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.n_modes">
+<span class="sig-name descname"><span class="pre">n_modes</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.n_modes" title="Link to this definition">¶</a></dt>
+<dd><p>Number of modes that the circuit allows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.modes_topology">
+<span class="sig-name descname"><span class="pre">modes_topology</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology" title="Link to this definition">¶</a></dt>
+<dd><p>Dictionary indicating the topology of the modes. The keys are the modes, while the value indicate on which
+Junction the modes are located.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.neighbours">
+<span class="sig-name descname"><span class="pre">neighbours</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.neighbours" title="Link to this definition">¶</a></dt>
+<dd><p>Dictionary indicating the topology of the circuit. Keys represent the elements of the circuit,
+while the values are lists of neighbours (Deprecated, now it is used only to use topology information, TO BE refined)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.colormap">
+<span class="sig-name descname"><span class="pre">colormap</span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.colormap" title="Link to this definition">¶</a></dt>
+<dd><p>Colormap for plots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.pyplot.colormap</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_anharmonicities">
+<span class="sig-name descname"><span class="pre">get_anharmonicities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'(MHz)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_anharmonicities" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the values of anharmonicies interactions of the system,
+when changing one parameter of the system.
+Optionally it plots them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot</strong> (<em>bool</em>) – Wheter plot the values. Default is False</p></li>
+<li><p><strong>variable_component</strong> (<em>str</em>) – The variable component which is changed.</p></li>
+<li><p><strong>component_values</strong> (<em>np.ndarray</em>) – Values of the variable component.</p></li>
+<li><p><strong>n_stat</strong> (<em>int</em>) – The number of state considered for the qubits. Default is 2.</p></li>
+<li><p><strong>taylor</strong> (<em>int</em>) – Degree of the Taylor expansion of the cosine potential. Default is 4.</p></li>
+<li><p><strong>excitations</strong> (<em>int</em>) – Number of excitations considered in building the Hamiltonian. Default is 6.</p></li>
+<li><p><strong>xscale</strong> (<em>float</em>) – The scale of the x-axis.</p></li>
+<li><p><strong>yscale</strong> (<em>float</em>) – The scale of the y-axis.</p></li>
+<li><p><strong>xlabel</strong> (<em>str</em>) – The label of the x-axis (the measure unit).</p></li>
+<li><p><strong>ylabel</strong> (<em>str</em>) – The label of the y-axis (the measure unit).  Default is ‘(MHz)’.</p></li>
+<li><p><strong>xaxis_vector</strong> (<em>np.ndarray</em>) – The vector on placed on the x-axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>alphas</strong> (<em>dict</em>) – A dict containing the values of anharmonicities. Each key is a Fock state (a Junction), when
+the circuit topology (<a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.neighbours" title="Steppenwolf.circuit_builder.CircuitBuilder.neighbours"><code class="xref py py-attr docutils literal notranslate"><span class="pre">neighbours</span></code></a> attribute) is empty (not empty).</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_crosskerr">
+<span class="sig-name descname"><span class="pre">get_crosskerr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'(MHz)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_crosskerr" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the values of cross-kerr interactions of the system,
+when changing one parameter of the system.
+Optionally it plots them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot</strong> (<em>bool</em>) – Wheter plot the values. Default is False</p></li>
+<li><p><strong>variable_component</strong> (<em>str</em>) – The variable component which is changed.</p></li>
+<li><p><strong>component_values</strong> (<em>np.ndarray</em>) – Values of the variable component.</p></li>
+<li><p><strong>n_stat</strong> (<em>int</em>) – The number of state considered for the qubits. Default is 2.</p></li>
+<li><p><strong>taylor</strong> (<em>int</em>) – Degree of the Taylor expansion of the cosine potential. Default is 4.</p></li>
+<li><p><strong>excitations</strong> (<em>int</em>) – Number of excitations considered in building the Hamiltonian. Default is 6.</p></li>
+<li><p><strong>xscale</strong> (<em>float</em>) – The scale of the x-axis.</p></li>
+<li><p><strong>yscale</strong> (<em>float</em>) – The scale of the y-axis.</p></li>
+<li><p><strong>xlabel</strong> (<em>str</em>) – The label of the x-axis (the measure unit).</p></li>
+<li><p><strong>ylabel</strong> (<em>str</em>) – The label of the y-axis (the measure unit).  Default is ‘(MHz)’.</p></li>
+<li><p><strong>xaxis_vector</strong> (<em>np.ndarray</em>) – The vector on placed on the x-axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>kerrs</strong> (<em>dict</em>) – A dict containing the values of cross-kerrs. Each key is a Fock state (a Junction), when
+the circuit topology (<a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.neighbours" title="Steppenwolf.circuit_builder.CircuitBuilder.neighbours"><code class="xref py py-attr docutils literal notranslate"><span class="pre">neighbours</span></code></a> attribute) is empty (not empty).</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_eigen">
+<span class="sig-name descname"><span class="pre">get_eigen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_stat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taylor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excitations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-09</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'(GHz)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_eigen" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the values of eigenenergies of the system, computed diagonalizing the resulting Hamiltonian,
+when changing one parameter of the system.
+Optionally it plots them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot</strong> (<em>bool</em>) – Wheter plot the values. Default is False</p></li>
+<li><p><strong>variable_component</strong> (<em>str</em>) – The variable component which is changed.</p></li>
+<li><p><strong>component_values</strong> (<em>np.ndarray</em>) – Values of the variable component.</p></li>
+<li><p><strong>n_stat</strong> (<em>int</em>) – The number of state considered for the qubits. Default is 2.</p></li>
+<li><p><strong>taylor</strong> (<em>int</em>) – Degree of the Taylor expansion of the cosine potential. Default is 4.</p></li>
+<li><p><strong>excitations</strong> (<em>int</em>) – Number of excitations considered in building the Hamiltonian. Default is 6.</p></li>
+<li><p><strong>xscale</strong> (<em>float</em>) – The scale of the x-axis.</p></li>
+<li><p><strong>yscale</strong> (<em>float</em>) – The scale of the y-axis.</p></li>
+<li><p><strong>xlabel</strong> (<em>str</em>) – The label of the x-axis (the measure unit).</p></li>
+<li><p><strong>ylabel</strong> (<em>str</em>) – The label of the y-axis (the measure unit).  Default is ‘(GHz)’.</p></li>
+<li><p><strong>xaxis_vector</strong> (<em>np.ndarray</em>) – The vector on placed on the x-axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>eigenenergies</strong> (<em>dict</em>) – A dict containing the values of eigenfrequencies. Each key is the corresponding Fock state.</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_f_k_A_chi">
+<span class="sig-name descname"><span class="pre">get_f_k_A_chi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pretty_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_f_k_A_chi" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the values of eigenfrequencies of the modes, losses, anharmonicities and cross-kerrs, using the
+method ‘f_k_a_chi’ of QuCat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pretty_print</strong> (<em>bool</em>) – Wheter show on terminal the values in a pretty form. Default is False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list</em> – A list containing the values of eigenfrequencies, losses, anharmonicities and cross-kerrs</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_frequencies">
+<span class="sig-name descname"><span class="pre">get_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-09</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'(GHz)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_frequencies" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the values of the frequency of the qubits of the system,
+when changing one parameter of the system.
+Optionally it plots them.
+The frequency for each qubit ‘n’ is computed as:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[f_n = \omega_n - A_n - \sum_{m\neq n}\frac{\chi_{mn}}{2}\]</div>
+</div>
+<p>with <span class="math notranslate nohighlight">\(\omega_n\)</span> the frequency of the corresponding mode, <span class="math notranslate nohighlight">\(A_n\)</span> the anharmonicity and
+<span class="math notranslate nohighlight">\(\chi_{mn}\)</span> the cross-kerr interaction between modes ‘m’ and ‘m’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot</strong> (<em>bool</em>) – Wheter plot the values. Default is False</p></li>
+<li><p><strong>variable_component</strong> (<em>str</em>) – The variable component which is changed.</p></li>
+<li><p><strong>component_values</strong> (<em>np.ndarray</em>) – Values of the variable component.</p></li>
+<li><p><strong>n_stat</strong> (<em>int</em>) – The number of state considered for the qubits. Default is 2.</p></li>
+<li><p><strong>taylor</strong> (<em>int</em>) – Degree of the Taylor expansion of the cosine potential. Default is 4.</p></li>
+<li><p><strong>excitations</strong> (<em>int</em>) – Number of excitations considered in building the Hamiltonian. Default is 6.</p></li>
+<li><p><strong>xscale</strong> (<em>float</em>) – The scale of the x-axis.</p></li>
+<li><p><strong>yscale</strong> (<em>float</em>) – The scale of the y-axis.</p></li>
+<li><p><strong>xlabel</strong> (<em>str</em>) – The label of the x-axis (the measure unit).</p></li>
+<li><p><strong>ylabel</strong> (<em>str</em>) – The label of the y-axis (the measure unit).  Default is ‘(GHz)’.</p></li>
+<li><p><strong>xaxis_vector</strong> (<em>np.ndarray</em>) – The vector on placed on the x-axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>freqs</strong> (<em>dict</em>) – A dict containing the values of frequencies. Each key is a Fock state (a Junction), when
+the circuit topology (<a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.neighbours" title="Steppenwolf.circuit_builder.CircuitBuilder.neighbours"><code class="xref py py-attr docutils literal notranslate"><span class="pre">neighbours</span></code></a> attribute) is empty (not empty).</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_kerr_anarmonicities_frequencies">
+<span class="sig-name descname"><span class="pre">get_kerr_anarmonicities_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretty_print</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_kerr_anarmonicities_frequencies" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the values of frequencies of the qubis, losses, anharmonicities and cross-kerrs, using the
+method ‘f_k_a_chi’ of QuCat. If the topology is given then it returns a dictionary ‘Junction’ : list of values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topology</strong> (<em>bool</em>) – Wheter to use the mode’s topology. Default is False.</p></li>
+<li><p><strong>pretty_print</strong> (<em>bool</em>) – Wheter show on terminal the values in a pretty form. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list or dict</em> – A list containing the values of the frequencies of the qubits, losses, anharmonicities and cross-kerrs.
+If ‘topology’ is True, it returns a dictionary of ‘Junction’ : list of values.</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.get_modes_topology">
+<span class="sig-name descname"><span class="pre">get_modes_topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_modes_topology" title="Link to this definition">¶</a></dt>
+<dd><p>Get a dictionary similar to the <a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology" title="Steppenwolf.circuit_builder.CircuitBuilder.modes_topology"><code class="xref py py-attr docutils literal notranslate"><span class="pre">modes_topology</span></code></a> attribute, given a dictionary of parameters.
+This dictionary should be in the same form of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">variable_components</span></code> attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<em>dict</em>) – A dictionary of parameters in the same form (same keys) of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">variable_components</span></code> attribute.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>modes_topology</strong> (<em>dict</em>) – A dictionary in the same form of the <a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology" title="Steppenwolf.circuit_builder.CircuitBuilder.modes_topology"><code class="xref py py-attr docutils literal notranslate"><span class="pre">modes_topology</span></code></a> attribute, given a set of parameters.</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.set_modes_topology">
+<span class="sig-name descname"><span class="pre">set_modes_topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.set_modes_topology" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the <a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology" title="Steppenwolf.circuit_builder.CircuitBuilder.modes_topology"><code class="xref py py-attr docutils literal notranslate"><span class="pre">modes_topology</span></code></a> attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>None</em> – This method is called by the user to set the topology of the modes. It modifies the <a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology" title="Steppenwolf.circuit_builder.CircuitBuilder.modes_topology"><code class="xref py py-attr docutils literal notranslate"><span class="pre">modes_topology</span></code></a> attribute.</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.set_variable_components">
+<span class="sig-name descname"><span class="pre">set_variable_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.set_variable_components" title="Link to this definition">¶</a></dt>
+<dd><p>Set the values of the dictionary of <code class="xref py py-attr docutils literal notranslate"><span class="pre">variable_components</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>components</strong> (<em>dict</em>) – A dictionary of parameters in the same form (same keys) of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">variable_components</span></code> attribute.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>None</em> – This method is called to change inplace the values of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">variable_components</span></code> attribute.
+It sets also the <a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.n_modes" title="Steppenwolf.circuit_builder.CircuitBuilder.n_modes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_modes</span></code></a> attribute.</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.CircuitBuilder.show_normal_modes">
+<span class="sig-name descname"><span class="pre">show_normal_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.CircuitBuilder.show_normal_modes" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the normal modes present in the circuit, using the <cite>sho_normal_mode</cite> function of QuCat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modes</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – Modes to plot. If an empty list is given, then all the modes are shown. Default is an empty list.</p></li>
+<li><p><strong>quantity</strong> (<em>str</em>) – Quantity to plot. Default is ‘current’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>None</em> – This method plots the normal modes present in the circuit.</p></li>
+<li><p><em>Author</em></p></li>
+<li><p><em>——</em></p></li>
+<li><p><em>Riccardo Aiudi  (raiudi&#64;planckian.co)</em></p></li>
+<li><p><strong>Date</strong> (<em>April 14, 2025</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.assign_term_positions">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">assign_term_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">junctions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.assign_term_positions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.bosonic_annihilation">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">bosonic_annihilation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.bosonic_annihilation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.bosonic_annihilation_ops">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">bosonic_annihilation_ops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.bosonic_annihilation_ops" title="Link to this definition">¶</a></dt>
+<dd><p>Restituisce una lista di operatori di distruzione b_k (Qobj)
+per un sistema di n oscillatori troncati a m livelli.
+Il primo operatore corrisponde all’oscillatore 0 (destra in QuTiP).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.build_json_spec">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">build_json_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">junctions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.build_json_spec" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.build_json_spec_from_pauli">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">build_json_spec_from_pauli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">junctions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pauli_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.build_json_spec_from_pauli" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.compute_josephson_inductance">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">compute_josephson_inductance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strength_hz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ci</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.compute_josephson_inductance" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.decompose_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">decompose_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H_qucat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">balanced_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Shriffer_Wolf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.decompose_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.decompose_pauli_operator">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">decompose_pauli_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pauli_op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparsePauliOp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.decompose_pauli_operator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.extract_indices">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">extract_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.extract_indices" title="Link to this definition">¶</a></dt>
+<dd><p>Estrae gli indici degli operatori ‘a’ nel termine</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.extract_monomials">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">extract_monomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_modes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.extract_monomials" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.generate_all_monomials">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">generate_all_monomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_ops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adag_ops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.generate_all_monomials" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.generate_monomials_from_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">generate_monomials_from_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit_holder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taylor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.generate_monomials_from_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.generate_wire_path">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">generate_wire_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occupied</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.generate_wire_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.json_to_circuit_string">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">json_to_circuit_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.json_to_circuit_string" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.parse_operator_sequence">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">parse_operator_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.parse_operator_sequence" title="Link to this definition">¶</a></dt>
+<dd><p>Espande un termine simbolico come “a1†^2 a0^2” in [“a†”, “a†”, “a”, “a”],
+restituendo solo ‘a’ o ‘a†’ (†) senza indice.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.print_hamiltonian_monomials">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">print_hamiltonian_monomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit_holder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taylor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.print_hamiltonian_monomials" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.project_to_qubit">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">project_to_qubit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H_qobj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.project_to_qubit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.reconstruct_hamiltonian_from_monomials">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">reconstruct_hamiltonian_from_monomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">monomi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_ops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.reconstruct_hamiltonian_from_monomials" title="Link to this definition">¶</a></dt>
+<dd><p>Ricostruisce l’Hamiltoniano a partire dai monomi e dagli operatori di annichilazione.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>monomi</strong> – lista di tuple del tipo ((n†_0, …, n†_N), (n_0, …, n_N), coeff)</p></li>
+<li><p><strong>a_ops</strong> – lista di operatori a_i (già nel full Hilbert space)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hamiltoniano ricostruito</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Qobj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.sw_project_to_qubit">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">sw_project_to_qubit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H_qobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Qobj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0_qobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Qobj</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Qobj</span></span></span><a class="headerlink" href="#Steppenwolf.circuit_builder.sw_project_to_qubit" title="Link to this definition">¶</a></dt>
+<dd><p>Proietta un’Hamiltoniana di N qubit (ciascuno troncato a M livelli) nello spazio computazionale
+<a href="#id1"><span class="problematic" id="id2">|</span></a>n1 … nN&gt; con ni∈{0,1}, includendo gli effetti virtuali di Q (livelli &gt;=2) al 2º ordine
+tramite la trasformazione di Schrieffer–Wolff (formula simmetrica a denominatori).</p>
+<dl class="simple">
+<dt>H_eff = P H P + δH^(2), con</dt><dd><p>δH_ab = 1/2 * sum_{m∈Q} H_{a m} H_{m b} [ 1/(E_a - E_m) + 1/(E_b - E_m) ],</p>
+</dd>
+</dl>
+<p>dove E_k sono gli autovalori di H0 (scelto come base per i denominatori).</p>
+<section id="parametri">
+<h3>Parametri<a class="headerlink" href="#parametri" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>H_qobj<span class="classifier">Qobj</span></dt><dd><p>Hamiltoniana completa (dimensione D×D, D=M**N) nella base prodotto.</p>
+</dd>
+<dt>N<span class="classifier">int</span></dt><dd><p>Numero di qubit fisici (sistemi).</p>
+</dd>
+<dt>M<span class="classifier">int</span></dt><dd><p>Dimensione locale (troncamento per qubit/transmon).</p>
+</dd>
+<dt>H0_qobj<span class="classifier">Qobj, opzionale</span></dt><dd><p>Parte “non perturbata” usata nei denominatori. Se None, usa diag(H).</p>
+</dd>
+<dt>eps<span class="classifier">float</span></dt><dd><p>Soglia per evitare divisioni per ~0 (regime non-dispersivo). Se un denominatore
+<a href="#id3"><span class="problematic" id="id4">|E_p - E_q|</span></a> &lt; eps, viene sollevato un ValueError.</p>
+</dd>
+</dl>
+</section>
+<section id="ritorna">
+<h3>Ritorna<a class="headerlink" href="#ritorna" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>Qobj</dt><dd><p>Hamiltoniana efficace 2^N × 2^N nello spazio computazionale, simmetrizzata Hermitiana.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.symbolic_string">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">symbolic_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adag_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.symbolic_string" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.tensor_up">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">tensor_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.tensor_up" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.circuit_builder.truncate_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.circuit_builder.</span></span><span class="sig-name descname"><span class="pre">truncate_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H_qobj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.circuit_builder.truncate_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd><p>Troncamento di una hamiltoniana su N modi troncati a M livelli,
+ottenendo una nuova hamiltoniana su N modi troncati a X livelli.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>H_qobj</strong> – Qobj
+Hamiltoniana di input (dimensione M^N x M^N)</p></li>
+<li><p><strong>N</strong> – int
+Numero di modi</p></li>
+<li><p><strong>M</strong> – int
+Numero di livelli iniziali per ciascun modo</p></li>
+<li><p><strong>X</strong> – int
+Numero di livelli desiderati (X &lt; M)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Qobj</dt><dd><p>Hamiltoniana troncata (dimensione X^N x X^N)</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-Steppenwolf.gui_utils">
+<span id="steppenwolf-gui-utils-module"></span><h2>Steppenwolf.gui_utils module<a class="headerlink" href="#module-Steppenwolf.gui_utils" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.gui_utils.apply_parameters">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.gui_utils.</span></span><span class="sig-name descname"><span class="pre">apply_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.gui_utils.apply_parameters" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.gui_utils.display_modes">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.gui_utils.</span></span><span class="sig-name descname"><span class="pre">display_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.gui_utils.display_modes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.gui_utils.generate_and_decompose_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.gui_utils.</span></span><span class="sig-name descname"><span class="pre">generate_and_decompose_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.gui_utils.generate_and_decompose_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.gui_utils.populate_param_fields">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.gui_utils.</span></span><span class="sig-name descname"><span class="pre">populate_param_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.gui_utils.populate_param_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-Steppenwolf.steppenwolf_gui">
+<span id="steppenwolf-steppenwolf-gui-module"></span><h2>Steppenwolf.steppenwolf_gui module<a class="headerlink" href="#module-Steppenwolf.steppenwolf_gui" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Steppenwolf.steppenwolf_gui.</span></span><span class="sig-name descname"><span class="pre">SteppenwolfGUI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_export_done</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.apply_parameters">
+<span class="sig-name descname"><span class="pre">apply_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.apply_parameters" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.export_json">
+<span class="sig-name descname"><span class="pre">export_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.export_json" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.generate_hamiltonian">
+<span class="sig-name descname"><span class="pre">generate_hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.generate_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_and_hamiltonian_params">
+<span class="sig-name descname"><span class="pre">get_circuit_and_hamiltonian_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_and_hamiltonian_params" title="Link to this definition">¶</a></dt>
+<dd><p>Return a dict containing user-defined parameters and decomposition settings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_file_info">
+<span class="sig-name descname"><span class="pre">get_circuit_file_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_file_info" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_coefficients">
+<span class="sig-name descname"><span class="pre">get_coefficients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_coefficients" title="Link to this definition">¶</a></dt>
+<dd><p>Return symbolic coefficient dictionary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_hamiltonian">
+<span class="sig-name descname"><span class="pre">get_current_hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd><p>Return the raw Qobj Hamiltonian (if generated).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_json">
+<span class="sig-name descname"><span class="pre">get_current_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_json" title="Link to this definition">¶</a></dt>
+<dd><p>Return the current JSON spec.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_circuit">
+<span class="sig-name descname"><span class="pre">load_circuit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Load a QuCAT circuit (.txt netlist only).
+Always passes a .txt file to QuCAT, ignoring any .json.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_param_file">
+<span class="sig-name descname"><span class="pre">load_param_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_param_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.new_circuit">
+<span class="sig-name descname"><span class="pre">new_circuit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.new_circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new blank QuCAT circuit from scratch.
+Opens QuCAT GUI without a predefined file,
+then loads it into Steppenwolf when the window closes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.on_close">
+<span class="sig-name descname"><span class="pre">on_close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.on_close" title="Link to this definition">¶</a></dt>
+<dd><p>Handle closing the window and optionally exporting data and parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit">
+<span class="sig-name descname"><span class="pre">project_hamiltonian_to_qubit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit_SW">
+<span class="sig-name descname"><span class="pre">project_hamiltonian_to_qubit_SW</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit_SW" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_as_bundle">
+<span class="sig-name descname"><span class="pre">save_as_bundle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_as_bundle" title="Link to this definition">¶</a></dt>
+<dd><p>Save the entire circuit bundle (.txt, .png, .json parameters) to a user-chosen folder.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_json_to_file">
+<span class="sig-name descname"><span class="pre">save_json_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_json_to_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_param_file">
+<span class="sig-name descname"><span class="pre">save_param_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_param_file" title="Link to this definition">¶</a></dt>
+<dd><p>Save parameters + circuit metadata to a structured JSON snapshot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.set_params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.SteppenwolfGUI.show_modes">
+<span class="sig-name descname"><span class="pre">show_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.show_modes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.display_modes">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.steppenwolf_gui.</span></span><span class="sig-name descname"><span class="pre">display_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.display_modes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.generate_and_decompose_hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.steppenwolf_gui.</span></span><span class="sig-name descname"><span class="pre">generate_and_decompose_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilbert_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.generate_and_decompose_hamiltonian" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.match_key">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.steppenwolf_gui.</span></span><span class="sig-name descname"><span class="pre">match_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder_keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.match_key" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.steppenwolf_gui.populate_param_fields">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.steppenwolf_gui.</span></span><span class="sig-name descname"><span class="pre">populate_param_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driven_roles_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.steppenwolf_gui.populate_param_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-Steppenwolf.useful_func">
+<span id="steppenwolf-useful-func-module"></span><h2>Steppenwolf.useful_func module<a class="headerlink" href="#module-Steppenwolf.useful_func" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.conversion_Ej">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">conversion_Ej</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Lj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.conversion_Ej" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Lj-like inductance value to Josephson energy.
+Lj should be in the form: {num}*1e-9 (?? TO BE CHECKED).</p>
+<p>Reverse of conversion_Ej: from (hbar/2e)^2 / Lj to Ej in joules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Lj</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Inductance in Henry.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float</em> – Josephson energy in joules</p></li>
+<li><p><em>Authors</em></p></li>
+<li><p><em>——-</em></p></li>
+<li><p><em>Francesco Caravelli (fcaravelli&#64;planckian.co), April 12, 2025</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.conversion_Lj">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">conversion_Lj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ej</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.conversion_Lj" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Ej-like inductance value to inductance LJ-like value.
+Ej should be in the form: {num}*h*1e9</p>
+<p>Reverse of conversion_Ej: from (hbar/2e)^2 / Ej to Lj in Henry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>E_j</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Josephson energy in joules.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float</em> – Inductance in Henry.</p></li>
+<li><p><em>Authors</em></p></li>
+<li><p><em>——-</em></p></li>
+<li><p><em>Francesco Caravelli (fcaravelli&#64;planckian.co), April 12, 2025</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.critical_current_to_inductance">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">critical_current_to_inductance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I_c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.critical_current_to_inductance" title="Link to this definition">¶</a></dt>
+<dd><p>Convert critical current (I_c) to Josephson inductance (L_J)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>I_c</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Critical current in amperes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float or np.ndarray</em> – Josephson inductance in henrys</p></li>
+<li><p><em>Authors</em></p></li>
+<li><p><em>——-</em></p></li>
+<li><p><em>Francesco Caravelli (fcaravelli&#64;planckian.co), April 12, 2025</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.critical_current_to_josephson_energy">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">critical_current_to_josephson_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I_c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.critical_current_to_josephson_energy" title="Link to this definition">¶</a></dt>
+<dd><p>Convert critical current (I_c) to Josephson energy (E_J)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>I_c</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Critical current in amperes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float or np.ndarray</em> – Josephson energy in joules</p></li>
+<li><p><em>Authors</em></p></li>
+<li><p><em>——-</em></p></li>
+<li><p><em>Francesco Caravelli (fcaravelli&#64;planckian.co), April 12, 2025</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.generate_ordered_pairs">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">generate_ordered_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.generate_ordered_pairs" title="Link to this definition">¶</a></dt>
+<dd><p>Generates a list of strings representing all ordered pairs of numbers
+from 0 to N-1, without repetitions and with strictly increasing order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>N</strong> (<em>int</em>) – The upper limit (exclusive) of numbers to generate pairs from.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of strings representing all pairs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.inductance_to_critical_current">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">inductance_to_critical_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L_J</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.inductance_to_critical_current" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Josephson inductance (L_J) to critical current (I_c)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>L_J</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Inductance in henrys</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float or np.ndarray</em> – Critical current in amperes</p></li>
+<li><p><em>Authors</em></p></li>
+<li><p><em>——–</em></p></li>
+<li><p><em>Francesco Caravelli (fcaravelli&#64;planckian.co), April 12, 2025</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.josephson_energy_to_critical_current">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">josephson_energy_to_critical_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E_J</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.josephson_energy_to_critical_current" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Josephson energy (E_J) to critical current (I_c)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>E_J</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Josephson energy in joules.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float or np.ndarray</em> – Critical current in amperes.</p></li>
+<li><p><em>Authors</em></p></li>
+<li><p><em>——–</em></p></li>
+<li><p><em>Francesco Caravelli (fcaravelli&#64;planckian.co), April 12, 2025</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Steppenwolf.useful_func.state_generation">
+<span class="sig-prename descclassname"><span class="pre">Steppenwolf.useful_func.</span></span><span class="sig-name descname"><span class="pre">state_generation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nstat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Steppenwolf.useful_func.state_generation" title="Link to this definition">¶</a></dt>
+<dd><p>Generates a sorted list of strings of length n, containing digits from ‘0’ up to str(nstat).
+The sorting order prioritizes strings with fewer higher-value digits:
+first all ‘0’, then strings containing exactly one ‘1’, then strings containing exactly two ‘1’, and so on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Length of each string.</p></li>
+<li><p><strong>nstat</strong> (<em>int</em>) – Maximum digit allowed (0, 1, …, nstat).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sorted list of generated strings.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-Steppenwolf">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Steppenwolf" title="Link to this heading">¶</a></h2>
+<p>Steppenwolf Module</p>
+<p>This package provides a GUI interface to design quantum circuits using QuCAT,
+analyze their parameters using CircuitBuilder, and export JSON-compatible
+descriptions for use in ArchBuilder or Livingston pipelines.</p>
+<p>Author: Planckian
+Date: 2025</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="modules.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Architecture_builder</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="Livingston.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Livingston package</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Planckian srl
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Steppenwolf package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#steppenwolf-annealer-module">Steppenwolf.Annealer module</a></li>
+<li><a class="reference internal" href="#steppenwolf-annealing-routine-module">Steppenwolf.annealing_routine module</a></li>
+<li><a class="reference internal" href="#module-Steppenwolf.circuit_builder">Steppenwolf.circuit_builder module</a><ul>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.circuit_name"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.circuit_name</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.circuit_path"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.circuit_path</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.edit"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.edit</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.plot"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.plot</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.print_network"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.print_network</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.circuit"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.circuit</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.variable_component"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.variable_component</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.n_modes"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.n_modes</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.modes_topology"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.modes_topology</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.neighbours"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.neighbours</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.colormap"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.colormap</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_anharmonicities"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_anharmonicities()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_crosskerr"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_crosskerr()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_eigen"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_eigen()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_f_k_A_chi"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_f_k_A_chi()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_frequencies"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_frequencies()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_kerr_anarmonicities_frequencies"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_kerr_anarmonicities_frequencies()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.get_modes_topology"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.get_modes_topology()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.set_modes_topology"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.set_modes_topology()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.set_variable_components"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.set_variable_components()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.CircuitBuilder.show_normal_modes"><code class="docutils literal notranslate"><span class="pre">CircuitBuilder.show_normal_modes()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.assign_term_positions"><code class="docutils literal notranslate"><span class="pre">assign_term_positions()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.bosonic_annihilation"><code class="docutils literal notranslate"><span class="pre">bosonic_annihilation()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.bosonic_annihilation_ops"><code class="docutils literal notranslate"><span class="pre">bosonic_annihilation_ops()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.build_json_spec"><code class="docutils literal notranslate"><span class="pre">build_json_spec()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.build_json_spec_from_pauli"><code class="docutils literal notranslate"><span class="pre">build_json_spec_from_pauli()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.compute_josephson_inductance"><code class="docutils literal notranslate"><span class="pre">compute_josephson_inductance()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.decompose_hamiltonian"><code class="docutils literal notranslate"><span class="pre">decompose_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.decompose_pauli_operator"><code class="docutils literal notranslate"><span class="pre">decompose_pauli_operator()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.extract_indices"><code class="docutils literal notranslate"><span class="pre">extract_indices()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.extract_monomials"><code class="docutils literal notranslate"><span class="pre">extract_monomials()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.generate_all_monomials"><code class="docutils literal notranslate"><span class="pre">generate_all_monomials()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.generate_monomials_from_hamiltonian"><code class="docutils literal notranslate"><span class="pre">generate_monomials_from_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.generate_wire_path"><code class="docutils literal notranslate"><span class="pre">generate_wire_path()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.json_to_circuit_string"><code class="docutils literal notranslate"><span class="pre">json_to_circuit_string()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.parse_operator_sequence"><code class="docutils literal notranslate"><span class="pre">parse_operator_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.print_hamiltonian_monomials"><code class="docutils literal notranslate"><span class="pre">print_hamiltonian_monomials()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.project_to_qubit"><code class="docutils literal notranslate"><span class="pre">project_to_qubit()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.reconstruct_hamiltonian_from_monomials"><code class="docutils literal notranslate"><span class="pre">reconstruct_hamiltonian_from_monomials()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.sw_project_to_qubit"><code class="docutils literal notranslate"><span class="pre">sw_project_to_qubit()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.symbolic_string"><code class="docutils literal notranslate"><span class="pre">symbolic_string()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.tensor_up"><code class="docutils literal notranslate"><span class="pre">tensor_up()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.circuit_builder.truncate_hamiltonian"><code class="docutils literal notranslate"><span class="pre">truncate_hamiltonian()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Steppenwolf.gui_utils">Steppenwolf.gui_utils module</a><ul>
+<li><a class="reference internal" href="#Steppenwolf.gui_utils.apply_parameters"><code class="docutils literal notranslate"><span class="pre">apply_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.gui_utils.display_modes"><code class="docutils literal notranslate"><span class="pre">display_modes()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.gui_utils.generate_and_decompose_hamiltonian"><code class="docutils literal notranslate"><span class="pre">generate_and_decompose_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.gui_utils.populate_param_fields"><code class="docutils literal notranslate"><span class="pre">populate_param_fields()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Steppenwolf.steppenwolf_gui">Steppenwolf.steppenwolf_gui module</a><ul>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI</span></code></a><ul>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.apply_parameters"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.apply_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.export_json"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.export_json()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.generate_hamiltonian"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.generate_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_and_hamiltonian_params"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_circuit_and_hamiltonian_params()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_circuit_file_info"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_circuit_file_info()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_coefficients"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_hamiltonian"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_current_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.get_current_json"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.get_current_json()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_circuit"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.load_circuit()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.load_param_file"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.load_param_file()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.new_circuit"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.new_circuit()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.on_close"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.on_close()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.project_hamiltonian_to_qubit()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.project_hamiltonian_to_qubit_SW"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.project_hamiltonian_to_qubit_SW()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_as_bundle"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.save_as_bundle()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_json_to_file"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.save_json_to_file()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.save_param_file"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.save_param_file()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.set_params"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.set_params()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.SteppenwolfGUI.show_modes"><code class="docutils literal notranslate"><span class="pre">SteppenwolfGUI.show_modes()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.display_modes"><code class="docutils literal notranslate"><span class="pre">display_modes()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.generate_and_decompose_hamiltonian"><code class="docutils literal notranslate"><span class="pre">generate_and_decompose_hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.match_key"><code class="docutils literal notranslate"><span class="pre">match_key()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.steppenwolf_gui.populate_param_fields"><code class="docutils literal notranslate"><span class="pre">populate_param_fields()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Steppenwolf.useful_func">Steppenwolf.useful_func module</a><ul>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.conversion_Ej"><code class="docutils literal notranslate"><span class="pre">conversion_Ej()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.conversion_Lj"><code class="docutils literal notranslate"><span class="pre">conversion_Lj()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.critical_current_to_inductance"><code class="docutils literal notranslate"><span class="pre">critical_current_to_inductance()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.critical_current_to_josephson_energy"><code class="docutils literal notranslate"><span class="pre">critical_current_to_josephson_energy()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.generate_ordered_pairs"><code class="docutils literal notranslate"><span class="pre">generate_ordered_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.inductance_to_critical_current"><code class="docutils literal notranslate"><span class="pre">inductance_to_critical_current()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.josephson_energy_to_critical_current"><code class="docutils literal notranslate"><span class="pre">josephson_energy_to_critical_current()</span></code></a></li>
+<li><a class="reference internal" href="#Steppenwolf.useful_func.state_generation"><code class="docutils literal notranslate"><span class="pre">state_generation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Steppenwolf">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

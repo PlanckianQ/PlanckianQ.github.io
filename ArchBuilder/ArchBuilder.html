@@ -1,0 +1,2080 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="AIgor package" href="AIgor.html"><link rel="prev" title="Archbuilder Documentation" href="index.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>ArchBuilder package - Archbuilder 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Archbuilder 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Archbuilder 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Package Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">ArchBuilder package</a><input aria-label="Toggle navigation of ArchBuilder package" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><input aria-label="Toggle navigation of Steppenwolf package" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">Architecture_builder</a><input aria-label="Toggle navigation of Architecture_builder" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html">ArchBuilder: Integrated Quantum Architecture Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#steppenwolf-circuit-loading-and-chiron-module">SteppenWolf Circuit Loading and Chiron Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#qubit-spectroscopy-and-calibration-tabs">Qubit Spectroscopy and Calibration Tabs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#livingston-interactive-quantum-layout-editor">Livingston: Interactive Quantum Layout Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#user-interaction-and-mouse-commands">User Interaction and Mouse Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#writing-dynamic-interaction-generators">Writing Dynamic Interaction Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#testing-via-command-line">Testing via Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#frankenstein-quantum-pulse-and-operation-editor">Frankenstein: Quantum Pulse and Operation Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#bovary-executing-pulses-and-operations-through-compilers">Bovary: Executing Pulses and Operations Through Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#simulation-and-export">Simulation and Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#qec-logical-error-module">QEC Logical Error Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#writing-and-integrating-a-compiler-in-archbuilder">Writing and Integrating a Compiler in ArchBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#coordination-between-layout-pulses-and-compiler">Coordination Between Layout, Pulses, and Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#best-practices-for-compiler-design">Best Practices for Compiler Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archbuilder_manual.html#summary">Summary</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/ArchBuilder.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="archbuilder-package">
+<h1>ArchBuilder package<a class="headerlink" href="#archbuilder-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="AIgor.html">AIgor package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor.aigor">AIgor.aigor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor.aigor_temp">AIgor.aigor_temp module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor.test_log">AIgor.test_log module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AIgor.html#module-AIgor">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Bovary.html">Bovary package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#module-Bovary.bovary">Bovary.bovary module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#module-Bovary.noise_model_editor">Bovary.noise_model_editor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#bovary-qasm-interpreter-module">Bovary.qasm_interpreter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bovary.html#module-Bovary">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Frankenstein.html">Frankenstein package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html#module-Frankenstein.frankenstein">Frankenstein.frankenstein module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Frankenstein.html#module-Frankenstein">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Livingston.html">Livingston package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston.livingston">Livingston.livingston module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston.livingston_core">Livingston.livingston_core module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston.livingston_funcs">Livingston.livingston_funcs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Livingston.html#module-Livingston">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Steppenwolf.html">Steppenwolf package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#steppenwolf-annealer-module">Steppenwolf.Annealer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#steppenwolf-annealing-routine-module">Steppenwolf.annealing_routine module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.circuit_builder">Steppenwolf.circuit_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.gui_utils">Steppenwolf.gui_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.steppenwolf_gui">Steppenwolf.steppenwolf_gui module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf.useful_func">Steppenwolf.useful_func module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Steppenwolf.html#module-Steppenwolf">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-ArchBuilder">
+<span id="archbuilder-module"></span><h2>ArchBuilder module<a class="headerlink" href="#module-ArchBuilder" title="Link to this heading">¶</a></h2>
+<p>ArchBuilder main application interface.</p>
+<p>This module defines the <a class="reference internal" href="#id0" title="ArchBuilder.ArchBuilderApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code></a>, the central GUI frame of
+the ArchBuilder software. It provides integration between multiple Planckian
+modules (Livingston, Frankenstein, Bovary, Metamorphosis) and manages the
+plugin system, layout metadata, and project coordination logic.</p>
+<dl class="simple">
+<dt>Modules loaded:</dt><dd><ul class="simple">
+<li><p>Tkinter UI components</p></li>
+<li><p>Pillow for image handling</p></li>
+<li><p>JSON, ZIP, and temporary file utilities</p></li>
+<li><p>Planckian plugin interfaces and submodules</p></li>
+</ul>
+</dd>
+</dl>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ArchBuilderApp</dt><dd><p>Main user interface class handling initialization, plugin loading,
+and project management for the ArchBuilder environment.</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ArchBuilder.</span></span><span class="sig-name descname"><span class="pre">ArchBuilderApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Main GUI application for the Planckian ArchBuilder suite.</p>
+<p>The <a class="reference internal" href="#id0" title="ArchBuilder.ArchBuilderApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code></a> coordinates the initialization of
+multiple Planckian subsystems and provides a unified interface
+for managing architecture files, circuits, and plugins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> (<em>tkinter.Tk</em>) – The root window object for the application.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.add_operation_from_path">
+<span class="sig-name descname"><span class="pre">add_operation_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oper_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.add_operation_from_path" title="Link to this definition">¶</a></dt>
+<dd><p>Add a pulse operation (.oper) file to the current project.</p>
+<p>Copies the operation file into the project directory (if needed),
+validates it, and rebuilds the pulse index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>oper_path</strong> (<em>str</em>) – Path to the .oper file to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.arrow_button">
+<span class="sig-name descname"><span class="pre">arrow_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'⇄'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.arrow_button" title="Link to this definition">¶</a></dt>
+<dd><p>Create a bidirectional arrow button to represent data flow between modules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>tkinter.Widget</em>) – Parent container.</p></li>
+<li><p><strong>row</strong> (<em>int</em>) – Grid coordinates for placement.</p></li>
+<li><p><strong>col</strong> (<em>int</em>) – Grid coordinates for placement.</p></li>
+<li><p><strong>tag</strong> (<em>str</em>) – Unique identifier for the connection (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;LV→FR&quot;</span></code>).</p></li>
+<li><p><strong>symbol</strong> (<em>str</em><em>, </em><em>optional</em>) – The symbol displayed on the button (default is ⇄).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created arrow button.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.build_interface">
+<span class="sig-name descname"><span class="pre">build_interface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.build_interface" title="Link to this definition">¶</a></dt>
+<dd><p>Build and initialize the main user interface.</p>
+<p>This method constructs all major UI components of the
+ArchBuilder application, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The top toolbar with project controls and plugin selection</p></li>
+<li><p>The grid-based module launcher (Steppenwolf, Livingston, etc.)</p></li>
+<li><p>The log output area and control buttons</p></li>
+</ul>
+</div></blockquote>
+<p>The function connects interface elements to their respective
+callback functions and configures their initial states.</p>
+<p class="rubric">Notes</p>
+<p>The layout grid follows the Planckian module pipeline:
+Steppenwolf → Livingston → Frankenstein → Bovary → Metamorphosis</p>
+<p>Each module can be enabled or disabled dynamically
+depending on project state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.build_pulses_index_from_collected">
+<span class="sig-name descname"><span class="pre">build_pulses_index_from_collected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.build_pulses_index_from_collected" title="Link to this definition">¶</a></dt>
+<dd><p>Build or refresh the pulses index file.</p>
+<p>Parses all collected <cite>.oper</cite> files and generates a temporary
+<code class="docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file listing valid operations and their
+associated species. Invalid or mismatched species are logged.</p>
+<p class="rubric">Notes</p>
+<p>The generated index file is written inside the temporary
+project directory (<cite>self.temp_dir</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.configure_simulator">
+<span class="sig-name descname"><span class="pre">configure_simulator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.configure_simulator" title="Link to this definition">¶</a></dt>
+<dd><p>Open a simulator configuration window.</p>
+<p>Launches a dialog allowing the user to select a backend emulator
+(e.g., <code class="docutils literal notranslate"><span class="pre">qutip</span></code>, <code class="docutils literal notranslate"><span class="pre">cirq</span></code>, or a custom one) and define parameters
+in JSON format. The configuration is saved to
+<code class="docutils literal notranslate"><span class="pre">simulator_config.json</span></code> inside the temporary project directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.enable_bovary_button">
+<span class="sig-name descname"><span class="pre">enable_bovary_button</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.enable_bovary_button" title="Link to this definition">¶</a></dt>
+<dd><p>Placeholder for Bovary module activation.</p>
+<p class="rubric">Notes</p>
+<p>Currently unimplemented. Intended for future integration
+with the Planckian Bovary subsystem.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.get_circuit_json">
+<span class="sig-name descname"><span class="pre">get_circuit_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.get_circuit_json" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve the loaded circuit JSON data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parsed circuit JSON content if available, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.get_layout_json">
+<span class="sig-name descname"><span class="pre">get_layout_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.get_layout_json" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve the loaded layout JSON data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parsed layout JSON content if available, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.get_project_data">
+<span class="sig-name descname"><span class="pre">get_project_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.get_project_data" title="Link to this definition">¶</a></dt>
+<dd><p>Collect all currently loaded project data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary containing all project components:
+<code class="docutils literal notranslate"><span class="pre">circuit</span></code>, <code class="docutils literal notranslate"><span class="pre">layout</span></code>, and <code class="docutils literal notranslate"><span class="pre">pulses</span></code> JSON data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.get_pulses_json">
+<span class="sig-name descname"><span class="pre">get_pulses_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.get_pulses_json" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve the generated pulses index JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parsed pulse index data if available, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_circuit">
+<span class="sig-name descname"><span class="pre">load_circuit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Steppenwolf circuit editor.</p>
+<p>Opens the <code class="xref py py-class docutils literal notranslate"><span class="pre">SteppenwolfGUI</span></code> for editing or creating
+a new quantum circuit. If a circuit is already loaded,
+prompts the user to re-edit it or start a new one.</p>
+<p class="rubric">Notes</p>
+<p>On successful export, Steppenwolf returns a JSON representation
+of the circuit, which is temporarily stored and integrated
+into the current project.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_dynamics">
+<span class="sig-name descname"><span class="pre">load_dynamics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_dynamics" title="Link to this definition">¶</a></dt>
+<dd><p>Placeholder for loading system dynamics configuration.</p>
+<p class="rubric">Notes</p>
+<p>Currently not implemented. This will later integrate with
+the Metamorphosis simulator for time-dependent models.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_image_button">
+<span class="sig-name descname"><span class="pre">load_image_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_image_button" title="Link to this definition">¶</a></dt>
+<dd><p>Create a Tkinter button with an image and link it to a command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>tkinter.Widget</em>) – The parent frame or container.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Button label used as an identifier key.</p></li>
+<li><p><strong>image_path</strong> (<em>str</em>) – Path to the image file used for the button.</p></li>
+<li><p><strong>row</strong> (<em>int</em>) – Grid coordinates for button placement.</p></li>
+<li><p><strong>col</strong> (<em>int</em>) – Grid coordinates for button placement.</p></li>
+<li><p><strong>command</strong> (<em>callable</em>) – Function to execute when the button is pressed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created button widget.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_layout">
+<span class="sig-name descname"><span class="pre">load_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Livingston layout editor.</p>
+<p>Opens the <code class="xref py py-class docutils literal notranslate"><span class="pre">PlanckianLivingston</span></code> GUI, either loading
+data from the Steppenwolf output (if linked) or prompting
+the user to select a layout JSON file manually.</p>
+<p class="rubric">Notes</p>
+<p>Automatically updates <code class="xref py py-attr docutils literal notranslate"><span class="pre">arch_metadata</span></code> and button states
+after the layout editor closes. If the LV→ME link is active,
+triggers a chained simulator launch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_plugins">
+<span class="sig-name descname"><span class="pre">load_plugins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_plugins" title="Link to this definition">¶</a></dt>
+<dd><p>Discover and load all available plugins.</p>
+<p>Uses the <code class="xref py py-class docutils literal notranslate"><span class="pre">PluginManager</span></code> to scan the module directory,
+populating the dropdown list and enabling plugin execution.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_project_from_folder">
+<span class="sig-name descname"><span class="pre">load_project_from_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_project_from_folder" title="Link to this definition">¶</a></dt>
+<dd><p>Load an existing ArchBuilder project from a folder.</p>
+<p>This method scans the selected directory for a <cite>.arch</cite> file,
+loads associated metadata, layout, circuit, and pulse operation files,
+and rebuilds the internal project state accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – Path to the project directory to open.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Updates the internal project metadata, compiler, and UI elements.</p></li>
+<li><p>Rebuilds the list of collected operations.</p></li>
+<li><p>Scans for any additional <cite>.oper</cite> files not yet registered in metadata.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.load_pulses">
+<span class="sig-name descname"><span class="pre">load_pulses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.load_pulses" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Frankenstein pulse editor.</p>
+<p>Opens the <code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEditorApp</span></code> GUI for editing or creating
+<cite>.oper</cite> pulse operation files. If a layout link exists from
+Livingston (<code class="docutils literal notranslate"><span class="pre">LV→FR</span></code>), automatically loads the most recent layout.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Prompts the user to edit an existing operation or create a new one.</p></li>
+<li><p>Updates internal operation lists when new files are created.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.log" title="Link to this definition">¶</a></dt>
+<dd><p>Append a timestamped message to the log display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message text to append to the log.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.new_project">
+<span class="sig-name descname"><span class="pre">new_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.new_project" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new project directory and initialize it.</p>
+<p>Opens dialogs to name and select a folder for the project, then
+copies any currently loaded files into the new project directory.</p>
+<p class="rubric">Notes</p>
+<p>Automatically rebuilds the pulse index and architecture metadata
+from existing layout files if present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.on_arch_saved">
+<span class="sig-name descname"><span class="pre">on_arch_saved</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arch_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.on_arch_saved" title="Link to this definition">¶</a></dt>
+<dd><p>Callback executed after saving a .arch file.</p>
+<p>Updates project metadata and paths after the ArchCreator saves
+the current architecture. Re-links the layout, compiler, and
+any .oper files found in the project folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch_path</strong> (<em>str</em>) – Path to the saved .arch file.</p></li>
+<li><p><strong>compiler_dst</strong> (<em>str</em><em> or </em><em>None</em>) – Destination path of the compiler file, if available.</p></li>
+<li><p><strong>data</strong> (<em>dict</em>) – Metadata dictionary saved with the .arch project.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.on_archcreator_update">
+<span class="sig-name descname"><span class="pre">on_archcreator_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arch_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.on_archcreator_update" title="Link to this definition">¶</a></dt>
+<dd><p>Callback triggered when the ArchCreator window saves or updates a .arch file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path of the saved or modified .arch file.</p></li>
+<li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Updated architecture metadata dictionary.</p></li>
+<li><p><strong>saved</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the project has just been saved and should be marked clean.
+If False, the project has unsaved modifications.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.on_bovary_closed">
+<span class="sig-name descname"><span class="pre">on_bovary_closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise_model_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.on_bovary_closed" title="Link to this definition">¶</a></dt>
+<dd><p>Callback invoked when Bovary closes.</p>
+<p>Updates .arch metadata with the logical or open noise model path and marks
+the architecture as modified (unsaved) in the UI.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.on_oper_selected">
+<span class="sig-name descname"><span class="pre">on_oper_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.on_oper_selected" title="Link to this definition">¶</a></dt>
+<dd><p>Event handler for operation dropdown selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em><em>, </em><em>optional</em>) – The triggering event (not used).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.on_steppenwolf_export">
+<span class="sig-name descname"><span class="pre">on_steppenwolf_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.on_steppenwolf_export" title="Link to this definition">¶</a></dt>
+<dd><p>Handle incoming data from the Steppenwolf module.</p>
+<p>Updates internal project structures with the received circuit,
+Hamiltonian, coefficients, and other metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Dictionary containing Steppenwolf export data such as
+circuit paths, Hamiltonians, and coefficients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.open_arch_creator">
+<span class="sig-name descname"><span class="pre">open_arch_creator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.open_arch_creator" title="Link to this definition">¶</a></dt>
+<dd><p>Open the ArchCreator window for editing the .arch configuration file.</p>
+<p>This function launches the <code class="xref py py-class docutils literal notranslate"><span class="pre">ArchCreatorWindow</span></code>, allowing
+the user to modify or inspect architecture metadata. If the current
+metadata is incomplete, it attempts to reconstruct it using the
+existing layout file.</p>
+<p class="rubric">Notes</p>
+<p>If species or layout information is missing from the current
+<cite>arch_metadata</cite>, this method will attempt to extract it directly
+from the loaded layout JSON file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.open_frankenstein">
+<span class="sig-name descname"><span class="pre">open_frankenstein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oper_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.open_frankenstein" title="Link to this definition">¶</a></dt>
+<dd><p>Open the Frankenstein pulse editor window.</p>
+<p>Launches a new top-level Tk window containing a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEditorApp</span></code> instance for editing and visualizing
+pulse operations associated with the current architecture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layout_dict</strong> (<em>dict</em><em>, </em><em>optional</em>) – Layout data to pass to the pulse editor (default is None).</p></li>
+<li><p><strong>oper_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the .oper file being edited (default is None).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.open_in_bovary">
+<span class="sig-name descname"><span class="pre">open_in_bovary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.open_in_bovary" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Planckian Bovary Pulse Composer.</p>
+<p>Opens a new window running the <code class="xref py py-class docutils literal notranslate"><span class="pre">Bovary.SubGUI</span></code> interface,
+preloading the current <cite>.arch</cite> file, compiler, and noise model if available.
+Handles both Logical (JSON-based) and Open (layout-based) noise models.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.open_project">
+<span class="sig-name descname"><span class="pre">open_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.open_project" title="Link to this definition">¶</a></dt>
+<dd><p>Open an existing <cite>.arch</cite> project folder.</p>
+<p>Prompts the user to select a project directory and loads
+the contained files and metadata into the interface.
+Updates the window title and unsaved-state indicator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.rebuild_pulse_index">
+<span class="sig-name descname"><span class="pre">rebuild_pulse_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.rebuild_pulse_index" title="Link to this definition">¶</a></dt>
+<dd><p>Rebuild the pulse index from the collected operations list.</p>
+<p>This function revalidates <cite>.oper</cite> files based on the current
+architecture species and writes a fresh <code class="docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.refresh_arch_metadata_from_layout">
+<span class="sig-name descname"><span class="pre">refresh_arch_metadata_from_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.refresh_arch_metadata_from_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Synchronize architecture metadata with the selected layout file.</p>
+<p>This method extracts layout information such as species and family,
+updating the internal <code class="xref py py-attr docutils literal notranslate"><span class="pre">arch_metadata</span></code> dictionary accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>layout_path</strong> (<em>str</em>) – Path to the layout JSON file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.refresh_oper_dropdown">
+<span class="sig-name descname"><span class="pre">refresh_oper_dropdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.refresh_oper_dropdown" title="Link to this definition">¶</a></dt>
+<dd><p>Refresh the operator dropdown list with valid operation files.</p>
+<p>Populates the dropdown with all existing <cite>.oper</cite> files found in
+the collected operations list, updating both paths and selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.reset_project">
+<span class="sig-name descname"><span class="pre">reset_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.reset_project" title="Link to this definition">¶</a></dt>
+<dd><p>Reset the current project to its initial state.</p>
+<p>This method clears all loaded files, metadata, and visual links,
+resetting the ArchBuilder interface. It also disables relevant
+buttons and resets internal project variables. The window title
+and unsaved-state indicator are also cleared.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.run_selected_plugin">
+<span class="sig-name descname"><span class="pre">run_selected_plugin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.run_selected_plugin" title="Link to this definition">¶</a></dt>
+<dd><p>Execute the currently selected plugin.</p>
+<p>The plugin is selected from the dropdown list and executed
+using the <code class="xref py py-class docutils literal notranslate"><span class="pre">PluginManager</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.run_simulation">
+<span class="sig-name descname"><span class="pre">run_simulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.run_simulation" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Planckian Metamorphosis simulator.</p>
+<p>Opens a simulation window running the <code class="xref py py-class docutils literal notranslate"><span class="pre">MetamorphosisApp</span></code>,
+configured with the currently loaded project files.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Requires at least a valid layout file.</p></li>
+<li><p>Optional files (pulses and dynamics) are used if available.</p></li>
+<li><p>Simulation results are stored under <cite>self.project_files[“simulation_results”]</cite>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.save_as_arch">
+<span class="sig-name descname"><span class="pre">save_as_arch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.save_as_arch" title="Link to this definition">¶</a></dt>
+<dd><p>Export the current project as a <cite>.arch</cite> archive.</p>
+<p>Packages all files in the current project folder into a zip
+archive with the <cite>.arch</cite> extension.</p>
+<p class="rubric">Notes</p>
+<p>The <cite>.arch</cite> format is a compressed project structure that can be
+reopened directly by ArchBuilder.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.save_log">
+<span class="sig-name descname"><span class="pre">save_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.save_log" title="Link to this definition">¶</a></dt>
+<dd><p>Save the contents of the log window to a text file.</p>
+<p>Opens a save dialog, allowing the user to export the log output
+to a <cite>.txt</cite> file for later reference. If the log is empty, a
+notification is shown instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.save_project">
+<span class="sig-name descname"><span class="pre">save_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.save_project" title="Link to this definition">¶</a></dt>
+<dd><p>Save the current project to its designated folder.</p>
+<p>Copies all relevant JSON data files (layout, pulses, dynamics, etc.)
+from their current locations into the project directory, and writes
+the collected operations list as <cite>collected_operations.json</cite>.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The project must have a valid folder path (<cite>self.project_path</cite>).</p></li>
+<li><p>Layout, pulses, and dynamics files are required to proceed.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.scan_oper_files">
+<span class="sig-name descname"><span class="pre">scan_oper_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.scan_oper_files" title="Link to this definition">¶</a></dt>
+<dd><p>Scan a folder for <cite>.oper</cite> pulse operation files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – Path to the folder to scan.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Creates or updates the <code class="docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file from valid
+<cite>.oper</cite> entries and updates the dropdown for quick selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.show_plugin_info">
+<span class="sig-name descname"><span class="pre">show_plugin_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.show_plugin_info" title="Link to this definition">¶</a></dt>
+<dd><p>Display metadata and information about the selected plugin.</p>
+<p>Opens a popup window containing plugin details such as
+name, author, version, description, and target modules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.toggle_link">
+<span class="sig-name descname"><span class="pre">toggle_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.toggle_link" title="Link to this definition">¶</a></dt>
+<dd><p>Toggle a logical or visual link between modules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The connection identifier.</p></li>
+<li><p><strong>button</strong> (<em>tk.Button</em>) – The arrow button widget controlling this link.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Ensures mutual exclusivity between certain connections
+(e.g., <code class="docutils literal notranslate"><span class="pre">LV↓ME</span></code> and <code class="docutils literal notranslate"><span class="pre">BO→ME</span></code>) to avoid conflicting states.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ArchBuilder.ArchBuilderApp.update_buttons">
+<span class="sig-name descname"><span class="pre">update_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArchBuilder.ArchBuilderApp.update_buttons" title="Link to this definition">¶</a></dt>
+<dd><p>Update interface buttons and status indicators.</p>
+<p>Refreshes the enabled/disabled states of key controls,
+visual indicators for loaded modules, and checklist labels.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Interaction">
+<span id="interaction-module"></span><h2>Interaction module<a class="headerlink" href="#module-Interaction" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Interaction.Interaction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Interaction.</span></span><span class="sig-name descname"><span class="pre">Interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Interaction.Interaction" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Interaction.Interaction.add_operator">
+<span class="sig-name descname"><span class="pre">add_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'a'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Interaction.Interaction.add_operator" title="Link to this definition">¶</a></dt>
+<dd><p>a = destroy
+A = create (a dag)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-ProgressWindow">
+<span id="progresswindow-module"></span><h2>ProgressWindow module<a class="headerlink" href="#module-ProgressWindow" title="Link to this heading">¶</a></h2>
+<p>Progress window for Planckian ArchBuilder.</p>
+<p>Provides a simple modal loading dialog with a progress bar,
+logo, and customizable status messages. Used during
+module initialization and project loading.</p>
+<section id="id1">
+<h3>Classes<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ProgressWindow</dt><dd><p>Displays a transient progress dialog with a Planckian-themed
+progress bar and dynamic status updates.</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="ProgressWindow.ProgressWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ProgressWindow.</span></span><span class="sig-name descname"><span class="pre">ProgressWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Loading...'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logo_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PlanckianBiosQ.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Starting...'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ProgressWindow.ProgressWindow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Modal progress window with logo, status text, and percentage bar.</p>
+<p>This utility is used to indicate progress while loading or
+initializing ArchBuilder components such as plugins, layouts,
+or projects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>tkinter.Tk</em><em> or </em><em>tkinter.Toplevel</em>) – The parent window or root.</p></li>
+<li><p><strong>total_steps</strong> (<em>int</em>) – The total number of steps in the loading sequence.</p></li>
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – Window title (default is “Loading…”).</p></li>
+<li><p><strong>logo_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the logo image displayed at the top (default is “PlanckianBiosQ.png”).</p></li>
+<li><p><strong>initial_message</strong> (<em>str</em><em>, </em><em>optional</em>) – Text shown below the progress bar when initialized.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ProgressWindow.ProgressWindow.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ProgressWindow.ProgressWindow.close" title="Link to this definition">¶</a></dt>
+<dd><p>Close and destroy the progress window.</p>
+<p>Releases the grab lock before destruction to restore
+interaction with the parent window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ProgressWindow.ProgressWindow.set_message">
+<span class="sig-name descname"><span class="pre">set_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ProgressWindow.ProgressWindow.set_message" title="Link to this definition">¶</a></dt>
+<dd><p>Update the secondary message displayed below the status label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – The message text to display.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ProgressWindow.ProgressWindow.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ProgressWindow.ProgressWindow.update" title="Link to this definition">¶</a></dt>
+<dd><p>Update the progress bar with a new step value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>step</strong> (<em>int</em>) – Current step number (0-indexed).</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Optional status label to display beneath the progress bar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Qubit">
+<span id="qubit-module"></span><h2>Qubit module<a class="headerlink" href="#module-Qubit" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Qubit.Qubit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Qubit.</span></span><span class="sig-name descname"><span class="pre">Qubit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crossed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_correction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resonant_frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rabi_frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ZZs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SWAPs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilbert_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Qubit.Qubit" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Qubit.Qubit.add_noise">
+<span class="sig-name descname"><span class="pre">add_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'frequency'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nominal_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">given_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Qubit.Qubit.add_noise" title="Link to this definition">¶</a></dt>
+<dd><p>Add a perturbation to a “quantity” based on a percentage of a nominal value. The perturbation is sampled from a Gaussian distribution
+having mean zero and variance equal to the percentage of the nominal value. If a particular noise is given, add that instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Qubit.Qubit.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_private</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Qubit.Qubit.to_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Return a dictionaty that collect the attributes (properties) of the qubit.
+As default option it excludes the private attributes (those that start with ‘_’).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arch_creator">
+<span id="arch-creator-module"></span><h2>arch_creator module<a class="headerlink" href="#module-arch_creator" title="Link to this heading">¶</a></h2>
+<p>ArchCreator graphical interface for creating or editing <cite>.arch</cite> files.</p>
+<p>This module defines the <a class="reference internal" href="#arch_creator.ArchCreatorWindow" title="arch_creator.ArchCreatorWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArchCreatorWindow</span></code></a>, a scrollable Tkinter-based
+dialog for managing architecture metadata, compiler and circuit attachments,
+species, and QPU specifications.</p>
+<section id="id2">
+<h3>Classes<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ArchCreatorWindow</dt><dd><p>Graphical interface for generating and saving <cite>.arch</cite> project files.</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arch_creator.</span></span><span class="sig-name descname"><span class="pre">ArchCreatorWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_arch_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arch_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Toplevel</span></code></p>
+<p>Dialog for creating or editing an <cite>.arch</cite> project file.</p>
+<p>This window enables configuration of architecture metadata such as
+species, layout, compiler, circuit paths, and dynamically generated
+layout scripts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>tkinter.Tk</em><em> or </em><em>tkinter.Toplevel</em>) – The parent application window (typically <code class="xref py py-class docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code>).</p></li>
+<li><p><strong>current_arch_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the current <cite>.arch</cite> file or project directory.</p></li>
+<li><p><strong>arch_data</strong> (<em>dict</em><em>, </em><em>optional</em>) – Existing metadata to prefill the dialog fields.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.build_ui">
+<span class="sig-name descname"><span class="pre">build_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.build_ui" title="Link to this definition">¶</a></dt>
+<dd><p>Construct the full UI layout for the ArchCreator window.</p>
+<p>Builds all widgets including:
+- Layout and generator configuration,
+- Compiler, circuit, and layout file selection,
+- Species and QPU metadata,
+- Operation management list and save controls.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.clear_circuit_file">
+<span class="sig-name descname"><span class="pre">clear_circuit_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.clear_circuit_file" title="Link to this definition">¶</a></dt>
+<dd><p>Clear the circuit file selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.clear_compiler_file">
+<span class="sig-name descname"><span class="pre">clear_compiler_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.clear_compiler_file" title="Link to this definition">¶</a></dt>
+<dd><p>Clear the compiler file selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.clear_layoutgen_file">
+<span class="sig-name descname"><span class="pre">clear_layoutgen_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.clear_layoutgen_file" title="Link to this definition">¶</a></dt>
+<dd><p>Clear the selected layout generator field and internal state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.on_archcreator_close">
+<span class="sig-name descname"><span class="pre">on_archcreator_close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.on_archcreator_close" title="Link to this definition">¶</a></dt>
+<dd><p>Handle closing the ArchCreator window.
+If unsaved changes exist, warn the user before closing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.prefill_fields">
+<span class="sig-name descname"><span class="pre">prefill_fields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.prefill_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Populate input fields with existing data from <code class="xref py py-attr docutils literal notranslate"><span class="pre">arch_data</span></code>.</p>
+<p>Preloads metadata, species, QPU specs, and dynamic layout settings
+if they exist in the provided architecture data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.remove_selected_operation">
+<span class="sig-name descname"><span class="pre">remove_selected_operation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.remove_selected_operation" title="Link to this definition">¶</a></dt>
+<dd><p>Remove the currently selected operation from the listbox and state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.save_arch_file">
+<span class="sig-name descname"><span class="pre">save_arch_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.save_arch_file" title="Link to this definition">¶</a></dt>
+<dd><p>Compile and save all architecture metadata into a <cite>.arch</cite> file.</p>
+<p>Handles:
+- Metadata validation and type conversion
+- Copying of associated files (layout, compiler, circuit, operations)
+- Dynamic layout generator inclusion
+- Noise model
+- Invocation of <code class="xref py py-meth docutils literal notranslate"><span class="pre">parent.on_arch_saved()</span></code> callback</p>
+<p class="rubric">Notes</p>
+<p>The resulting <cite>.arch</cite> file is a JSON-formatted record of all
+architecture information, suitable for reloading and packaging.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.select_circuit_file">
+<span class="sig-name descname"><span class="pre">select_circuit_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.select_circuit_file" title="Link to this definition">¶</a></dt>
+<dd><p>Prompt user to select a circuit file (.txt) for inclusion in the project.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.select_compiler_file">
+<span class="sig-name descname"><span class="pre">select_compiler_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.select_compiler_file" title="Link to this definition">¶</a></dt>
+<dd><p>Prompt user to select a Python compiler file (.py).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.select_layout_file">
+<span class="sig-name descname"><span class="pre">select_layout_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.select_layout_file" title="Link to this definition">¶</a></dt>
+<dd><p>Prompt user to select a layout JSON file and populate the entry field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arch_creator.ArchCreatorWindow.select_layoutgen_file">
+<span class="sig-name descname"><span class="pre">select_layoutgen_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arch_creator.ArchCreatorWindow.select_layoutgen_file" title="Link to this definition">¶</a></dt>
+<dd><p>Prompt the user to select a layout generator Python file.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-conf">
+<span id="conf-module"></span><h2>conf module<a class="headerlink" href="#module-conf" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-generate_docs">
+<span id="generate-docs-module"></span><h2>generate_docs module<a class="headerlink" href="#module-generate_docs" title="Link to this heading">¶</a></h2>
+<section id="generate-docs-py-automatic-documentation-scaffolding-for-planckian-archbuilder">
+<h3>generate_docs.py — automatic documentation scaffolding for Planckian ArchBuilder<a class="headerlink" href="#generate-docs-py-automatic-documentation-scaffolding-for-planckian-archbuilder" title="Link to this heading">¶</a></h3>
+<p>This script creates the full MkDocs documentation folder structure automatically.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>python generate_docs.py</p>
+</dd>
+<dt>Then:</dt><dd><p>pip install mkdocs mkdocs-material mkdocstrings[python]
+mkdocs serve</p>
+</dd>
+</dl>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="generate_docs.write_file">
+<span class="sig-prename descclassname"><span class="pre">generate_docs.</span></span><span class="sig-name descname"><span class="pre">write_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_docs.write_file" title="Link to this definition">¶</a></dt>
+<dd><p>Helper to safely create folders and write text files.</p>
+</dd></dl>
+
+</section>
+<section id="module-libraries">
+<span id="libraries-module"></span><h2>libraries module<a class="headerlink" href="#module-libraries" title="Link to this heading">¶</a></h2>
+</section>
+<section id="livingston-api-module">
+<h2>livingston_api module<a class="headerlink" href="#livingston-api-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="opt-pulse-converter-module">
+<h2>opt_pulse_converter module<a class="headerlink" href="#opt-pulse-converter-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-plugin_manager">
+<span id="plugin-manager-module"></span><h2>plugin_manager module<a class="headerlink" href="#module-plugin_manager" title="Link to this heading">¶</a></h2>
+<p>Plugin management utilities for Planckian ArchBuilder.</p>
+<p>This module defines the core classes for discovering and executing
+modular plugins. Plugins are expected to reside in subdirectories
+under <code class="docutils literal notranslate"><span class="pre">/modules</span></code> and contain a <code class="docutils literal notranslate"><span class="pre">plugin.py</span></code> file with:</p>
+<ul class="simple">
+<li><p>a global <code class="docutils literal notranslate"><span class="pre">metadata</span></code> dictionary defining name, version, author, etc.</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">register(app)</span></code> function used for integration.</p></li>
+</ul>
+<section id="id3">
+<h3>Classes<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>PluginInfo</dt><dd><p>Container for plugin metadata and module references.</p>
+</dd>
+<dt>PluginManager</dt><dd><p>Handles discovery, loading, and execution of plugin modules.</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="plugin_manager.PluginInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">plugin_manager.</span></span><span class="sig-name descname"><span class="pre">PluginInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plugin_manager.PluginInfo" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container for plugin metadata and module reference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Plugin display name.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Short textual description of the plugin’s purpose.</p></li>
+<li><p><strong>version</strong> (<em>str</em>) – Plugin version string.</p></li>
+<li><p><strong>author</strong> (<em>str</em>) – Plugin author or organization.</p></li>
+<li><p><strong>module</strong> (<em>module</em>) – Imported Python module representing the plugin.</p></li>
+<li><p><strong>targets</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of functional targets supported (e.g., <code class="docutils literal notranslate"><span class="pre">[&quot;layout&quot;]</span></code>,
+<code class="docutils literal notranslate"><span class="pre">[&quot;simulation&quot;]</span></code>, or <code class="docutils literal notranslate"><span class="pre">[&quot;general&quot;]</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">[&quot;general&quot;]</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="plugin_manager.PluginManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">plugin_manager.</span></span><span class="sig-name descname"><span class="pre">PluginManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'modules'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plugin_manager.PluginManager" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Discovers and manages plugin modules within the ArchBuilder ecosystem.</p>
+<p>The manager dynamically loads all submodules inside the configured
+<code class="docutils literal notranslate"><span class="pre">modules/</span></code> directory that contain valid plugin definitions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#id0" title="ArchBuilder.ArchBuilderApp"><em>ArchBuilderApp</em></a>) – Reference to the main application instance.</p></li>
+<li><p><strong>plugin_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – Relative path to the plugin directory (default is <code class="docutils literal notranslate"><span class="pre">&quot;modules&quot;</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="plugin_manager.PluginManager.discover_plugins">
+<span class="sig-name descname"><span class="pre">discover_plugins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plugin_manager.PluginManager.discover_plugins" title="Link to this definition">¶</a></dt>
+<dd><p>Discover available plugins in the configured directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of discovered plugin objects with metadata and modules.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of <a class="reference internal" href="#plugin_manager.PluginInfo" title="plugin_manager.PluginInfo">PluginInfo</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Each plugin directory must contain a <code class="docutils literal notranslate"><span class="pre">plugin.py</span></code> file with both
+<code class="docutils literal notranslate"><span class="pre">metadata</span></code> and a callable <code class="docutils literal notranslate"><span class="pre">register(app)</span></code> function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plugin_manager.PluginManager.run_plugin">
+<span class="sig-name descname"><span class="pre">run_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plugin_manager.PluginManager.run_plugin" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a plugin’s <code class="docutils literal notranslate"><span class="pre">register</span></code> function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>plugin_info</strong> (<a class="reference internal" href="#plugin_manager.PluginInfo" title="plugin_manager.PluginInfo"><em>PluginInfo</em></a>) – The plugin instance to execute.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function logs execution results to the main application console.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-print_path">
+<span id="print-path-module"></span><h2>print_path module<a class="headerlink" href="#module-print_path" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="print_path.print_tree">
+<span class="sig-prename descclassname"><span class="pre">print_path.</span></span><span class="sig-name descname"><span class="pre">print_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">startpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#print_path.print_tree" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-qutipsave">
+<span id="qutipsave-module"></span><h2>qutipsave module<a class="headerlink" href="#module-qutipsave" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-useful_func">
+<span id="useful-func-module"></span><h2>useful_func module<a class="headerlink" href="#module-useful_func" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="useful_func.build_tensor_operator_general">
+<span class="sig-prename descclassname"><span class="pre">useful_func.</span></span><span class="sig-name descname"><span class="pre">build_tensor_operator_general</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hilbert_dim_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_systems</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operators</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#useful_func.build_tensor_operator_general" title="Link to this definition">¶</a></dt>
+<dd><p>Return an operator in the form tensor(id,…,id,operator1,id,…id,operator2,id…,id), where ‘operator_i’
+is the i-th operator to apply to the system  in position ‘target_i’.
+targets-&gt; list[int]: indexes of the position of the operator
+operators -&gt; list[QObj]: operators to apply</p>
+</dd></dl>
+
+</section>
+<section id="module-0">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-0" title="Link to this heading">¶</a></h2>
+<p>ArchBuilder main application interface.</p>
+<p>This module defines the <a class="reference internal" href="#id0" title="ArchBuilder.ArchBuilderApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code></a>, the central GUI frame of
+the ArchBuilder software. It provides integration between multiple Planckian
+modules (Livingston, Frankenstein, Bovary, Metamorphosis) and manages the
+plugin system, layout metadata, and project coordination logic.</p>
+<dl class="simple">
+<dt>Modules loaded:</dt><dd><ul class="simple">
+<li><p>Tkinter UI components</p></li>
+<li><p>Pillow for image handling</p></li>
+<li><p>JSON, ZIP, and temporary file utilities</p></li>
+<li><p>Planckian plugin interfaces and submodules</p></li>
+</ul>
+</dd>
+</dl>
+<section id="id4">
+<h3>Classes<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ArchBuilderApp</dt><dd><p>Main user interface class handling initialization, plugin loading,
+and project management for the ArchBuilder environment.</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ArchBuilder.</span></span><span class="sig-name descname"><span class="pre">ArchBuilderApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Main GUI application for the Planckian ArchBuilder suite.</p>
+<p>The <a class="reference internal" href="#id0" title="ArchBuilder.ArchBuilderApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code></a> coordinates the initialization of
+multiple Planckian subsystems and provides a unified interface
+for managing architecture files, circuits, and plugins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> (<em>tkinter.Tk</em>) – The root window object for the application.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">add_operation_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oper_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd><p>Add a pulse operation (.oper) file to the current project.</p>
+<p>Copies the operation file into the project directory (if needed),
+validates it, and rebuilds the pulse index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>oper_path</strong> (<em>str</em>) – Path to the .oper file to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">arrow_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'⇄'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd><p>Create a bidirectional arrow button to represent data flow between modules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>tkinter.Widget</em>) – Parent container.</p></li>
+<li><p><strong>row</strong> (<em>int</em>) – Grid coordinates for placement.</p></li>
+<li><p><strong>col</strong> (<em>int</em>) – Grid coordinates for placement.</p></li>
+<li><p><strong>tag</strong> (<em>str</em>) – Unique identifier for the connection (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;LV→FR&quot;</span></code>).</p></li>
+<li><p><strong>symbol</strong> (<em>str</em><em>, </em><em>optional</em>) – The symbol displayed on the button (default is ⇄).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created arrow button.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">build_interface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd><p>Build and initialize the main user interface.</p>
+<p>This method constructs all major UI components of the
+ArchBuilder application, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The top toolbar with project controls and plugin selection</p></li>
+<li><p>The grid-based module launcher (Steppenwolf, Livingston, etc.)</p></li>
+<li><p>The log output area and control buttons</p></li>
+</ul>
+</div></blockquote>
+<p>The function connects interface elements to their respective
+callback functions and configures their initial states.</p>
+<p class="rubric">Notes</p>
+<p>The layout grid follows the Planckian module pipeline:
+Steppenwolf → Livingston → Frankenstein → Bovary → Metamorphosis</p>
+<p>Each module can be enabled or disabled dynamically
+depending on project state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">build_pulses_index_from_collected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd><p>Build or refresh the pulses index file.</p>
+<p>Parses all collected <cite>.oper</cite> files and generates a temporary
+<code class="docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file listing valid operations and their
+associated species. Invalid or mismatched species are logged.</p>
+<p class="rubric">Notes</p>
+<p>The generated index file is written inside the temporary
+project directory (<cite>self.temp_dir</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">configure_simulator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd><p>Open a simulator configuration window.</p>
+<p>Launches a dialog allowing the user to select a backend emulator
+(e.g., <code class="docutils literal notranslate"><span class="pre">qutip</span></code>, <code class="docutils literal notranslate"><span class="pre">cirq</span></code>, or a custom one) and define parameters
+in JSON format. The configuration is saved to
+<code class="docutils literal notranslate"><span class="pre">simulator_config.json</span></code> inside the temporary project directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">enable_bovary_button</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dd><p>Placeholder for Bovary module activation.</p>
+<p class="rubric">Notes</p>
+<p>Currently unimplemented. Intended for future integration
+with the Planckian Bovary subsystem.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">get_circuit_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve the loaded circuit JSON data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parsed circuit JSON content if available, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">get_layout_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve the loaded layout JSON data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parsed layout JSON content if available, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">get_project_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dd><p>Collect all currently loaded project data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary containing all project components:
+<code class="docutils literal notranslate"><span class="pre">circuit</span></code>, <code class="docutils literal notranslate"><span class="pre">layout</span></code>, and <code class="docutils literal notranslate"><span class="pre">pulses</span></code> JSON data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">get_pulses_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve the generated pulses index JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parsed pulse index data if available, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">load_circuit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Steppenwolf circuit editor.</p>
+<p>Opens the <code class="xref py py-class docutils literal notranslate"><span class="pre">SteppenwolfGUI</span></code> for editing or creating
+a new quantum circuit. If a circuit is already loaded,
+prompts the user to re-edit it or start a new one.</p>
+<p class="rubric">Notes</p>
+<p>On successful export, Steppenwolf returns a JSON representation
+of the circuit, which is temporarily stored and integrated
+into the current project.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">load_dynamics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd><p>Placeholder for loading system dynamics configuration.</p>
+<p class="rubric">Notes</p>
+<p>Currently not implemented. This will later integrate with
+the Metamorphosis simulator for time-dependent models.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">load_image_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd><p>Create a Tkinter button with an image and link it to a command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>tkinter.Widget</em>) – The parent frame or container.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Button label used as an identifier key.</p></li>
+<li><p><strong>image_path</strong> (<em>str</em>) – Path to the image file used for the button.</p></li>
+<li><p><strong>row</strong> (<em>int</em>) – Grid coordinates for button placement.</p></li>
+<li><p><strong>col</strong> (<em>int</em>) – Grid coordinates for button placement.</p></li>
+<li><p><strong>command</strong> (<em>callable</em>) – Function to execute when the button is pressed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created button widget.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">load_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Livingston layout editor.</p>
+<p>Opens the <code class="xref py py-class docutils literal notranslate"><span class="pre">PlanckianLivingston</span></code> GUI, either loading
+data from the Steppenwolf output (if linked) or prompting
+the user to select a layout JSON file manually.</p>
+<p class="rubric">Notes</p>
+<p>Automatically updates <code class="xref py py-attr docutils literal notranslate"><span class="pre">arch_metadata</span></code> and button states
+after the layout editor closes. If the LV→ME link is active,
+triggers a chained simulator launch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">load_plugins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd><p>Discover and load all available plugins.</p>
+<p>Uses the <code class="xref py py-class docutils literal notranslate"><span class="pre">PluginManager</span></code> to scan the module directory,
+populating the dropdown list and enabling plugin execution.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">load_project_from_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd><p>Load an existing ArchBuilder project from a folder.</p>
+<p>This method scans the selected directory for a <cite>.arch</cite> file,
+loads associated metadata, layout, circuit, and pulse operation files,
+and rebuilds the internal project state accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – Path to the project directory to open.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Updates the internal project metadata, compiler, and UI elements.</p></li>
+<li><p>Rebuilds the list of collected operations.</p></li>
+<li><p>Scans for any additional <cite>.oper</cite> files not yet registered in metadata.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">load_pulses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Frankenstein pulse editor.</p>
+<p>Opens the <code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEditorApp</span></code> GUI for editing or creating
+<cite>.oper</cite> pulse operation files. If a layout link exists from
+Livingston (<code class="docutils literal notranslate"><span class="pre">LV→FR</span></code>), automatically loads the most recent layout.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Prompts the user to edit an existing operation or create a new one.</p></li>
+<li><p>Updates internal operation lists when new files are created.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd><p>Append a timestamped message to the log display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message text to append to the log.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">new_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new project directory and initialize it.</p>
+<p>Opens dialogs to name and select a folder for the project, then
+copies any currently loaded files into the new project directory.</p>
+<p class="rubric">Notes</p>
+<p>Automatically rebuilds the pulse index and architecture metadata
+from existing layout files if present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id24">
+<span class="sig-name descname"><span class="pre">on_arch_saved</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arch_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dd><p>Callback executed after saving a .arch file.</p>
+<p>Updates project metadata and paths after the ArchCreator saves
+the current architecture. Re-links the layout, compiler, and
+any .oper files found in the project folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch_path</strong> (<em>str</em>) – Path to the saved .arch file.</p></li>
+<li><p><strong>compiler_dst</strong> (<em>str</em><em> or </em><em>None</em>) – Destination path of the compiler file, if available.</p></li>
+<li><p><strong>data</strong> (<em>dict</em>) – Metadata dictionary saved with the .arch project.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">on_archcreator_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arch_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dd><p>Callback triggered when the ArchCreator window saves or updates a .arch file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path of the saved or modified .arch file.</p></li>
+<li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Updated architecture metadata dictionary.</p></li>
+<li><p><strong>saved</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the project has just been saved and should be marked clean.
+If False, the project has unsaved modifications.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id26">
+<span class="sig-name descname"><span class="pre">on_bovary_closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise_model_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
+<dd><p>Callback invoked when Bovary closes.</p>
+<p>Updates .arch metadata with the logical or open noise model path and marks
+the architecture as modified (unsaved) in the UI.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id27">
+<span class="sig-name descname"><span class="pre">on_oper_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dd><p>Event handler for operation dropdown selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em><em>, </em><em>optional</em>) – The triggering event (not used).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id28">
+<span class="sig-name descname"><span class="pre">on_steppenwolf_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dd><p>Handle incoming data from the Steppenwolf module.</p>
+<p>Updates internal project structures with the received circuit,
+Hamiltonian, coefficients, and other metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Dictionary containing Steppenwolf export data such as
+circuit paths, Hamiltonians, and coefficients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id29">
+<span class="sig-name descname"><span class="pre">open_arch_creator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
+<dd><p>Open the ArchCreator window for editing the .arch configuration file.</p>
+<p>This function launches the <code class="xref py py-class docutils literal notranslate"><span class="pre">ArchCreatorWindow</span></code>, allowing
+the user to modify or inspect architecture metadata. If the current
+metadata is incomplete, it attempts to reconstruct it using the
+existing layout file.</p>
+<p class="rubric">Notes</p>
+<p>If species or layout information is missing from the current
+<cite>arch_metadata</cite>, this method will attempt to extract it directly
+from the loaded layout JSON file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id30">
+<span class="sig-name descname"><span class="pre">open_frankenstein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oper_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
+<dd><p>Open the Frankenstein pulse editor window.</p>
+<p>Launches a new top-level Tk window containing a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEditorApp</span></code> instance for editing and visualizing
+pulse operations associated with the current architecture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layout_dict</strong> (<em>dict</em><em>, </em><em>optional</em>) – Layout data to pass to the pulse editor (default is None).</p></li>
+<li><p><strong>oper_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the .oper file being edited (default is None).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id31">
+<span class="sig-name descname"><span class="pre">open_in_bovary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Planckian Bovary Pulse Composer.</p>
+<p>Opens a new window running the <code class="xref py py-class docutils literal notranslate"><span class="pre">Bovary.SubGUI</span></code> interface,
+preloading the current <cite>.arch</cite> file, compiler, and noise model if available.
+Handles both Logical (JSON-based) and Open (layout-based) noise models.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id32">
+<span class="sig-name descname"><span class="pre">open_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
+<dd><p>Open an existing <cite>.arch</cite> project folder.</p>
+<p>Prompts the user to select a project directory and loads
+the contained files and metadata into the interface.
+Updates the window title and unsaved-state indicator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id33">
+<span class="sig-name descname"><span class="pre">rebuild_pulse_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition">¶</a></dt>
+<dd><p>Rebuild the pulse index from the collected operations list.</p>
+<p>This function revalidates <cite>.oper</cite> files based on the current
+architecture species and writes a fresh <code class="docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id34">
+<span class="sig-name descname"><span class="pre">refresh_arch_metadata_from_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id34" title="Link to this definition">¶</a></dt>
+<dd><p>Synchronize architecture metadata with the selected layout file.</p>
+<p>This method extracts layout information such as species and family,
+updating the internal <code class="xref py py-attr docutils literal notranslate"><span class="pre">arch_metadata</span></code> dictionary accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>layout_path</strong> (<em>str</em>) – Path to the layout JSON file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id35">
+<span class="sig-name descname"><span class="pre">refresh_oper_dropdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id35" title="Link to this definition">¶</a></dt>
+<dd><p>Refresh the operator dropdown list with valid operation files.</p>
+<p>Populates the dropdown with all existing <cite>.oper</cite> files found in
+the collected operations list, updating both paths and selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id36">
+<span class="sig-name descname"><span class="pre">reset_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Link to this definition">¶</a></dt>
+<dd><p>Reset the current project to its initial state.</p>
+<p>This method clears all loaded files, metadata, and visual links,
+resetting the ArchBuilder interface. It also disables relevant
+buttons and resets internal project variables. The window title
+and unsaved-state indicator are also cleared.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id37">
+<span class="sig-name descname"><span class="pre">run_selected_plugin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id37" title="Link to this definition">¶</a></dt>
+<dd><p>Execute the currently selected plugin.</p>
+<p>The plugin is selected from the dropdown list and executed
+using the <code class="xref py py-class docutils literal notranslate"><span class="pre">PluginManager</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id38">
+<span class="sig-name descname"><span class="pre">run_simulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id38" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Planckian Metamorphosis simulator.</p>
+<p>Opens a simulation window running the <code class="xref py py-class docutils literal notranslate"><span class="pre">MetamorphosisApp</span></code>,
+configured with the currently loaded project files.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Requires at least a valid layout file.</p></li>
+<li><p>Optional files (pulses and dynamics) are used if available.</p></li>
+<li><p>Simulation results are stored under <cite>self.project_files[“simulation_results”]</cite>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id39">
+<span class="sig-name descname"><span class="pre">save_as_arch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id39" title="Link to this definition">¶</a></dt>
+<dd><p>Export the current project as a <cite>.arch</cite> archive.</p>
+<p>Packages all files in the current project folder into a zip
+archive with the <cite>.arch</cite> extension.</p>
+<p class="rubric">Notes</p>
+<p>The <cite>.arch</cite> format is a compressed project structure that can be
+reopened directly by ArchBuilder.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id40">
+<span class="sig-name descname"><span class="pre">save_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id40" title="Link to this definition">¶</a></dt>
+<dd><p>Save the contents of the log window to a text file.</p>
+<p>Opens a save dialog, allowing the user to export the log output
+to a <cite>.txt</cite> file for later reference. If the log is empty, a
+notification is shown instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id41">
+<span class="sig-name descname"><span class="pre">save_project</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id41" title="Link to this definition">¶</a></dt>
+<dd><p>Save the current project to its designated folder.</p>
+<p>Copies all relevant JSON data files (layout, pulses, dynamics, etc.)
+from their current locations into the project directory, and writes
+the collected operations list as <cite>collected_operations.json</cite>.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The project must have a valid folder path (<cite>self.project_path</cite>).</p></li>
+<li><p>Layout, pulses, and dynamics files are required to proceed.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id42">
+<span class="sig-name descname"><span class="pre">scan_oper_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id42" title="Link to this definition">¶</a></dt>
+<dd><p>Scan a folder for <cite>.oper</cite> pulse operation files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – Path to the folder to scan.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Creates or updates the <code class="docutils literal notranslate"><span class="pre">pulses_index.json</span></code> file from valid
+<cite>.oper</cite> entries and updates the dropdown for quick selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id43">
+<span class="sig-name descname"><span class="pre">show_plugin_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id43" title="Link to this definition">¶</a></dt>
+<dd><p>Display metadata and information about the selected plugin.</p>
+<p>Opens a popup window containing plugin details such as
+name, author, version, description, and target modules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id44">
+<span class="sig-name descname"><span class="pre">toggle_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id44" title="Link to this definition">¶</a></dt>
+<dd><p>Toggle a logical or visual link between modules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The connection identifier.</p></li>
+<li><p><strong>button</strong> (<em>tk.Button</em>) – The arrow button widget controlling this link.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Ensures mutual exclusivity between certain connections
+(e.g., <code class="docutils literal notranslate"><span class="pre">LV↓ME</span></code> and <code class="docutils literal notranslate"><span class="pre">BO→ME</span></code>) to avoid conflicting states.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id45">
+<span class="sig-name descname"><span class="pre">update_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id45" title="Link to this definition">¶</a></dt>
+<dd><p>Update interface buttons and status indicators.</p>
+<p>Refreshes the enabled/disabled states of key controls,
+visual indicators for loaded modules, and checklist labels.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="AIgor.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">AIgor package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Planckian srl
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">ArchBuilder package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-ArchBuilder">ArchBuilder module</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code></a><ul>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.add_operation_from_path"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.add_operation_from_path()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.arrow_button"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.arrow_button()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.build_interface"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.build_interface()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.build_pulses_index_from_collected"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.build_pulses_index_from_collected()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.configure_simulator"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.configure_simulator()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.enable_bovary_button"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.enable_bovary_button()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.get_circuit_json"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_circuit_json()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.get_layout_json"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_layout_json()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.get_project_data"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_project_data()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.get_pulses_json"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_pulses_json()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_circuit"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_circuit()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_dynamics"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_dynamics()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_image_button"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_image_button()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_layout"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_layout()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_plugins"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_plugins()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_project_from_folder"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_project_from_folder()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.load_pulses"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_pulses()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.log"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.log()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.new_project"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.new_project()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.on_arch_saved"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_arch_saved()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.on_archcreator_update"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_archcreator_update()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.on_bovary_closed"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_bovary_closed()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.on_oper_selected"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_oper_selected()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.on_steppenwolf_export"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_steppenwolf_export()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.open_arch_creator"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_arch_creator()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.open_frankenstein"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_frankenstein()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.open_in_bovary"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_in_bovary()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.open_project"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_project()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.rebuild_pulse_index"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.rebuild_pulse_index()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.refresh_arch_metadata_from_layout"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.refresh_arch_metadata_from_layout()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.refresh_oper_dropdown"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.refresh_oper_dropdown()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.reset_project"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.reset_project()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.run_selected_plugin"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.run_selected_plugin()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.run_simulation"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.run_simulation()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.save_as_arch"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.save_as_arch()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.save_log"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.save_log()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.save_project"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.save_project()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.scan_oper_files"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.scan_oper_files()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.show_plugin_info"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.show_plugin_info()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.toggle_link"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.toggle_link()</span></code></a></li>
+<li><a class="reference internal" href="#ArchBuilder.ArchBuilderApp.update_buttons"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.update_buttons()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Interaction">Interaction module</a><ul>
+<li><a class="reference internal" href="#Interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a><ul>
+<li><a class="reference internal" href="#Interaction.Interaction.add_operator"><code class="docutils literal notranslate"><span class="pre">Interaction.add_operator()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ProgressWindow">ProgressWindow module</a><ul>
+<li><a class="reference internal" href="#id1">Classes</a></li>
+<li><a class="reference internal" href="#ProgressWindow.ProgressWindow"><code class="docutils literal notranslate"><span class="pre">ProgressWindow</span></code></a><ul>
+<li><a class="reference internal" href="#ProgressWindow.ProgressWindow.close"><code class="docutils literal notranslate"><span class="pre">ProgressWindow.close()</span></code></a></li>
+<li><a class="reference internal" href="#ProgressWindow.ProgressWindow.set_message"><code class="docutils literal notranslate"><span class="pre">ProgressWindow.set_message()</span></code></a></li>
+<li><a class="reference internal" href="#ProgressWindow.ProgressWindow.update"><code class="docutils literal notranslate"><span class="pre">ProgressWindow.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Qubit">Qubit module</a><ul>
+<li><a class="reference internal" href="#Qubit.Qubit"><code class="docutils literal notranslate"><span class="pre">Qubit</span></code></a><ul>
+<li><a class="reference internal" href="#Qubit.Qubit.add_noise"><code class="docutils literal notranslate"><span class="pre">Qubit.add_noise()</span></code></a></li>
+<li><a class="reference internal" href="#Qubit.Qubit.to_dict"><code class="docutils literal notranslate"><span class="pre">Qubit.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-arch_creator">arch_creator module</a><ul>
+<li><a class="reference internal" href="#id2">Classes</a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow</span></code></a><ul>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.build_ui"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.build_ui()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.clear_circuit_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.clear_circuit_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.clear_compiler_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.clear_compiler_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.clear_layoutgen_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.clear_layoutgen_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.on_archcreator_close"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.on_archcreator_close()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.prefill_fields"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.prefill_fields()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.remove_selected_operation"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.remove_selected_operation()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.save_arch_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.save_arch_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.select_circuit_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.select_circuit_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.select_compiler_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.select_compiler_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.select_layout_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.select_layout_file()</span></code></a></li>
+<li><a class="reference internal" href="#arch_creator.ArchCreatorWindow.select_layoutgen_file"><code class="docutils literal notranslate"><span class="pre">ArchCreatorWindow.select_layoutgen_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-conf">conf module</a></li>
+<li><a class="reference internal" href="#module-generate_docs">generate_docs module</a><ul>
+<li><a class="reference internal" href="#generate-docs-py-automatic-documentation-scaffolding-for-planckian-archbuilder">generate_docs.py — automatic documentation scaffolding for Planckian ArchBuilder</a></li>
+<li><a class="reference internal" href="#generate_docs.write_file"><code class="docutils literal notranslate"><span class="pre">write_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-libraries">libraries module</a></li>
+<li><a class="reference internal" href="#livingston-api-module">livingston_api module</a></li>
+<li><a class="reference internal" href="#opt-pulse-converter-module">opt_pulse_converter module</a></li>
+<li><a class="reference internal" href="#module-plugin_manager">plugin_manager module</a><ul>
+<li><a class="reference internal" href="#id3">Classes</a></li>
+<li><a class="reference internal" href="#plugin_manager.PluginInfo"><code class="docutils literal notranslate"><span class="pre">PluginInfo</span></code></a></li>
+<li><a class="reference internal" href="#plugin_manager.PluginManager"><code class="docutils literal notranslate"><span class="pre">PluginManager</span></code></a><ul>
+<li><a class="reference internal" href="#plugin_manager.PluginManager.discover_plugins"><code class="docutils literal notranslate"><span class="pre">PluginManager.discover_plugins()</span></code></a></li>
+<li><a class="reference internal" href="#plugin_manager.PluginManager.run_plugin"><code class="docutils literal notranslate"><span class="pre">PluginManager.run_plugin()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-print_path">print_path module</a><ul>
+<li><a class="reference internal" href="#print_path.print_tree"><code class="docutils literal notranslate"><span class="pre">print_tree()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-qutipsave">qutipsave module</a></li>
+<li><a class="reference internal" href="#module-useful_func">useful_func module</a><ul>
+<li><a class="reference internal" href="#useful_func.build_tensor_operator_general"><code class="docutils literal notranslate"><span class="pre">build_tensor_operator_general()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-0">Module contents</a><ul>
+<li><a class="reference internal" href="#id4">Classes</a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp</span></code></a><ul>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.add_operation_from_path()</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.arrow_button()</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.build_interface()</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.build_pulses_index_from_collected()</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.configure_simulator()</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.enable_bovary_button()</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_circuit_json()</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_layout_json()</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_project_data()</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.get_pulses_json()</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_circuit()</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_dynamics()</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_image_button()</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_layout()</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_plugins()</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_project_from_folder()</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.load_pulses()</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.log()</span></code></a></li>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.new_project()</span></code></a></li>
+<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_arch_saved()</span></code></a></li>
+<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_archcreator_update()</span></code></a></li>
+<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_bovary_closed()</span></code></a></li>
+<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_oper_selected()</span></code></a></li>
+<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.on_steppenwolf_export()</span></code></a></li>
+<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_arch_creator()</span></code></a></li>
+<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_frankenstein()</span></code></a></li>
+<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_in_bovary()</span></code></a></li>
+<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.open_project()</span></code></a></li>
+<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.rebuild_pulse_index()</span></code></a></li>
+<li><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.refresh_arch_metadata_from_layout()</span></code></a></li>
+<li><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.refresh_oper_dropdown()</span></code></a></li>
+<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.reset_project()</span></code></a></li>
+<li><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.run_selected_plugin()</span></code></a></li>
+<li><a class="reference internal" href="#id38"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.run_simulation()</span></code></a></li>
+<li><a class="reference internal" href="#id39"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.save_as_arch()</span></code></a></li>
+<li><a class="reference internal" href="#id40"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.save_log()</span></code></a></li>
+<li><a class="reference internal" href="#id41"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.save_project()</span></code></a></li>
+<li><a class="reference internal" href="#id42"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.scan_oper_files()</span></code></a></li>
+<li><a class="reference internal" href="#id43"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.show_plugin_info()</span></code></a></li>
+<li><a class="reference internal" href="#id44"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.toggle_link()</span></code></a></li>
+<li><a class="reference internal" href="#id45"><code class="docutils literal notranslate"><span class="pre">ArchBuilderApp.update_buttons()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

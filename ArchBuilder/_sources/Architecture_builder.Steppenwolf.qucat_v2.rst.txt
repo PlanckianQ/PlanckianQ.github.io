@@ -1,0 +1,29 @@
+Architecture\_builder.Steppenwolf.qucat\_v2 package
+===================================================
+
+Submodules
+----------
+
+Architecture\_builder.Steppenwolf.qucat\_v2.core module
+-------------------------------------------------------
+
+.. automodule:: Architecture_builder.Steppenwolf.qucat_v2.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Architecture\_builder.Steppenwolf.qucat\_v2.plotting\_settings module
+---------------------------------------------------------------------
+
+.. automodule:: Architecture_builder.Steppenwolf.qucat_v2.plotting_settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: Architecture_builder.Steppenwolf.qucat_v2
+   :members:
+   :undoc-members:
+   :show-inheritance:
